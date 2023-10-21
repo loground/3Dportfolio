@@ -31,7 +31,6 @@ useFrame(({ clock }) => {
         receiveShadow
         geometry={nodes.mesh.geometry}
         material={materials.main}
-        
       />
     </group>
   );
