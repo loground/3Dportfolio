@@ -42,7 +42,7 @@ const generateSections = (count: any, color: any, rotate: any) => {
   return (
     <Section rotate={rotate} background={color}>
       {generateSections(count + 1, nextColor, rotate)}
-      <p className="text-m lg:text-xl flex justify-left items-center"> password: {password}</p>
+      <p className="text-m lg:text-m flex justify-left items-center"> password: {password}</p>
     </Section>
   );
 };

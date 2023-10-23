@@ -13,14 +13,24 @@ const Handjobs = () => {
   };
 
   const moveToNextPage = () => {
-    router.push('/armjob');
+    router.push('/Footjobs');
   };
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex flex-row gap-10 align-items-center mt-5 justify-center">
+      <div className="flex flex-row gap-5 align-items-center pt-10 justify-center">
         <DottedButton text="Go back to main page" action={backToMainPage} />
         <DottedButton text="Move on to next page" action={moveToNextPage} />
+      </div>
+      <div>
+        <p className=" flex justify-center text-white text-xl m-20">
+          Building skateparks is more than just constructing concrete structures; it is a passion
+          that fuels my creativity and determination. There is something incredibly fulfilling about
+          shaping spaces where people, especially skateboarders, can express themselves freely.
+          Every curve and slope designed is a canvas for endless possibilities, encouraging riders
+          to push their limits and explore the bounds of their abilities. So here are the projects I
+          worked with:
+        </p>
       </div>
       <div>
         <p
@@ -94,7 +104,7 @@ const Handjobs = () => {
         </div>
         <BuildingCompanyPics card={cardMoses} />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-10">
         <DottedButton text="Move on to next page" action={moveToNextPage} />
       </div>
     </div>
@@ -196,6 +206,11 @@ const cardMoses = [
   },
   {
     url: '/skateparks/moses/5.png',
+    title: 'Saint-Petersburg',
+    id: 4,
+  },
+  {
+    url: '/skateparks/moses/4.jpg',
     title: 'Saint-Petersburg',
     id: 4,
   },

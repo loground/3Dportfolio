@@ -30,6 +30,10 @@ const Skills = () => {
     router.push('/Handjobs');
   };
 
+  const handleFootClick = () => {
+    router.push('/Footjobs');
+  };
+
   const handleMouseEnterFoot = () => {
     setTooltipPositionFoot({ top: 5, left: 215 });
     if (window.innerWidth >= 768) {
@@ -87,7 +91,8 @@ const Skills = () => {
         )}
       </div>
       <div
-        className="w-[50%] h-[50%]"
+        onClick={handleFootClick}
+        className="w-[50%] h-[50%] hover:cursor-pointer"
         onMouseMove={handleMouseEnterFoot}
         onMouseLeave={handleMouseLeave}>
         <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
