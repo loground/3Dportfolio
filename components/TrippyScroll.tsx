@@ -1,15 +1,15 @@
-import { useTransform, useScroll, motion } from "framer-motion";
-import { useRef } from "react";
+import { useTransform, useScroll, motion } from 'framer-motion';
+import { useRef } from 'react';
 
 interface SectionProps {
-    background: string;
-    children: React.ReactNode;
-    rotate: import("framer-motion").MotionValue<number>;
-  }
+  background: string;
+  children: React.ReactNode;
+  rotate: import('framer-motion').MotionValue<number>;
+}
 
-  interface TrippyProps {
-    rotate: import("framer-motion").MotionValue<string>;
-  }
+interface TrippyProps {
+  rotate: import('framer-motion').MotionValue<string>;
+}
 
 const TrippyScroll: React.FC = () => {
   const targetRef: any = useRef();
@@ -17,7 +17,7 @@ const TrippyScroll: React.FC = () => {
     target: targetRef.current,
   });
 
-  const rotate = useTransform(scrollYProgress, [0, 1], ["0deg", "90deg"]);
+  const rotate = useTransform(scrollYProgress, [0, 1], ['0deg', '120deg']);
 
   return (
     <div ref={targetRef} className="relative z-0 h-[800vh] bg-neutral-200">
@@ -30,18 +30,19 @@ const TrippyScroll: React.FC = () => {
 
 const NUM_SECTIONS = 10;
 const PADDING = `${100 / NUM_SECTIONS / 2}vmin`;
-const password = 'dreamjob'
+const password = 'dreamjob';
 
 const generateSections = (count: any, color: any, rotate: any) => {
   if (count === NUM_SECTIONS) {
-    return <><p> password: {password}</p></>;
+    return <></>;
   }
 
-  const nextColor = color === "black" ? "white" : "black";
+  const nextColor = color === 'black' ? 'white' : 'black';
 
   return (
     <Section rotate={rotate} background={color}>
       {generateSections(count + 1, nextColor, rotate)}
+      <p className="text-m lg:text-xl flex justify-left items-center"> password: {password}</p>
     </Section>
   );
 };
@@ -49,7 +50,7 @@ const generateSections = (count: any, color: any, rotate: any) => {
 const Trippy: React.FC<TrippyProps> = ({ rotate }) => {
   return (
     <motion.div className="absolute inset-0 overflow-hidden bg-black">
-      {generateSections(0, "black", rotate)}
+      {generateSections(0, 'black', rotate)}
     </motion.div>
   );
 };
@@ -62,11 +63,9 @@ const Section: React.FC<SectionProps> = ({ background, children, rotate }) => {
         background,
         rotate,
         padding: PADDING,
-      }}
-    >
+      }}>
       {children}
     </motion.div>
-    
   );
 };
 

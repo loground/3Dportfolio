@@ -1,9 +1,12 @@
 import { Canvas } from '@react-three/fiber';
 import { Model } from './3Dmodels/Model';
-import { Hand1 } from '@/components/3Dmodels/Hand1'
-import { Foot1 } from '@/components/3Dmodels/Foot1'
-import { Arm1 } from '@/components/3Dmodels/Arm1'
+import { Hand1 } from '@/components/3Dmodels/Hand1';
+import { Foot1 } from '@/components/3Dmodels/Foot1';
+import { Arm1 } from '@/components/3Dmodels/Arm1';
 import React from 'react';
+
+import { useRouter } from 'next/router';
+
 import CustomTooltip from './CustomTooltip';
 
 const Skills = () => {
@@ -16,42 +19,47 @@ const Skills = () => {
   const [tooltipPositionFace, setTooltipPositionFace] = React.useState({ top: 0, left: 0 });
   const [tooltipTextFace, setTooltipTextFace] = React.useState('');
 
+  const router = useRouter();
 
   const handleMouseEnterHand = () => {
-    setTooltipPositionHand({ top: 5, left: 5});
+    setTooltipPositionHand({ top: 5, left: 5 });
     setTooltipTextHand('handjobs');
   };
 
+  const handleHandClick = () => {
+    router.push('/Handjobs');
+  };
+
   const handleMouseEnterFoot = () => {
-    setTooltipPositionFoot({top: 5, left: 215 }); 
+    setTooltipPositionFoot({ top: 5, left: 215 });
     if (window.innerWidth >= 768) {
-      setTooltipPositionFoot({ top: 5, left: 390});
+      setTooltipPositionFoot({ top: 5, left: 390 });
     }
     if (window.innerWidth >= 1024) {
-      setTooltipPositionFoot({ top: 5, left: 455});
+      setTooltipPositionFoot({ top: 5, left: 455 });
     }
     setTooltipTextFoot('footjobs');
   };
 
   const handleMouseEnterArm = () => {
-    setTooltipPositionArm({top: 455, left: 5});
+    setTooltipPositionArm({ top: 455, left: 5 });
     setTooltipTextArm('armjobs');
     if (window.innerWidth >= 768) {
-      setTooltipPositionArm({ top: 460, left: 5});
+      setTooltipPositionArm({ top: 460, left: 5 });
     }
     if (window.innerWidth >= 1024) {
-      setTooltipPositionArm({ top: 375, left: 5});
+      setTooltipPositionArm({ top: 375, left: 5 });
     }
   };
 
   const handleMouseEnterFace = () => {
-    setTooltipPositionFace({top: 455, left: 215});
+    setTooltipPositionFace({ top: 455, left: 215 });
     setTooltipTextFace('facejobs');
     if (window.innerWidth >= 768) {
-      setTooltipPositionFace({ top: 460, left: 390});
+      setTooltipPositionFace({ top: 460, left: 390 });
     }
     if (window.innerWidth >= 1024) {
-      setTooltipPositionFace({ top: 375, left: 455});
+      setTooltipPositionFace({ top: 375, left: 455 });
     }
   };
 
@@ -64,37 +72,58 @@ const Skills = () => {
 
   return (
     <div className="relative h-screen items-center flex flex-wrap justify-center">
-      <div className="w-[50%] h-[50%]" onMouseMove={handleMouseEnterHand} onMouseLeave={handleMouseLeave}>
-        <Canvas className='bg-white' style={{ width: '100%', height: '100%' }}>
+      <div
+        onClick={handleHandClick}
+        className="w-[50%] h-[50%] hover:cursor-pointer"
+        onMouseMove={handleMouseEnterHand}
+        onMouseLeave={handleMouseLeave}>
+        <Canvas className="bg-white" style={{ width: '100%', height: '100%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 4.6]} power={12.0} />
           <Hand1 position={[0, -0.25, 4.4]} />
         </Canvas>
-        {tooltipTextHand && <CustomTooltip tooltipTextToDisplay={tooltipTextHand} position={tooltipPositionHand} />}
+        {tooltipTextHand && (
+          <CustomTooltip tooltipTextToDisplay={tooltipTextHand} position={tooltipPositionHand} />
+        )}
       </div>
-      <div className="w-[50%] h-[50%]" onMouseMove={handleMouseEnterFoot} onMouseLeave={handleMouseLeave}>
-        <Canvas className='bg-black' style={{ width: '100%', height: '100%' }}>
+      <div
+        className="w-[50%] h-[50%]"
+        onMouseMove={handleMouseEnterFoot}
+        onMouseLeave={handleMouseLeave}>
+        <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 5]} power={12.0} />
           <Foot1 position={[0, -0.2, 4.5]} />
         </Canvas>
-        {tooltipTextFoot && <CustomTooltip tooltipTextToDisplay={tooltipTextFoot} position={tooltipPositionFoot} />}
+        {tooltipTextFoot && (
+          <CustomTooltip tooltipTextToDisplay={tooltipTextFoot} position={tooltipPositionFoot} />
+        )}
       </div>
-      <div className="w-[50%] h-[50%]" onMouseMove={handleMouseEnterArm} onMouseLeave={handleMouseLeave}>
-        <Canvas className='bg-black' style={{ width: '100%', height: '100%' }}>
+      <div
+        className="w-[50%] h-[50%]"
+        onMouseMove={handleMouseEnterArm}
+        onMouseLeave={handleMouseLeave}>
+        <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 5]} power={12.0} />
           <Arm1 position={[0, -0.1, 4.5]} />
         </Canvas>
-        {tooltipTextArm && <CustomTooltip tooltipTextToDisplay={tooltipTextArm} position={tooltipPositionArm} />}
+        {tooltipTextArm && (
+          <CustomTooltip tooltipTextToDisplay={tooltipTextArm} position={tooltipPositionArm} />
+        )}
       </div>
-      <div className="w-[50%] h-[50%]"  onMouseMove={handleMouseEnterFace} onMouseLeave={handleMouseLeave}>
-        <Canvas className='bg-white ' style={{ width: '100%', height: '100%' }}>
+      <div
+        className="w-[50%] h-[50%]"
+        onMouseMove={handleMouseEnterFace}
+        onMouseLeave={handleMouseLeave}>
+        <Canvas className="bg-white " style={{ width: '100%', height: '100%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 5]} power={12.0} />
           <Model position={[0, -0.2, 4.5]} />
         </Canvas>
-        {tooltipTextFace && <CustomTooltip tooltipTextToDisplay={tooltipTextFace} position={tooltipPositionFace} />}
+        {tooltipTextFace && (
+          <CustomTooltip tooltipTextToDisplay={tooltipTextFace} position={tooltipPositionFace} />
+        )}
       </div>
     </div>
   );
