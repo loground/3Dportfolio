@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
+interface Square {
+  id: number;
+  src: string;
+}
+
 const SkateSchool = () => {
   const router = useRouter();
 
@@ -32,7 +37,7 @@ const SkateSchool = () => {
   );
 };
 
-const shuffle = (array) => {
+const shuffle = (array: Square[]): Square[] => {
   let currentIndex = array.length,
     randomIndex;
 
@@ -113,7 +118,7 @@ const squareData = [
   },
 ];
 
-const generateSquares = () => {
+const generateSquares = (): JSX.Element[] => {
   return shuffle(squareData).map((sq) => (
     <motion.div
       key={sq.id}
@@ -128,17 +133,26 @@ const generateSquares = () => {
 };
 
 const ShuffleGrid = () => {
-  const timeoutRef = useRef(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [squares, setSquares] = useState(generateSquares());
 
   useEffect(() => {
     shuffleSquares();
 
-    return () => clearTimeout(timeoutRef.current);
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const shuffleSquares = () => {
     setSquares(generateSquares());
+
+    if (timeoutRef.current !== null) {
+      clearTimeout(timeoutRef.current);
+    }
 
     timeoutRef.current = setTimeout(shuffleSquares, 3000);
   };
