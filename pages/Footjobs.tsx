@@ -22,11 +22,12 @@ const Footjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex flex-row gap-5 align-items-center pt-10 justify-center">
+      <div className="flex flex-row gap-5 md:gap-20 pt-10 justify-center">
         <DottedButton text="Main" action={backToMainPage} />
-        <DottedButton text="Back to hands" action={backToHandjob} />
+        <DottedButton text="Hands" action={backToHandjob} />
         <DottedButton text="See what's next" action={moveToNextPage} />
       </div>
+      <div className="flex justify-center align-items-center mt-5"></div>
       <div>
         <VideoHero />
       </div>

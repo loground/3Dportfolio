@@ -18,12 +18,12 @@ const Handjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex flex-row gap-5 align-items-center pt-10 justify-center">
-        <DottedButton text="Go back to main page" action={backToMainPage} />
-        <DottedButton text="Move on to next page" action={moveToNextPage} />
+      <div className="flex flex-row gap-5 md:gap-10 md:pt-8 align-items-center pt-10 justify-center">
+        <DottedButton text="Back to main" action={backToMainPage} />
+        <DottedButton text="Move to next" action={moveToNextPage} />
       </div>
       <div>
-        <p className=" flex justify-center text-white text-xl m-20">
+        <p className=" flex justify-center text-white text-xl m-20 md:m-16">
           Building skateparks is more than just constructing concrete structures; it is a passion
           that fuels my creativity and determination. There is something incredibly fulfilling about
           shaping spaces where people, especially skateboarders, can express themselves freely.

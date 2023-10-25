@@ -9,3 +9,6 @@ declare module '*.ttf' {
   }
 
   declare module'*react-social-icons/component'
+
+
+  declare module'*d3-ease'

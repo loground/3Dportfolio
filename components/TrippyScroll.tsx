@@ -34,7 +34,14 @@ const password = 'dreamjob';
 
 const generateSections = (count: any, color: any, rotate: any) => {
   if (count === NUM_SECTIONS) {
-    return <></>;
+    return (
+      <>
+        <p className="text-s font-semibold rotate-90 lg:text-m md:rotate-90 md:justify-right md:py-32 md:s lg:rotate-0 flex md:py-0 lg:py-0 py-40">
+          {' '}
+          password: {password}
+        </p>
+      </>
+    );
   }
 
   const nextColor = color === 'black' ? 'white' : 'black';
@@ -42,7 +49,6 @@ const generateSections = (count: any, color: any, rotate: any) => {
   return (
     <Section rotate={rotate} background={color}>
       {generateSections(count + 1, nextColor, rotate)}
-      <p className="text-m lg:text-m flex justify-left items-center"> password: {password}</p>
     </Section>
   );
 };

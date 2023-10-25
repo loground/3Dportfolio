@@ -13,6 +13,7 @@
     "@react-three/drei": "^9.88.2",
     "@react-three/fiber": "^8.14.5",
     "@types/three": "^0.157.0",
+    "d3-ease": "^3.0.1",
     "framer-motion": "^10.16.4",
     "next": "13.5.4",
     "prettier": "^3.0.3",

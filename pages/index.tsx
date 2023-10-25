@@ -14,7 +14,9 @@ const Home = () => {
       </div>
       <div className="relative">
         <TrippyScroll />
-        <h1 className="text-white font-xl text-5xl mt-2 pl-5 md:pl-0 lg:pl-0">More about me:</h1>
+        <h1 className="text-white font-xl text-5xl mt-2 pl-5 md:pl-0 md:text-6xl lg:pl-0">
+          More about me:
+        </h1>
         {isAuthenticated ? <Skills /> : <PasswordInput onPasswordCorrect={setIsAuthenticated} />}
       </div>
       <Socials />

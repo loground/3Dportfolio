@@ -1,4 +1,5 @@
 import { motion, useTransform, useScroll } from 'framer-motion';
+import { easeCubicInOut } from 'd3-ease';
 import { useRef } from 'react';
 
 interface CardProps {
@@ -30,7 +31,7 @@ const HorizontalScrollCarousel: React.FC<HorizontalScrollCarouselProps> = ({ car
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-80%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'], { ease: easeCubicInOut });
 
   return (
     <section ref={targetRef} className="relative h-[200vh] bg-black">
@@ -56,7 +57,7 @@ const Card: React.FC<{ card: CardProps }> = ({ card }) => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-        className="absolute inset-0 z-0 transition-transform duration-200 group-hover:scale-110"></div>
+        className="absolute inset-0 z-0 transition-transform duration-100 group-hover:scale-110"></div>
       <div className="absolute inset-0 z-10 grid place-content-center">
         <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-2xl font-black uppercase text-white backdrop-blur-lg">
           {card.title}
