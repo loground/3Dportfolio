@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '@/styles/FloatingText.module.css';
 import { useAnimate } from 'framer-motion';
+import DottedButton from './DottedButton';
 
 const FloatingText: React.FC = () => {
   const textRefs = useRef<HTMLSpanElement[]>([]);
@@ -26,7 +27,7 @@ const FloatingText: React.FC = () => {
     <div className={styles.wrapper} id="wrapper" ref={scope}>
       <span
         id="target"
-        className={`text text-white text-[10rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-50px] rotate-[-15deg] ${styles.baseAnim} ${styles.text_stroke2}`}>
+        className={`text text-white text-[5rem] md:text-[10rem] lg:text-[12rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-50px] rotate-[-15deg] ${styles.baseAnim} ${styles.text_stroke2}`}>
         {`WEB 3.0`}
       </span>
       {[...Array(10)].map((_, idx) => (
@@ -34,17 +35,13 @@ const FloatingText: React.FC = () => {
           key={idx}
           id="target"
           ref={(el) => el && textRefs.current.push(el)}
-          className={`text text-white text-[10rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-50px] rotate-[-15deg] ${styles.baseAnim} ${styles.text_stroke}`}>
+          className={`text text-white text-[5rem] md:text-[10rem] lg:text-[12rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-50px] rotate-[-15deg] ${styles.baseAnim} ${styles.text_stroke}`}>
           {`WEB 3.0`}
         </span>
       ))}
-      <button
-        onClick={() => {
-          handleAnimate();
-        }}
-        className="relative h-20 w-32 py-0 rounded-full bg-gradient-to-r from-white via-gray-500 to-black text-white font-semibold shadow-lg focus:outline-none hover:shadow-xl transform transition duration-300 ease-in-out hover:cursor-pointer">
-        know more about it
-      </button>
+      <div className="mt-10">
+        <DottedButton text={'find Out More'} action={handleAnimate} />
+      </div>
       <p id="target2" className="absolute text-white text-3xl opacity-0 pt-[45vh]">
         best thing ever happened to me is a bitcoin
       </p>
