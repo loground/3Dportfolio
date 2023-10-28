@@ -1,0 +1,40 @@
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .text_stroke {
+    color: transparent;
+    -webkit-text-stroke: 0.1rem white;
+}
+
+.text_stroke2 {
+    color: transparent;
+    -webkit-text-stroke: 0.4rem white;
+}
+
+  .baseAnim {
+    animation: up-down 5s ease-in-out infinite alternate,
+      rotate 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes up-down {
+    0% {
+      transform: translate(-50%, -50%) translateY(-50px) translateX(50px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(20px) translateY(50px);;
+    }
+  }
+  
+  @keyframes rotate {
+    0% {
+      rotate: -30deg;
+    }
+    100% {
+      rotate: 25deg;
+    }
+  }
+  

@@ -34,6 +34,10 @@ const Skills = () => {
     router.push('/Footjobs');
   };
 
+  const handleBrainClick = () => {
+    router.push('/Brainjobs');
+  };
+
   const handleMouseEnterFoot = () => {
     setTooltipPositionFoot({ top: 5, left: 215 });
     if (window.innerWidth >= 768) {
@@ -47,7 +51,7 @@ const Skills = () => {
 
   const handleMouseEnterArm = () => {
     setTooltipPositionArm({ top: 455, left: 5 });
-    setTooltipTextArm('armjobs');
+    setTooltipTextArm('brainjobs');
     if (window.innerWidth >= 768) {
       setTooltipPositionArm({ top: 460, left: 5 });
     }
@@ -105,7 +109,8 @@ const Skills = () => {
         )}
       </div>
       <div
-        className="w-[50%] h-[50%]"
+        className="w-[50%] h-[50%] hover:cursor-pointer"
+        onClick={handleBrainClick}
         onMouseMove={handleMouseEnterArm}
         onMouseLeave={handleMouseLeave}>
         <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>

@@ -12,3 +12,5 @@ declare module '*.ttf' {
 
 
   declare module'*d3-ease'
+
+  declare module'*globals.css'
