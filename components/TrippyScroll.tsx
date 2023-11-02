@@ -36,10 +36,11 @@ const generateSections = (count: any, color: any, rotate: any) => {
   if (count === NUM_SECTIONS) {
     return (
       <>
-        <p className="text-s font-semibold rotate-90 lg:text-m md:rotate-90 md:justify-right md:py-32 md:s lg:rotate-0 flex md:py-0 lg:py-0 py-40">
-          {' '}
-          password: {password}
-        </p>
+        <div className="flex items-center justify-center h-full">
+          <p className="rotate-90 text-s md:rotate-0 lg:text-xl lg:rotate-0 py-20 px-auto font-semibold lg:text-m">
+            password: {password}
+          </p>
+        </div>
       </>
     );
   }

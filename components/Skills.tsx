@@ -35,7 +35,7 @@ const Skills = () => {
   };
 
   const handleBrainClick = () => {
-    router.push('/Brainjobs');
+    router.push('/Brainjobs/Web3');
   };
 
   const handleMouseEnterFoot = () => {

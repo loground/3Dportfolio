@@ -16,8 +16,8 @@
 }
 
   .baseAnim {
-    animation: up-down 5s ease-in-out infinite alternate,
-      rotate 5s ease-in-out infinite alternate;
+    animation: up-down 10s ease-in-out infinite alternate,
+      rotate 3s ease-in-out infinite alternate;
   }
 
   @keyframes up-down {
@@ -34,7 +34,7 @@
       rotate: -30deg;
     }
     100% {
-      rotate: 25deg;
+      rotate: 30deg;
     }
   }
   

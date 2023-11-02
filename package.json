@@ -15,10 +15,13 @@
     "@types/three": "^0.157.0",
     "d3-ease": "^3.0.1",
     "framer-motion": "^10.16.4",
+    "framer-motion-3d": "^10.16.4",
+    "jotai": "^2.5.0",
     "next": "13.5.4",
     "prettier": "^3.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-feather": "^2.0.10",
     "react-icons": "^4.11.0",
     "react-social-icons": "^6.4.0",
     "three": "^0.157.0"
