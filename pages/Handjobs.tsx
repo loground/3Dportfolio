@@ -1,5 +1,5 @@
 import DottedButton from '@/components/DottedButton';
-import BuildingCompanyPics from '@/components/BuildingCompanyCard';
+import BuildingCompanyPics from '@/components/Building/BuildingCompanyCard';
 
 import React from 'react';
 

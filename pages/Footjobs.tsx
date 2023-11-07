@@ -1,9 +1,9 @@
 import DottedButton from '@/components/DottedButton';
-import VideoHero from '@/components/VideoHero';
+import VideoHero from '@/components/Skate/VideoHero';
 import React from 'react';
 
 import { useRouter } from 'next/router';
-import SkateSchool from '@/components/SkateSchool';
+import SkateSchool from '@/components/Skate/SkateSchool';
 
 const Footjobs = () => {
   const router = useRouter();

@@ -15,7 +15,7 @@ const BurningText: React.FC = () => {
     setIsBurning(true);
     setTimeout(() => {
       router.push('/Brainjobs/Experience');
-    }, 12000);
+    }, 11500);
   };
 
   return (

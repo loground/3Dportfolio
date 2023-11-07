@@ -1,4 +1,4 @@
-import BurningText from '@/components/BurningText';
+import BurningText from '@/components/Marketing/BurningText';
 import React from 'react';
 
 const MarketingJobs = () => {
