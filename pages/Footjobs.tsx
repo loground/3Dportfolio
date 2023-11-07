@@ -17,7 +17,7 @@ const Footjobs = () => {
   };
 
   const moveToNextPage = () => {
-    router.push('/Footjobs');
+    router.push('/Brainjobs/Web3');
   };
 
   return (
