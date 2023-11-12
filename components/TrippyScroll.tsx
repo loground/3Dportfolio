@@ -1,5 +1,6 @@
 import { useTransform, useScroll, motion } from 'framer-motion';
 import { useRef } from 'react';
+import React from 'react';
 
 interface SectionProps {
   background: string;
@@ -37,7 +38,7 @@ const generateSections = (count: any, color: any, rotate: any) => {
     return (
       <>
         <div className="flex items-center justify-center h-full">
-          <p className="rotate-90 text-s md:rotate-0 lg:text-xl lg:rotate-0 py-20 px-auto font-semibold lg:text-m">
+          <p className="rotate-90 text-s text-black md:rotate-0 lg:text-xl lg:rotate-0 py-20 px-auto font-semibold lg:text-m">
             password: {password}
           </p>
         </div>

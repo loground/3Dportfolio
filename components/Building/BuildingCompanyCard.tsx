@@ -34,7 +34,7 @@ const HorizontalScrollCarousel: React.FC<HorizontalScrollCarouselProps> = ({ car
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'], { ease: easeCubicInOut });
 
   return (
-    <section ref={targetRef} className="relative h-[200vh] bg-black">
+    <section ref={targetRef} className="relative h-[300vh] bg-black">
       <div className="sticky top-0 flex h-[70vh] items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {card.map((card) => {

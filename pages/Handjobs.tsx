@@ -29,8 +29,9 @@ const Handjobs = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: '80%',
+          height: '400px',
         }}>
-        <p className="flex justify-center text-white text-l m-20 md:m-16">
+        <p className="flex justify-center text-white text-l xl:text-xl xl:mt-40 m-20 md:m-16">
           Building skateparks is more than just constructing concrete structures; it is a passion
           that fuels my creativity and determination. There is something incredibly fulfilling about
           shaping spaces where people, especially skateboarders, can express themselves freely.
@@ -135,7 +136,7 @@ const cardXSA = [
   {
     url: '/skateparks/xsa/3.jpg',
     title: 'Simeiz',
-    id: 3,
+    id: 4,
   },
   {
     url: '/skateparks/xsa/5.jpg',
@@ -181,17 +182,17 @@ const cardNBD = [
   {
     url: '/skateparks/nbd/6.jpg',
     title: 'Moscow',
-    id: 2,
+    id: 1,
   },
   {
     url: '/skateparks/nbd/4.jpg',
     title: 'Moscow',
-    id: 3,
+    id: 2,
   },
   {
     url: '/skateparks/nbd/3.jpg',
     title: 'Nizhny Novgorod',
-    id: 4,
+    id: 3,
   },
 ];
 
@@ -219,6 +220,6 @@ const cardMoses = [
   {
     url: '/skateparks/moses/4.jpg',
     title: 'Saint-Petersburg',
-    id: 4,
+    id: 5,
   },
 ];

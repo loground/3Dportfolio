@@ -4,9 +4,27 @@ import TrippyScroll from '@/components/TrippyScroll';
 import Skills from '@/components/Skills';
 import PasswordInput from '@/components/PasswordInput';
 import Socials from '@/components/Socials';
+import dynamic from 'next/dynamic';
 
 const Home = () => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const Skills = dynamic(() => import('@/components/Skills'), { ssr: false });
+  const [isClient, setIsClient] = React.useState(false);
+  const isBrowser = typeof window !== 'undefined';
+  const storedAuth = isBrowser ? sessionStorage.getItem('isAuthenticated') : null;
+  const initialAuthState = storedAuth ? JSON.parse(storedAuth) : false;
+
+  const [isAuthenticated, setIsAuthenticated] = React.useState(initialAuthState);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (isClient) {
+      sessionStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticated));
+    }
+  }, [isAuthenticated, isClient]);
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="relative">
@@ -17,8 +35,13 @@ const Home = () => {
         <h1 className="text-white font-xl text-5xl mt-2 pl-5 md:pl-0 md:text-6xl lg:pl-0">
           More about me:
         </h1>
-        {isAuthenticated ? <Skills /> : <PasswordInput onPasswordCorrect={setIsAuthenticated} />}
       </div>
+      {isClient && (
+        <div className="relative">
+          {/* ... */}
+          {isAuthenticated ? <Skills /> : <PasswordInput onPasswordCorrect={setIsAuthenticated} />}
+        </div>
+      )}
       <Socials />
     </div>
   );

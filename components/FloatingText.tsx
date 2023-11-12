@@ -27,6 +27,7 @@ const FloatingText: React.FC = () => {
   const textRefs = useRef<HTMLSpanElement[]>([]);
   const [scope, animate] = useAnimate();
   const router = useRouter();
+  const [isAnimationComplete, setAnimationComplete] = React.useState(false);
 
   const moveToMarketing = () => {
     router.push('/Brainjobs/Marketing');
@@ -46,6 +47,7 @@ const FloatingText: React.FC = () => {
     await animate('#img', { y: '200px', opacity: 0 });
     await animate('#third_text', { y: '200px', opacity: 1 });
     await animate('#nftCardContainer', { opacity: 1 });
+    await setAnimationComplete(true);
     await animate('#nft_button', { opacity: 1 });
   };
 
@@ -94,10 +96,11 @@ const FloatingText: React.FC = () => {
       ))}
 
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 top-[40%] lg:top-[40%] xl:top-[40%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center space-x-4 gap-6 lg:gap-10 xl:lg:top-[45%]"
-        id="nftCardContainer">
+        className="absolute left-1/2 transform -translate-x-1/2 top-[40%] lg:top-[40%] xl:top-[40%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10 xl:lg:top-[45%]"
+        id="nftCardContainer"
+        style={{ pointerEvents: isAnimationComplete ? 'auto' : 'none' }}>
         {NFTCards.map((card, idx) => (
-          <div key={idx} className="flex-shrink z-60">
+          <div key={idx} className="flex-shrink z-60 text-black mt-10">
             <NFTCard name={card.name} link={card.link} img={card.img} />
           </div>
         ))}

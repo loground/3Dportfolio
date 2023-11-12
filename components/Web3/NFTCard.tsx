@@ -51,7 +51,7 @@ const TiltCard: React.FC<NFTCardProps> = ({ name, link, img }) => {
         rotateX,
         transformStyle: 'preserve-3d',
       }}
-      className="relative h-[240px] w-[190px] md:h-80 md:w-60 xl:h-[400px] xl:w-[300px] rounded-xl bg-gradient-to-br from-white to-black">
+      className="relative h-[260px] w-[190px] md:h-80 md:w-60 xl:h-[400px] xl:w-[300px] rounded-xl bg-gradient-to-br from-white to-black">
       <div
         style={{
           transform: 'translateZ(75px)',
@@ -69,7 +69,7 @@ const TiltCard: React.FC<NFTCardProps> = ({ name, link, img }) => {
           style={{
             transform: 'translateZ(50px)',
           }}
-          className="pb-10 text-center text-xl font-bold">
+          className="pb-10 text-center text-xl text-black font-bold">
           {name}
         </p>
       </div>
