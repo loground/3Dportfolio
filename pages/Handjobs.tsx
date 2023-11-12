@@ -22,8 +22,15 @@ const Handjobs = () => {
         <DottedButton text="Back to main" action={backToMainPage} />
         <DottedButton text="Move to next" action={moveToNextPage} />
       </div>
-      <div>
-        <p className=" flex justify-center text-white text-xl m-20 md:m-16">
+      <div
+        className="flex mt-10 mb-10"
+        style={{
+          backgroundImage: 'url("/skateparks/BuildingBG.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: '80%',
+        }}>
+        <p className="flex justify-center text-white text-l m-20 md:m-16">
           Building skateparks is more than just constructing concrete structures; it is a passion
           that fuels my creativity and determination. There is something incredibly fulfilling about
           shaping spaces where people, especially skateboarders, can express themselves freely.

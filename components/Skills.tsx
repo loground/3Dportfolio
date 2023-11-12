@@ -40,6 +40,9 @@ const Skills = () => {
 
   const handleMouseEnterFoot = () => {
     setTooltipPositionFoot({ top: 5, left: 215 });
+    if (window.innerWidth >= 500) {
+      setTooltipPositionFoot({ top: 5, left: 260 });
+    }
     if (window.innerWidth >= 768) {
       setTooltipPositionFoot({ top: 5, left: 390 });
     }
@@ -52,6 +55,9 @@ const Skills = () => {
   const handleMouseEnterArm = () => {
     setTooltipPositionArm({ top: 455, left: 5 });
     setTooltipTextArm('brainjobs');
+    if (window.innerWidth >= 500) {
+      setTooltipPositionArm({ top: 375, left: 5 });
+    }
     if (window.innerWidth >= 768) {
       setTooltipPositionArm({ top: 460, left: 5 });
     }
@@ -63,6 +69,9 @@ const Skills = () => {
   const handleMouseEnterFace = () => {
     setTooltipPositionFace({ top: 455, left: 215 });
     setTooltipTextFace('facejobs');
+    if (window.innerWidth >= 500) {
+      setTooltipPositionFace({ top: 375, left: 260 });
+    }
     if (window.innerWidth >= 768) {
       setTooltipPositionFace({ top: 460, left: 390 });
     }
