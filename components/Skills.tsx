@@ -38,6 +38,10 @@ const Skills = () => {
     router.push('/Brainjobs/Web3');
   };
 
+  const handleFaceClick = () => {
+    router.push('/Facejobs');
+  };
+
   const handleMouseEnterFoot = () => {
     setTooltipPositionFoot({ top: 5, left: 215 });
     if (window.innerWidth >= 500) {
@@ -132,7 +136,8 @@ const Skills = () => {
         )}
       </div>
       <div
-        className="w-[50%] h-[50%]"
+        className="w-[50%] h-[50%]  hover:cursor-pointer"
+        onClick={handleFaceClick}
         onMouseMove={handleMouseEnterFace}
         onMouseLeave={handleMouseLeave}>
         <Canvas className="bg-white " style={{ width: '100%', height: '100%' }}>

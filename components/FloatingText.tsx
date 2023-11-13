@@ -65,17 +65,17 @@ const FloatingText: React.FC = () => {
   return (
     <div className={styles.wrapper} id="wrapper" ref={scope}>
       <div
-        className="mt-10 md:mt-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30 lg:p-5"
+        className="mt-10 xl:mt-16  absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30 lg:p-5"
         id="first_button">
         <DottedButton text={'What about it?'} action={handleAnimate1stButton} />
       </div>
       <div
-        className="mt-10 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5  z-20"
+        className="mt-10 xl:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5   z-20"
         id="second_button">
         <DottedButton text={'what happened next?'} action={handleAnimate2ndButton} />
       </div>
       <div
-        className="mt-10 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5 z-10"
+        className="mt-10 xl:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5 z-10 "
         id="nft_button">
         <DottedButton text={'what else you can?'} action={moveToMarketing} />
       </div>

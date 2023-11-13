@@ -1,8 +1,106 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+import { FaGithubSquare } from 'react-icons/fa';
+
+const iconStyles = {
+  color: 'white',
+  fontSize: '4em',
+  cursor: 'pointer',
+};
+
+const textContent = [
+  {
+    id: 1,
+    content: (
+      <div className="flex flex-column gap-10 justify-center px-4 py-16 bg-base-200">
+        <p className="text-white">
+          Starting February 1st, 2023, I began learning programming. A mentor guided me through
+          online courses from Hexlet.io and gave me practical tasks. I first grasped the basics of
+          HTML and CSS, then practiced by building layouts from Figma designs. Soon after, I moved
+          on to basic JavaScript, learning through Hexlet.io, YouTube, and my mentors advice. My
+          days were filled with solving coding exercises and challenges.
+        </p>
+        <img src="/programming/1.png" className="h-40 mt-5"></img>
+      </div>
+    ),
+  },
+  {
+    id: 2,
+    content: (
+      <div className="flex flex-column gap-10 justify-center px-4 py-16 bg-base-200">
+        <p className="text-white">
+          I quickly progressed to learning JavaScript fundamentals, diving into arrays, objects, and
+          basic functions. My study routine included reading materials, watching YouTube tutorials,
+          practicing on Hexlet, and completing tasks from my mentor. I dedicated several months to
+          mastering these core concepts, spending my days solving a variety of coding challenges.
+        </p>
+        <img src="/programming/2.png" className="h-40"></img>
+      </div>
+    ),
+  },
+  {
+    id: 3,
+    content: (
+      <div className="flex flex-column justify-center px-4 py-16 bg-base-200">
+        <p className="text-white">
+          Moving on to React, I initially found it challenging to grasp its syntax, and the
+          complexity of the information from Hexlet.io added to the difficulty. To tackle this, I
+          turned to the Archakov Blog on YouTube, which offers excellent courses tailored for
+          beginners. There, I began with learning functional components after basic learning of
+          class components from Hexlet.
+        </p>
+        <img src="/programming/3.png" className="h-40"></img>
+      </div>
+    ),
+  },
+  {
+    id: 4,
+    content: (
+      <div className="flex flex-col items-center gap-5 px-4 py-16 bg-base-200">
+        <p className="text-white">
+          After working on several React projects with functional components, TypeScript, Redux, and
+          SCSS, I explored new challenges with Next.js and Tailwind CSS through a YouTube series by
+          Code with Antonio. These projects were more complex, involving backend technologies,
+          whereas I had previously only used basic JSON fetching from mock APIs. I then tested my
+          skills by building a small online store for surfing bags. This pet project, designed more
+          for practice than production, helped me understand project creation from start to finish.
+          With support from chat GPT and my mentor, I tackled the project, although its adaptivity
+          was basic. Currently, I am enhancing my skills by studying documentation, watching YouTube
+          tutorials, and integrating components from various sources into my projects, customizing
+          them as needed.
+        </p>
+        <FaGithubSquare
+          style={iconStyles}
+          onClick={() => window.open('https://github.com/loground', '_blank')}
+        />
+      </div>
+    ),
+  },
+];
 
 const Programming = () => {
+  const [currentStep, setCurrentStep] = React.useState(0);
+  const router = useRouter();
+
+  const handleNext = () => {
+    if (currentStep < textContent.length - 1) {
+      setCurrentStep(currentStep + 1);
+    } else if (currentStep === textContent.length - 1) {
+      router.push('/Facejobs');
+    }
+  };
+
+  const handleBack = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    } else if (currentStep === 0) {
+      router.push('/Brainjobs/Experience');
+    }
+  };
+
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto space-y-6">
+      <div className="flex gap-10 justify-center mt-5"></div>
       <div className="mockup-code">
         <pre data-prefix="%">
           <code>cd Nick/Brains/Coding</code>
@@ -14,52 +112,33 @@ const Programming = () => {
           <code>added 4 packages, and audited 420 packages in 10 months</code>
         </pre>
       </div>
-      <p className="text-white">These are clickable below:</p>
-      <ul className="steps steps-vertical lg:steps-horizontal">
-        <li className="step step-primary text-white">HTML/CSS</li>
-        <li className="step step-primary text-white">JS</li>
-        <li className="step text-white">React</li>
-        <li className="step text-white">Next/Tailwind/Typescript</li>
-      </ul>
+      <div className="flex justify-center gap-10">
+        <button className="btn" onClick={handleBack}>
+          {currentStep === 0 ? 'Prev page' : 'back'}
+        </button>
+        <button className="btn" onClick={handleNext}>
+          {currentStep === 3 ? 'You also modeling?' : 'next'}
+        </button>
+      </div>
+      <div className="flex flex-col items-center space-y-2">
+        <ul className="steps steps-vertical lg:steps-horizontal">
+          {textContent.map((item, index) => (
+            <li
+              key={item.id}
+              className={`step ${
+                index <= currentStep ? 'step-primary' : ''
+              } text-white cursor-pointer`}
+              onClick={() => setCurrentStep(index)}>
+              {['HTML/CSS', 'JS', 'React', 'Next/Tailwind/Typescript'][index]}
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="mockup-window border bg-base-300">
-        <div className="flex justify-center px-4 py-16 bg-base-200">
-          Since 1st of february 2023 I got into programming and started learning coding PT1:
-          Learning was with mentor who gave me resources to read/leard and do tests. Mostly from
-          online school hexlet.io and his personal tasks. First were basics of HTML+CSS then first
-          manual laying out of a project imported from FIGMA. Later I started basic JS from same
-          resources: Hexlet.io + youtube + mentors suggestions. Ended up solving excercises on
-          hexlet and codewars all day long.
-          <br></br>
+        <div className="flex justify-center px-4 py-16 bg-base-200 text-xl text-white">
+          {textContent[currentStep].content}
         </div>
       </div>
-      <p className="text-white">Ended up solving excercises on hexlet and codewars all day long.</p>
-      <p className="text-white">
-        Next step was introduction to React. It was worst moment of them all at the start as I could
-        not understand syntaxis of React for a long time. Also, information given by hexlet.io was
-        super complicated so it was where I took next step. I started learning from online courses
-        by Archakov Blog on youtube. This guy made up some pretty nice courses for pure beginners.
-        Only difference that first I started learning class commponents and this was functional.
-      </p>
-      <p className="text-white">
-        After completing several projects using: Classic React (functional components) + typescript
-        + redux + SCSS compilator. I moved on to other projects via youtube: called code with
-        Antonio. This time I used next/tailwint/typescript. Actually it was much harder as it
-        implemented some backend technologies. Before that I used basic JSON backend fetching and
-        stored all my info in mockapi.
-      </p>
-      <p className="text-white">
-        Next step was my first ever test of pet-projects constructed all by myself. It was small
-        online store with funny functionality that sells the Surfing bags. It never get into product
-        stage as it was more a test and had no design at all. It was only made for testing things
-        out how can I manage to create a project all myself. Well, basically, my best-friend in this
-        battle was chat GPT and my mentor. Adaptivity kinda on low level, but it was just a first
-        test.
-      </p>
-      <p className="text-white">
-        Now I am on the stage where I keep learning by watching youtube videos/reading
-        documentations and trying to test some of my skills/knowledge in this project. I used some
-        of the components from different authors and some adapted for myself.
-      </p>
     </div>
   );
 };

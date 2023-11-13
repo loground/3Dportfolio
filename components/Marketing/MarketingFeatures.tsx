@@ -44,37 +44,37 @@ export const MarketingFeatures: React.FC<BounceCardProps> = () => {
         </motion.button>
       </div>
       <div className="mb-4 grid grid-cols-12 gap-4">
-        <BounceCard className="col-span-12 md:col-span-4">
-          <CardTitle>Project Types</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-gradient-to-br from-black to-white p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <span className="block text-center font-semibold text-indigo-50 mt-5">
+        <BounceCard className="col-span-12 md:col-span-4" image="/SMM/SMM4.PNG">
+          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+            <CardTitle>Project Types</CardTitle>
+            <span className="block text-center font-semibold text-white mt-0">
               Food, Travel-blogging, Clothing brand, Hotel, Printing products.
             </span>
           </div>
         </BounceCard>
-        <BounceCard className="col-span-12 md:col-span-8">
-          <CardTitle>Skills</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-gradient-to-br from-black to-white p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <span className="block text-center font-semibold text-orange-50 mt-5">
+        <BounceCard className="col-span-12 md:col-span-8" image="/SMM/SMM1.PNG">
+          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+            <CardTitle>Skills</CardTitle>
+            <span className="block text-center font-semibold text-white mt-0">
               Market-analysis, content-planning, generating, community-management, copywriting,
-              project-management, targeting, parsing tools.
+              project-management, targeting, parsing tools, photo/video-editing.
             </span>
           </div>
         </BounceCard>
       </div>
       <div className="grid grid-cols-12 gap-4">
-        <BounceCard className="col-span-12 md:col-span-8">
-          <CardTitle>Projects</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-gradient-to-br from-black to-white p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <span className="block text-center font-semibold text-emerald-50 mt-5">
+        <BounceCard className="col-span-12 md:col-span-8" image="/SMM/SMM6.PNG">
+          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+            <CardTitle>Projects</CardTitle>
+            <span className="block text-center font-semibold text-white mt-3">
               Rombomoto, Ладоград, Dikmans deli, Presswall24, NM4, Bak3MeUp, City Roof Guesthouse.
             </span>
           </div>
         </BounceCard>
-        <BounceCard className="col-span-12 md:col-span-4">
-          <CardTitle>And what?</CardTitle>
-          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-gradient-to-br from-black to-white p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
-            <span className="block text-center font-semibold text-red-50 mt-5">
+        <BounceCard className="col-span-12 md:col-span-4" image="/SMM/SMM2.PNG">
+          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+            <CardTitle>And what?</CardTitle>
+            <span className="block text-center font-semibold text-white mt-0">
               I still apply those skills on regular basis using twitter and other platforms.
             </span>
           </div>
@@ -84,16 +84,21 @@ export const MarketingFeatures: React.FC<BounceCardProps> = () => {
   );
 };
 
-const BounceCard: React.FC<BounceCardProps> = ({ className, children }) => {
+const BounceCard: React.FC<BounceCardProps & { image: string }> = ({
+  className,
+  children,
+  image,
+}) => {
   return (
     <motion.div
       whileHover={{ scale: 0.95, rotate: '-1deg' }}
-      className={`group relative min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-slate-100 p-8 ${className}`}>
+      className={`group relative min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-no-repeat bg-top p-8 ${className}`}
+      style={{ backgroundImage: `url(${image})`, backgroundSize: '80%' }}>
       {children}
     </motion.div>
   );
 };
 
 const CardTitle: React.FC<CardTitleProps> = ({ children }) => {
-  return <h3 className="mx-auto text-center text-black text-3xl font-semibold">{children}</h3>;
+  return <h3 className="mx-auto text-center text-indigo-100 text-2xl font-semibold">{children}</h3>;
 };

@@ -26,10 +26,16 @@ const BurningText: React.FC = () => {
       <div className={`${styles.page}`}>
         <div className={isBurning ? `${styles.highlight}` : ''}></div>
         <div className={`${styles.text}`}>
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            <mark className="px-2 text-white bg-black-600 rounded dark:bg-black"> Marketing </mark>
-            Journey
-          </h1>
+          <div className="flex flex-row gap-20">
+            <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+              <mark className="px-2 text-white bg-black-600 rounded dark:bg-black">
+                {' '}
+                Marketing{' '}
+              </mark>
+              Journey
+            </h1>
+            <img src="/SMM/ogon.png" className="h-20 rounded-2xl"></img>
+          </div>
           <p className="text-2xl text-left text-black mt-20">
             After finishing the university with marketing major I decided to come back to homeland
             and get deeper into Social Media Marketing. My journey started from online courses and
@@ -38,7 +44,7 @@ const BurningText: React.FC = () => {
           <p className="text-2xl text-left text-black mt-10">
             In 2019 I have met with my friends from the same industry. They were working with
             different big clients and we decided to get together and started our own agency named
-            <em className="font-bold bg-white"> FIRE.</em>
+            <em className="font-bold bg-white"> OGON - (FIRE).</em>
           </p>
           <p className="text-2xl text-left text-black mt-10">
             We operated for 6 months as a company and then decided to give it away as we had

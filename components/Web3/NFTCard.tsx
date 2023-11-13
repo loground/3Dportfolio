@@ -69,7 +69,7 @@ const TiltCard: React.FC<NFTCardProps> = ({ name, link, img }) => {
           style={{
             transform: 'translateZ(50px)',
           }}
-          className="pb-10 text-center text-xl text-black font-bold">
+          className="pb-10 text-center text-xl  font-bold">
           {name}
         </p>
       </div>
