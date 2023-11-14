@@ -31,7 +31,7 @@ const Handjobs = () => {
           opacity: '80%',
           height: '400px',
         }}>
-        <p className="flex justify-center text-white text-l xl:text-xl xl:mt-40 m-20 md:m-16">
+        <p className="flex justify-center text-white text-l md:text-xl xl:text-xl xl:mt-40 m-15 mt-20 ml-3 md:m-16">
           Building skateparks is more than just constructing concrete structures; it is a passion
           that fuels my creativity and determination. There is something incredibly fulfilling about
           shaping spaces where people, especially skateboarders, can express themselves freely.

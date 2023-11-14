@@ -26,7 +26,7 @@ const BurningText: React.FC = () => {
       <div className={`${styles.page}`}>
         <div className={isBurning ? `${styles.highlight}` : ''}></div>
         <div className={`${styles.text}`}>
-          <div className="flex flex-row gap-20">
+          <div className="flex flex-row gap-10">
             <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
               <mark className="px-2 text-white bg-black-600 rounded dark:bg-black">
                 {' '}
@@ -36,27 +36,26 @@ const BurningText: React.FC = () => {
             </h1>
             <img src="/SMM/ogon.png" className="h-20 rounded-2xl"></img>
           </div>
-          <p className="text-2xl text-left text-black mt-20">
-            After finishing the university with marketing major I decided to come back to homeland
-            and get deeper into Social Media Marketing. My journey started from online courses and
-            led to first freelance clients.
+          <p className="text-2xl text-left text-black mt-10">
+            After finishing the university with marketing major I came back to homeland and got into
+            Social Media Marketing. Started from online courses and got first freelance clients.
           </p>
           <p className="text-2xl text-left text-black mt-10">
-            In 2019 I have met with my friends from the same industry. They were working with
-            different big clients and we decided to get together and started our own agency named
+            In 2019 I have met with my friends from the same industry. We decided to get together
+            and started our own agency named <br></br>
             <em className="font-bold bg-white"> OGON - (FIRE).</em>
           </p>
           <p className="text-2xl text-left text-black mt-10">
-            We operated for 6 months as a company and then decided to give it away as we had
-            personal diversity about different thing in work. That was the time when I left
-            marketing and all and started working more in building of skateparks
+            We operated for 6 months as a company and then decided to stop, as we had personal
+            diversity about work. That was the time when I left marketing and started working more
+            in building.
           </p>
           <div className="mt-10 flex items-center justify-center">
             <div className="flex flex-row gap-20">
               <button
                 onClick={burnThePage}
                 className="bg-gradient-to-b from-yellow-500 via-red-500 to-red-700 text-white py-4 px-6 rounded-md shadow-md hover:from-red-700 hover:to-yellow-500 transition duration-300 mt-5">
-                Burn That Information🔥
+                Burn That🔥
               </button>
               <DottedButton text="Back to main" action={backToMainPage} />
             </div>

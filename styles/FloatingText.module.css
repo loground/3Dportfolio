@@ -32,10 +32,10 @@
   @media screen and (max-width: 768px) { 
     @keyframes up-down {
       0% {
-        transform: translate(-50%, -50%) translateY(-150px) translateX(100px);
+        transform: translate(-50%, -50%) translateY(-100px) translateX(50px);
       }
       100% {
-        transform: translate(-100%, 50%) translateY(40px) translateX(100px);
+        transform: translate(-60%, 50%) translateY(40px) translateX(50px);
       }
     }
   }

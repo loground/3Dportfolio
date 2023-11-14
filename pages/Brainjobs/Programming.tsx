@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { FaGithubSquare } from 'react-icons/fa';
 
 const iconStyles = {
-  color: 'white',
+  color: 'black',
   fontSize: '4em',
   cursor: 'pointer',
 };
@@ -12,8 +12,8 @@ const textContent = [
   {
     id: 1,
     content: (
-      <div className="flex flex-column gap-10 justify-center px-4 py-16 bg-base-200">
-        <p className="text-white">
+      <div className="flex flex-col md:flex-row gap-10 justify-center px-4 py-16 bg-base-200">
+        <p className="text-black">
           Starting February 1st, 2023, I began learning programming. A mentor guided me through
           online courses from Hexlet.io and gave me practical tasks. I first grasped the basics of
           HTML and CSS, then practiced by building layouts from Figma designs. Soon after, I moved
@@ -27,29 +27,29 @@ const textContent = [
   {
     id: 2,
     content: (
-      <div className="flex flex-column gap-10 justify-center px-4 py-16 bg-base-200">
-        <p className="text-white">
+      <div className="flex flex-col md:flex-row gap-10 justify-center px-4 py-16 bg-base-200">
+        <p className="text-black">
           I quickly progressed to learning JavaScript fundamentals, diving into arrays, objects, and
           basic functions. My study routine included reading materials, watching YouTube tutorials,
           practicing on Hexlet, and completing tasks from my mentor. I dedicated several months to
           mastering these core concepts, spending my days solving a variety of coding challenges.
         </p>
-        <img src="/programming/2.png" className="h-40"></img>
+        <img src="/programming/2.png" className="h-30"></img>
       </div>
     ),
   },
   {
     id: 3,
     content: (
-      <div className="flex flex-column justify-center px-4 py-16 bg-base-200">
-        <p className="text-white">
+      <div className="flex flex-col gap-5 justify-center px-4 py-16 bg-base-200">
+        <p className="text-black">
           Moving on to React, I initially found it challenging to grasp its syntax, and the
           complexity of the information from Hexlet.io added to the difficulty. To tackle this, I
           turned to the Archakov Blog on YouTube, which offers excellent courses tailored for
           beginners. There, I began with learning functional components after basic learning of
           class components from Hexlet.
         </p>
-        <img src="/programming/3.png" className="h-40"></img>
+        <img src="/programming/3.png" className="h-30"></img>
       </div>
     ),
   },
@@ -57,7 +57,7 @@ const textContent = [
     id: 4,
     content: (
       <div className="flex flex-col items-center gap-5 px-4 py-16 bg-base-200">
-        <p className="text-white">
+        <p className="text-black">
           After working on several React projects with functional components, TypeScript, Redux, and
           SCSS, I explored new challenges with Next.js and Tailwind CSS through a YouTube series by
           Code with Antonio. These projects were more complex, involving backend technologies,
@@ -135,7 +135,7 @@ const Programming = () => {
         </ul>
       </div>
       <div className="mockup-window border bg-base-300">
-        <div className="flex justify-center px-4 py-16 bg-base-200 text-xl text-white">
+        <div className="flex justify-center px-4 py-16 bg-base-200 text-xl text-black">
           {textContent[currentStep].content}
         </div>
       </div>

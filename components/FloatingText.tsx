@@ -65,17 +65,17 @@ const FloatingText: React.FC = () => {
   return (
     <div className={styles.wrapper} id="wrapper" ref={scope}>
       <div
-        className="mt-10 xl:mt-16  absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30 lg:p-5"
+        className="mt-10 md:mt-16 xl:mt-16 lg:mt-16  absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30 lg:p-5"
         id="first_button">
         <DottedButton text={'What about it?'} action={handleAnimate1stButton} />
       </div>
       <div
-        className="mt-10 xl:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5   z-20"
+        className="mt-10 md:mt-16 xl:mt-16 lg:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5   z-20"
         id="second_button">
         <DottedButton text={'what happened next?'} action={handleAnimate2ndButton} />
       </div>
       <div
-        className="mt-10 xl:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5 z-10 "
+        className="mt-10 md:mt-16 xl:mt-16 lg:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5 z-10 "
         id="nft_button">
         <DottedButton text={'what else you can?'} action={moveToMarketing} />
       </div>
@@ -108,14 +108,14 @@ const FloatingText: React.FC = () => {
 
       <h3
         id="third_text"
-        className="absolute top-[-10%] select-none overflow-hidden text-white text-xl flex text-center opacity-0 xl:text-2xl lg:mr-[20%]">
+        className="absolute top-[-10%] select-none overflow-hidden text-white text-xl flex text-center opacity-0 xl:text-2xl lg:mr-[20%] md:mr-[8%]">
         My friends took me and wife into NFTs and we started illustrating a lot. Since then we are
         part-time illustrators for different collections and selling arts ourselves. I did:
         generated the ideas, marketing and communication, drew some arts myself. While my wife is
         full-time into illustration.
       </h3>
 
-      <div className="mt-20 md:mt-[20%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+      <div className="md:mt-[20%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <h1
           id="first_text"
           className="overflow-hidden text-xl md:text-2xl lg:mt-6 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 lg:p-10">
@@ -124,7 +124,7 @@ const FloatingText: React.FC = () => {
         </h1>
       </div>
 
-      <div className="overflow-hidden select-none relative flex justify-center items-center h-full z-5">
+      <div className="overflow-hidden pt-10 select-none relative flex justify-center items-center h-full z-5">
         <img
           src="/crypto/code.gif"
           id="img"

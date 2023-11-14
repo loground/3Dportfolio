@@ -45,7 +45,7 @@ export const MarketingFeatures: React.FC<BounceCardProps> = () => {
       </div>
       <div className="mb-4 grid grid-cols-12 gap-4">
         <BounceCard className="col-span-12 md:col-span-4" image="/SMM/SMM4.PNG">
-          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+          <div className="absolute bottom-0 left-4 right-4 top-36 translate-y-8 rounded-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
             <CardTitle>Project Types</CardTitle>
             <span className="block text-center font-semibold text-white mt-0">
               Food, Travel-blogging, Clothing brand, Hotel, Printing products.
@@ -53,11 +53,11 @@ export const MarketingFeatures: React.FC<BounceCardProps> = () => {
           </div>
         </BounceCard>
         <BounceCard className="col-span-12 md:col-span-8" image="/SMM/SMM1.PNG">
-          <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
+          <div className="absolute bottom-0 left-4 right-4 top-28 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
             <CardTitle>Skills</CardTitle>
             <span className="block text-center font-semibold text-white mt-0">
               Market-analysis, content-planning, generating, community-management, copywriting,
-              project-management, targeting, parsing tools, photo/video-editing.
+              project-management, targeting tools, photo/video-editing.
             </span>
           </div>
         </BounceCard>
@@ -100,5 +100,5 @@ const BounceCard: React.FC<BounceCardProps & { image: string }> = ({
 };
 
 const CardTitle: React.FC<CardTitleProps> = ({ children }) => {
-  return <h3 className="mx-auto text-center text-indigo-100 text-2xl font-semibold">{children}</h3>;
+  return <h3 className="mx-auto text-center text-indigo-100 text-2xl font-bold">{children}</h3>;
 };

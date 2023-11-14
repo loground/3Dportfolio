@@ -38,7 +38,6 @@ const Home = () => {
       </div>
       {isClient && (
         <div className="relative">
-          {/* ... */}
           {isAuthenticated ? <Skills /> : <PasswordInput onPasswordCorrect={setIsAuthenticated} />}
         </div>
       )}
