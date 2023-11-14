@@ -96,7 +96,7 @@ const FloatingText: React.FC = () => {
       ))}
 
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 top-[40%] lg:top-[40%] xl:top-[40%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10 xl:lg:top-[45%]"
+        className="absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] lg:top-[40%] xl:top-[40%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10 xl:lg:top-[45%]"
         id="nftCardContainer"
         style={{ pointerEvents: isAnimationComplete ? 'auto' : 'none' }}>
         {NFTCards.map((card, idx) => (
@@ -118,7 +118,7 @@ const FloatingText: React.FC = () => {
       <div className="md:mt-[20%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <h1
           id="first_text"
-          className="overflow-hidden text-xl md:text-2xl lg:mt-6 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 lg:p-10">
+          className="overflow-hidden pt-40 text-xl md:text-2xl lg:mt-6 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 lg:p-10">
           Since 2021 I started digging about crypto-tech and found out how interesting it is. And
           since then I couldnt stop. I kept learning using YouTube and books, I still do that.
         </h1>
