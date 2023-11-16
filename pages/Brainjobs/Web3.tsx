@@ -1,4 +1,4 @@
-import FloatingText from '@/components/FloatingText';
+import FloatingText from '@/components/Features/Web3/FloatingText';
 import React from 'react';
 
 const Brainjobs = () => {

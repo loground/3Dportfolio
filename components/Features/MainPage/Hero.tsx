@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Model } from './3Dmodels/Model';
+import { Model } from '../../3Dmodels/Model';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
         <Model position={[0, -0.2, 4.5]} />
       </Canvas>
       <h1 className="text-white font-xl text-4xl ml-5 mt-2 md:ml-0 md:text-5xl md:mt-14 lg:ml-0">
-        Gimme a well-paid job {'=>'}
+        Send me a job offer {'=>'} email here
       </h1>
     </div>
   );

@@ -84,7 +84,7 @@ const Copy = () => {
           <h1 className="mb-6 max-w-4xl text-6xl font-black leading-[1.1] text-slate-900 md:text-8xl">
             My shooting <span className="text-white">Experience</span>
           </h1>
-          <p className="max-w-xl text-slate-700 md:text-lg">Different countries, projects, ads</p>
+          <p className="max-w-xl text-slate-700 md:text-lg">Yea, I do modeling as a part time</p>
         </div>
       </div>
     </div>

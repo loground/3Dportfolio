@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/styles/BurningText.module.css';
 import { useRouter } from 'next/router';
-import DottedButton from '@/components/DottedButton';
+import DottedButton from '@/components/Shared/DottedButton';
 
 const BurningText: React.FC = () => {
   const [isBurning, setIsBurning] = React.useState(false);

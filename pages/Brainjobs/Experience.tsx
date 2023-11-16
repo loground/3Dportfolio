@@ -1,4 +1,4 @@
-import { MarketingFeatures } from '@/components/Marketing/MarketingFeatures';
+import { MarketingFeatures } from '@/components/Features/Marketing/MarketingFeatures';
 import React from 'react';
 
 const OtherJobs = () => {

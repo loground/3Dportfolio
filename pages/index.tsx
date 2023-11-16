@@ -1,13 +1,13 @@
 import React from 'react';
-import Hero from '@/components/Hero';
-import TrippyScroll from '@/components/TrippyScroll';
-import Skills from '@/components/Skills';
-import PasswordInput from '@/components/PasswordInput';
-import Socials from '@/components/Socials';
+import Hero from '@/components/Features/MainPage/Hero';
+import TrippyScroll from '@/components/Widgets/MainPage/TrippyScroll';
+import PasswordInput from '@/components/Widgets/MainPage/PasswordInput';
+import Socials from '@/components/Widgets/Socials';
 import dynamic from 'next/dynamic';
+import Navbar from '@/components/Features/Navbar';
 
 const Home = () => {
-  const Skills = dynamic(() => import('@/components/Skills'), { ssr: false });
+  const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'), { ssr: false });
   const [isClient, setIsClient] = React.useState(false);
   const isBrowser = typeof window !== 'undefined';
   const storedAuth = isBrowser ? sessionStorage.getItem('isAuthenticated') : null;
@@ -27,6 +27,7 @@ const Home = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <Navbar />
       <div className="relative">
         <Hero />
       </div>

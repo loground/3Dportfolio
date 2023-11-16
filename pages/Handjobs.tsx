@@ -1,5 +1,5 @@
-import DottedButton from '@/components/DottedButton';
-import BuildingCompanyPics from '@/components/Building/BuildingCompanyCard';
+import DottedButton from '@/components/Shared/DottedButton';
+import BuildingCompanyPics from '@/components/Widgets/Building/BuildingCompanyCard';
 
 import React from 'react';
 
@@ -190,7 +190,7 @@ const cardNBD = [
     id: 2,
   },
   {
-    url: '/skateparks/nbd/3.jpg',
+    url: '/skateparks/nbd/3.webp',
     title: 'Nizhny Novgorod',
     id: 3,
   },

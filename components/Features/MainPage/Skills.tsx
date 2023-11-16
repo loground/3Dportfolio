@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { Model } from './3Dmodels/Model';
+import { Model } from '../../3Dmodels/Model';
 import { Hand1 } from '@/components/3Dmodels/Hand1';
 import { Foot1 } from '@/components/3Dmodels/Foot1';
 import { Arm1 } from '@/components/3Dmodels/Arm1';
@@ -7,7 +7,7 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 
-import CustomTooltip from './CustomTooltip';
+import CustomTooltip from '../../Shared/CustomTooltip';
 
 const Skills = () => {
   const [tooltipPositionHand, setTooltipPositionHand] = React.useState({ top: 0, left: 0 });
