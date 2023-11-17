@@ -84,7 +84,7 @@ const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title, path, rou
     } else {
       linkWidth.set(25);
     }
-  }, [isHovered]);
+  }, [isHovered, linkWidth]);
 
   const handleNavigation = () => {
     if (path) {
