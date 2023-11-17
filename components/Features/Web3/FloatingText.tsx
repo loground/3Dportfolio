@@ -4,7 +4,6 @@ import { useAnimate } from 'framer-motion';
 import DottedButton from '../../Shared/DottedButton';
 import NFTCard from './NFTCard';
 import { useRouter } from 'next/router';
-import Navbar from '@/components/Widgets/Navbar';
 
 const NFTCards = [
   {
@@ -97,7 +96,7 @@ const FloatingText: React.FC = () => {
       ))}
 
       <div
-        className="absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] lg:top-[34%] xl:top-[36%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10 xl:lg:top-[45%]"
+        className="absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] lg:top-[34%] xl:top-[36%] md:top-[35%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10 xl:lg:top-[45%]"
         id="nftCardContainer"
         style={{ pointerEvents: isAnimationComplete ? 'auto' : 'none' }}>
         {NFTCards.map((card, idx) => (
@@ -109,27 +108,27 @@ const FloatingText: React.FC = () => {
 
       <h3
         id="third_text"
-        className="absolute top-[-10%] select-none overflow-hidden text-white text-xl flex text-center opacity-0 xl:text-2xl lg:mr-[20%] md:mr-[8%]">
+        className="absolute select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:p-10 md:text-2xl p-4 lg:mr-[10%] xl:mr-[20%]">
         My friends took me and wife into NFTs and we started illustrating a lot. Since then we are
         part-time illustrators for different collections and selling arts ourselves. I did:
         generated the ideas, marketing and communication, drew some arts myself. While my wife is
         full-time into illustration.
       </h3>
 
-      <div className="md:mt-[20%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+      <div className="md:mt-[22%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <h1
           id="first_text"
-          className="overflow-hidden pt-40 text-xl md:text-2xl lg:mt-10 md:mt-8 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 lg:p-10">
+          className="overflow-hidden pt-40 text-xl md:text-2xl lg:mt-10 md:mt-0 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 md:pt-20 lg:p-10">
           Since 2021 I started digging about crypto-tech and found out how interesting it is. And
           since then I couldnt stop. I kept learning using YouTube and books, I still do that.
         </h1>
       </div>
 
-      <div className="overflow-hidden pt-10 select-none relative flex justify-center items-center h-full z-5">
+      <div className="overflow-hidden pt-10 md:pt-40 select-none relative flex justify-center items-center h-full z-5">
         <img
           src="/crypto/code.gif"
           id="img"
-          className="select-none relative mt-[15%] opacity-0 lg:w-[50%] lg:h-[50%] md:w-[45%] md:h-[45%] z-7"></img>
+          className="select-none relative mt-[30%] opacity-0 lg:w-[50%] md:mt-[10%] lg:h-[50%] md:w-[45%] md:h-[45%] z-7"></img>
       </div>
     </div>
   );

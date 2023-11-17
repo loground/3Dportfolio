@@ -45,12 +45,18 @@ const Skills = () => {
   const handleMouseEnterFoot = () => {
     setTooltipPositionFoot({ top: 5, left: 215 });
     if (window.innerWidth >= 500) {
-      setTooltipPositionFoot({ top: 5, left: 260 });
+      setTooltipPositionFoot({ top: 5, left: 280 });
     }
-    if (window.innerWidth >= 768) {
-      setTooltipPositionFoot({ top: 5, left: 390 });
+    if (window.innerWidth >= 560) {
+      setTooltipPositionFoot({ top: 5, left: 300 });
     }
-    if (window.innerWidth >= 1024) {
+    if (window.innerWidth >= 600) {
+      setTooltipPositionFoot({ top: 5, left: 360 });
+    }
+    if (window.innerWidth >= 720) {
+      setTooltipPositionFoot({ top: 5, left: 450 });
+    }
+    if (window.innerWidth >= 950) {
       setTooltipPositionFoot({ top: 5, left: 455 });
     }
     setTooltipTextFoot('footjobs');
@@ -62,10 +68,10 @@ const Skills = () => {
     if (window.innerWidth >= 500) {
       setTooltipPositionArm({ top: 375, left: 5 });
     }
-    if (window.innerWidth >= 768) {
-      setTooltipPositionArm({ top: 460, left: 5 });
+    if (window.innerWidth >= 720) {
+      setTooltipPositionArm({ top: 375, left: 5 });
     }
-    if (window.innerWidth >= 1024) {
+    if (window.innerWidth >= 950) {
       setTooltipPositionArm({ top: 375, left: 5 });
     }
   };
@@ -74,13 +80,19 @@ const Skills = () => {
     setTooltipPositionFace({ top: 455, left: 215 });
     setTooltipTextFace('facejobs');
     if (window.innerWidth >= 500) {
-      setTooltipPositionFace({ top: 375, left: 260 });
+      setTooltipPositionFace({ top: 375, left: 280 });
     }
-    if (window.innerWidth >= 768) {
-      setTooltipPositionFace({ top: 460, left: 390 });
+    if (window.innerWidth >= 560) {
+      setTooltipPositionFace({ top: 375, left: 300 });
     }
-    if (window.innerWidth >= 1024) {
-      setTooltipPositionFace({ top: 375, left: 455 });
+    if (window.innerWidth >= 560) {
+      setTooltipPositionFace({ top: 375, left: 360 });
+    }
+    if (window.innerWidth >= 720) {
+      setTooltipPositionFace({ top: 375, left: 450 });
+    }
+    if (window.innerWidth >= 950) {
+      setTooltipPositionFace({ top: 375, left: 450 });
     }
   };
 

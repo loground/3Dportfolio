@@ -105,7 +105,7 @@ const Programming = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Navbar />
       </div>
       <div className="flex gap-10 justify-center mt-5"></div>

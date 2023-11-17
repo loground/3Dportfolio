@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import Navbar from '@/components/Widgets/Navbar';
 
 const Facejob = () => {
   const router = useRouter();
@@ -10,6 +11,7 @@ const Facejob = () => {
     <div
       className="max-w-4xl mx-auto text-white"
       style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+      <Navbar />
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-2xl text-center"> Nothing to see here, but click on pepe</h1>
         <img

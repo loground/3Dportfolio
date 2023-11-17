@@ -36,7 +36,7 @@ const Home = () => {
       <div className="relative">
         <TrippyScroll />
         <h1 className="text-white font-xl text-5xl mt-2 pl-5 md:pl-0 md:text-6xl lg:pl-0">
-          More about me, click:
+          Enter password below to find more:
         </h1>
       </div>
       {isClient && (

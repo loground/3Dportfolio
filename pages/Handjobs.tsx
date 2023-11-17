@@ -19,7 +19,7 @@ const Handjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Navbar />
       </div>
       <div className="flex flex-row gap-5 md:gap-10 md:pt-8 align-items-center pt-10 justify-center">
