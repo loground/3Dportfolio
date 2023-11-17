@@ -1,44 +1,34 @@
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { NextRouter, useRouter } from 'next/router';
 
 interface LinkLineProps {
   mouseY: any;
   isHovered: boolean;
   title?: string;
+  path?: string;
+  router: NextRouter;
 }
-
-/**
-     * You may want to hide the scrollbar on the body element
-     * of your page while using this navigation.
-     * 
-     * You can accomplish this using the following css:
-        .no-scrollbar::-webkit-scrollbar {
-           display: none;
-        }
-      
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none; 
-        }
-     */
 const Navbar = () => {
   return <SideStaggerNavigation />;
 };
 
-// Total number of lines on the side of the page
 const NUM_LINES = 30;
-// Position key will place the title on the Nth
-// line of the sidebar
+
 const navItems = [
-  { position: 1, title: 'Home' },
-  { position: 8, title: 'About' },
-  { position: 20, title: 'Services' },
-  { position: 25, title: 'Pricing' },
+  { position: 2, title: 'Home', path: '/' },
+  { position: 7, title: 'Surf/Skate', path: '/Footjobs' },
+  { position: 11, title: 'Building', path: '/Handjobs' },
+  { position: 15, title: 'Web.3.0', path: '/Brainjobs/Web3' },
+  { position: 19, title: 'Marketing', path: '/Brainjobs/Experience' },
+  { position: 23, title: 'Coding', path: '/Brainjobs/Programming' },
+  { position: 27, title: 'Modeling', path: '/Facejobs' },
 ];
 
 const SideStaggerNavigation = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const mouseY = useMotionValue(Infinity);
+  const router = useRouter();
 
   return (
     <motion.nav
@@ -50,12 +40,19 @@ const SideStaggerNavigation = () => {
         mouseY.set(Infinity);
         setIsHovered(false);
       }}
-      className="fixed right-0 top-0 flex h-screen flex-col items-end justify-between py-4 pl-8">
+      className="fixed right-0 top-0 flex h-screen flex-col items-end justify-between py-6 pl-8">
       {Array.from(Array(NUM_LINES).keys()).map((i) => {
         const linkContent = navItems.find((item) => item.position === i + 1);
 
         return (
-          <LinkLine title={linkContent?.title} isHovered={isHovered} mouseY={mouseY} key={i} />
+          <LinkLine
+            title={linkContent?.title}
+            isHovered={isHovered}
+            mouseY={mouseY}
+            key={i}
+            path={linkContent?.path}
+            router={router}
+          />
         );
       })}
     </motion.nav>
@@ -68,7 +65,7 @@ const SPRING_OPTIONS = {
   damping: 15,
 };
 
-const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title }) => {
+const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title, path, router }) => {
   const ref = useRef<HTMLDivElement>(null);
   const distance = useTransform(mouseY, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect();
@@ -89,12 +86,18 @@ const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title }) => {
     }
   }, [isHovered]);
 
+  const handleNavigation = () => {
+    if (path) {
+      router.push(path);
+    }
+  };
+
   if (title) {
     return (
-      <a href="#">
+      <a href="#" onClick={handleNavigation}>
         <motion.div
           ref={ref}
-          className="group relative bg-neutral-500 transition-colors hover:bg-indigo-300"
+          className="group relative bg-neutral-500 transition-colors hover:bg-white"
           style={{ width: linkWidth, height: 2 }}>
           <AnimatePresence>
             {isHovered && (
@@ -102,7 +105,7 @@ const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-neutral-500 transition-colors group-hover:text-indigo-300">
+                className="absolute left-0 top-0 z-10 w-full pt-2 font-bold uppercase text-neutral-500 transition-colors group-hover:text-white">
                 {title}
               </motion.span>
             )}

@@ -4,6 +4,7 @@ import { useAnimate } from 'framer-motion';
 import DottedButton from '../../Shared/DottedButton';
 import NFTCard from './NFTCard';
 import { useRouter } from 'next/router';
+import Navbar from '@/components/Widgets/Navbar';
 
 const NFTCards = [
   {

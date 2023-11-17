@@ -4,6 +4,7 @@ import BuildingCompanyPics from '@/components/Widgets/Building/BuildingCompanyCa
 import React from 'react';
 
 import { useRouter } from 'next/router';
+import Navbar from '@/components/Widgets/Navbar';
 
 const Handjobs = () => {
   const router = useRouter();
@@ -18,6 +19,9 @@ const Handjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <div className="hidden md:block">
+        <Navbar />
+      </div>
       <div className="flex flex-row gap-5 md:gap-10 md:pt-8 align-items-center pt-10 justify-center">
         <DottedButton text="Back to main" action={backToMainPage} />
         <DottedButton text="Move to next" action={moveToNextPage} />

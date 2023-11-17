@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 import SkateSchool from '@/components/Features/Skate/SkateSchool';
+import Navbar from '@/components/Widgets/Navbar';
 
 const Footjobs = () => {
   const router = useRouter();
@@ -22,6 +23,9 @@ const Footjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <div className="hidden md:block">
+        <Navbar />
+      </div>
       <div className="flex flex-row gap-5 md:gap-20 pt-10 justify-center">
         <DottedButton text="Main" action={backToMainPage} />
         <DottedButton text="Hands" action={backToHandjob} />

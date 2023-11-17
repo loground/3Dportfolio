@@ -4,7 +4,7 @@ import TrippyScroll from '@/components/Widgets/MainPage/TrippyScroll';
 import PasswordInput from '@/components/Widgets/MainPage/PasswordInput';
 import Socials from '@/components/Widgets/Socials';
 import dynamic from 'next/dynamic';
-import Navbar from '@/components/Features/Navbar';
+import Navbar from '@/components/Widgets/Navbar';
 
 const Home = () => {
   const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'), { ssr: false });
@@ -27,7 +27,9 @@ const Home = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Navbar />
+      <div className="hidden lg:block">
+        <Navbar />
+      </div>
       <div className="relative">
         <Hero />
       </div>

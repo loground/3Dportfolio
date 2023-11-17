@@ -54,7 +54,7 @@ const BurningText: React.FC = () => {
             <div className="flex flex-row gap-20">
               <button
                 onClick={burnThePage}
-                className="bg-gradient-to-b from-yellow-500 via-red-500 to-red-700 text-white py-4 px-6 rounded-md shadow-md hover:from-red-700 hover:to-yellow-500 transition duration-300 mt-5">
+                className="bg-gradient-to-b from-yellow-500 via-red-500 to-red-700 text-white py-4 px-6 rounded-md shadow-md hover:from-red-700 hover:to-yellow-500 transition duration-300 mt-5 xl:py-4 xl:mb-2">
                 Burn That🔥
               </button>
               <DottedButton text="Back to main" action={backToMainPage} />
