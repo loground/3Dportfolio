@@ -15,7 +15,7 @@ const textContent = [
     content: (
       <div>
         <div className="flex flex-col md:flex-row gap-10 justify-center px-4 py-16 bg-base-200">
-          <p className="text-black">
+          <p className="text-gray">
             Starting February 1st, 2023, I began learning programming. A mentor guided me through
             online courses from Hexlet.io and gave me practical tasks. I first grasped the basics of
             HTML and CSS, then practiced by building layouts from Figma designs. Soon after, I moved
@@ -31,7 +31,7 @@ const textContent = [
     id: 2,
     content: (
       <div className="flex flex-col gap-6 justify-center px-4 py-10 bg-base-200">
-        <p className="text-black">
+        <p className="text-gray">
           I quickly progressed to learning JavaScript fundamentals, diving into arrays, objects, and
           basic functions. My study routine included reading materials, watching YouTube tutorials,
           practicing on Hexlet, and completing tasks from my mentor. I dedicated several months to
@@ -47,7 +47,7 @@ const textContent = [
     id: 3,
     content: (
       <div className="flex flex-col md:flex-row gap-5 justify-center px-4 py-16 bg-base-200">
-        <p className="text-black">
+        <p className="text-gray">
           Moving on to React, I initially found it challenging to grasp its syntax, and the
           complexity of the information from Hexlet.io added to the difficulty. To tackle this, I
           turned to the Archakov Blog on YouTube, which offers excellent courses tailored for
@@ -62,7 +62,7 @@ const textContent = [
     id: 4,
     content: (
       <div className="flex flex-col items-center gap-5 px-4 py-16 bg-base-200">
-        <p className="text-black">
+        <p className="text-gray">
           After working on several React projects with functional components, TypeScript, Redux, and
           SCSS, I explored new challenges with Next.js and Tailwind CSS through a YouTube series by
           Code with Antonio. These projects were more complex, involving backend technologies,

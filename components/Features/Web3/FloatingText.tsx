@@ -96,7 +96,7 @@ const FloatingText: React.FC = () => {
       ))}
 
       <div
-        className="absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] lg:top-[34%] xl:top-[36%] md:top-[35%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10 xl:lg:top-[45%]"
+        className="absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10"
         id="nftCardContainer"
         style={{ pointerEvents: isAnimationComplete ? 'auto' : 'none' }}>
         {NFTCards.map((card, idx) => (
@@ -108,7 +108,7 @@ const FloatingText: React.FC = () => {
 
       <h3
         id="third_text"
-        className="absolute select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:p-10 md:text-2xl p-4 lg:mr-[10%] xl:mr-[20%]">
+        className="absolute select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:text-2xl p-4 lg:mr-[15%] xl:mr-[20%]">
         My friends took me and wife into NFTs and we started illustrating a lot. Since then we are
         part-time illustrators for different collections and selling arts ourselves. I did:
         generated the ideas, marketing and communication, drew some arts myself. While my wife is
@@ -128,7 +128,7 @@ const FloatingText: React.FC = () => {
         <img
           src="/crypto/code.gif"
           id="img"
-          className="select-none relative mt-[30%] opacity-0 lg:w-[50%] md:mt-[10%] lg:h-[50%] md:w-[45%] md:h-[45%] z-7"></img>
+          className="select-none relative mt-[20%] opacity-0 lg:w-[50%] md:mt-[0%] xl:mt-[0%] lg:h-[50%] md:w-[45%] md:h-[45%] z-7"></img>
       </div>
     </div>
   );
