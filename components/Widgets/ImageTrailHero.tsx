@@ -2,6 +2,7 @@ import { useAnimate } from 'framer-motion';
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 interface WatermarkProps {
   reverse?: boolean;
@@ -220,12 +221,14 @@ const MouseImageTrail: React.FC<MouseImageTrailProps> = ({
       {children}
 
       {images.map((img, index) => (
-        <img
-          className="pointer-events-none absolute left-0 top-0 h-36 w-auto rounded-xl border-2 border-slate-900 bg-slate-800 object-cover opacity-0"
+        <Image
           src={img}
           alt={`Mouse move image ${index}`}
           key={index}
           data-mouse-move-index={index}
+          width={100}
+          height={100}
+          className='          className="pointer-events-none absolute left-0 top-0 h-36 w-auto rounded-xl border-2 border-slate-900 bg-slate-800 object-cover opacity-0"'
         />
       ))}
     </div>

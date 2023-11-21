@@ -86,7 +86,8 @@ const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title, path, rou
     }
   }, [isHovered, linkWidth]);
 
-  const handleNavigation = () => {
+  const handleNavigation = (event: any) => {
+    event.preventDefault();
     if (path) {
       router.push(path);
     }
@@ -94,7 +95,7 @@ const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title, path, rou
 
   if (title) {
     return (
-      <a href="#" onClick={handleNavigation}>
+      <a href="#" onClick={(event) => handleNavigation(event)}>
         <motion.div
           ref={ref}
           className="group relative bg-neutral-500 transition-colors hover:bg-white"

@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { FaGithubSquare } from 'react-icons/fa';
 import Navbar from '@/components/Widgets/Navbar';
+import Image from 'next/image';
 
 const iconStyles = {
   color: 'black',
@@ -22,7 +23,13 @@ const textContent = [
             on to basic JavaScript, learning through Hexlet.io, YouTube, and my mentors advice. My
             days were filled with solving coding exercises and challenges.
           </p>
-          <img src="/programming/1.png" className="h-40 mt-5"></img>
+          <Image
+            src="/programming/1.png"
+            alt="programming-1"
+            width={300}
+            height={300}
+            className="ml-[20%] md:ml-0"
+          />
         </div>
       </div>
     ),
@@ -37,9 +44,13 @@ const textContent = [
           practicing on Hexlet, and completing tasks from my mentor. I dedicated several months to
           mastering these core concepts, spending my days solving a variety of coding challenges.
         </p>
-        <img
+        <Image
           src="/programming/2.png"
-          className="h-30 md:h-[50%] md:w-[30%] md:mt-10 md:ml-[35%]"></img>
+          alt="programming-2"
+          width={300}
+          height={300}
+          className="ml-[20%] md:ml-[30%]"
+        />
       </div>
     ),
   },
@@ -54,7 +65,7 @@ const textContent = [
           beginners. There, I began with learning functional components after basic learning of
           class components from Hexlet.
         </p>
-        <img src="/programming/3.png" className="h-30 md:h-40"></img>
+        <img src="/programming/3.png" className="w-[40%] ml-[30%] md:ml-0 md:h-40"></img>
       </div>
     ),
   },

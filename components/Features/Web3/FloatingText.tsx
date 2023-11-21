@@ -106,14 +106,16 @@ const FloatingText: React.FC = () => {
         ))}
       </div>
 
-      <h3
-        id="third_text"
-        className="absolute select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:text-2xl p-4 lg:mr-[15%] xl:mr-[20%]">
-        My friends took me and wife into NFTs and we started illustrating a lot. Since then we are
-        part-time illustrators for different collections and selling arts ourselves. I did:
-        generated the ideas, marketing and communication, drew some arts myself. While my wife is
-        full-time into illustration.
-      </h3>
+      <div>
+        <h3
+          id="third_text"
+          className="absolute select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:text-2xl p-4 lg:mr-[15%] xl:mr-[20%]">
+          My friends took me and wife into NFTs and we started illustrating a lot. Since then we are
+          part-time illustrators for different collections and selling arts ourselves. I did:
+          generated the ideas, marketing and communication, drew some arts myself. While my wife is
+          full-time into illustration.
+        </h3>
+      </div>
 
       <div className="md:mt-[22%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <h1

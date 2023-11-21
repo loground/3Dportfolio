@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '@/styles/BurningText.module.css';
 import { useRouter } from 'next/router';
 import DottedButton from '@/components/Shared/DottedButton';
+import Image from 'next/image';
 
 const BurningText: React.FC = () => {
   const [isBurning, setIsBurning] = React.useState(false);
@@ -34,7 +35,13 @@ const BurningText: React.FC = () => {
               </mark>
               Journey
             </h1>
-            <img src="/SMM/ogon.png" className="h-20 rounded-2xl"></img>
+            <Image
+              src="/SMM/ogon.png"
+              alt="ogon logo"
+              width={100}
+              height={100}
+              className="rounded-2xl ml-10 md:ml-20"
+            />
           </div>
           <p className="text-2xl text-left text-black mt-10">
             After finishing the university with marketing major I came back to homeland and got into

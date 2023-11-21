@@ -18,10 +18,10 @@ const TrippyScroll: React.FC = () => {
     target: targetRef.current,
   });
 
-  const rotate = useTransform(scrollYProgress, [0, 1], ['0deg', '120deg']);
+  const rotate = useTransform(scrollYProgress, [0, 1], ['0deg', '90deg']);
 
   return (
-    <div ref={targetRef} className="relative z-0 h-[800vh] bg-neutral-200">
+    <div ref={targetRef} className="relative z-0 h-[200vh] bg-neutral-200">
       <div className="sticky top-0 h-screen bg-white">
         <Trippy rotate={rotate} />
       </div>
@@ -29,8 +29,8 @@ const TrippyScroll: React.FC = () => {
   );
 };
 
-const NUM_SECTIONS = 10;
-const PADDING = `${100 / NUM_SECTIONS / 2}vmin`;
+const NUM_SECTIONS = 8;
+const PADDING = `${80 / NUM_SECTIONS / 2}vmin`;
 const password = 'dreamjob';
 
 const generateSections = (count: any, color: any, rotate: any) => {

@@ -34,7 +34,7 @@ const HorizontalScrollCarousel: React.FC<HorizontalScrollCarouselProps> = ({ car
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'], { ease: easeCubicInOut });
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-black">
+    <section ref={targetRef} className="relative h-[500vh] bg-black">
       <div className="sticky top-0 flex h-[70vh] items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {card.map((card) => {
@@ -50,7 +50,7 @@ const Card: React.FC<{ card: CardProps }> = ({ card }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[300px] w-[420px] overflow-hidden bg-neutral-100">
+      className="group relative h-[320px] w-[420px] overflow-hidden bg-neutral-100">
       <div
         style={{
           backgroundImage: `url(${card.url})`,
