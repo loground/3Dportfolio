@@ -2,7 +2,8 @@ import { Canvas } from '@react-three/fiber';
 import { Model } from '../../3Dmodels/Model';
 import { Hand1 } from '@/components/3Dmodels/Hand1';
 import { Foot1 } from '@/components/3Dmodels/Foot1';
-import { Arm1 } from '@/components/3Dmodels/Arm1';
+import { Brain } from '@/components/3Dmodels/Brain';
+import { Face } from '@/components/3Dmodels/Face';
 import React from 'react';
 
 import { useRouter } from 'next/router';
@@ -112,8 +113,8 @@ const Skills = () => {
         onMouseLeave={handleMouseLeave}>
         <Canvas className="bg-white" style={{ width: '100%', height: '100%' }}>
           <directionalLight />
-          <pointLight position={[0, 0, 4.6]} power={12.0} />
-          <Hand1 position={[0, -0.25, 4.4]} />
+          <pointLight position={[0, 1, 4.6]} power={12.0} />
+          <Hand1 position={[0, -0.2, 4.4]} />
         </Canvas>
         {tooltipTextHand && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextHand} position={tooltipPositionHand} />
@@ -126,8 +127,8 @@ const Skills = () => {
         onMouseLeave={handleMouseLeave}>
         <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
           <directionalLight />
-          <pointLight position={[0, 0, 5]} power={12.0} />
-          <Foot1 position={[0, -0.2, 4.5]} />
+          <pointLight position={[0, 0, 5]} power={30.0} />
+          <Foot1 position={[0, -0.5, 4]} />
         </Canvas>
         {tooltipTextFoot && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextFoot} position={tooltipPositionFoot} />
@@ -140,8 +141,9 @@ const Skills = () => {
         onMouseLeave={handleMouseLeave}>
         <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
           <directionalLight />
-          <pointLight position={[0, 0, 5]} power={12.0} />
-          <Arm1 position={[0, -0.1, 4.5]} />
+          <pointLight position={[0, 0, 2.5]} power={90.0} />
+          <pointLight position={[-1, 0, 4]} power={60.0} />
+          <Brain position={[0, -1, 2]} />
         </Canvas>
         {tooltipTextArm && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextArm} position={tooltipPositionArm} />
@@ -155,7 +157,7 @@ const Skills = () => {
         <Canvas className="bg-white " style={{ width: '100%', height: '100%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 5]} power={12.0} />
-          <Model position={[0, -0.2, 4.5]} />
+          <Face position={[0, -0.3, 4.5]} />
         </Canvas>
         {tooltipTextFace && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextFace} position={tooltipPositionFace} />
