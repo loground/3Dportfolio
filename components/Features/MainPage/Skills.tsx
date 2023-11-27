@@ -107,7 +107,9 @@ const Skills = () => {
     <div className="relative h-screen items-center flex flex-wrap justify-center">
       <Suspense
         fallback={
-          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+          <div
+            className="flex items-center justify-center text-white text-xl"
+            style={{ height: '50%', width: '50%' }}>
             Loading his hand
           </div>
         }>
@@ -129,7 +131,9 @@ const Skills = () => {
       </Suspense>
       <Suspense
         fallback={
-          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+          <div
+            className="flex items-center justify-center text-white text-xl"
+            style={{ height: '50%', width: '50%' }}>
             Loading his legs
           </div>
         }>
@@ -151,7 +155,9 @@ const Skills = () => {
       </Suspense>
       <Suspense
         fallback={
-          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+          <div
+            className="flex items-center justify-center text-white text-xl"
+            style={{ height: '50%', width: '50%' }}>
             Loading his room
           </div>
         }>
@@ -174,7 +180,9 @@ const Skills = () => {
       </Suspense>
       <Suspense
         fallback={
-          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+          <div
+            className="flex items-center justify-center text-white text-xl"
+            style={{ height: '50%', width: '50%' }}>
             Loading his face
           </div>
         }>
