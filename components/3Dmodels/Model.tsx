@@ -22,7 +22,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     }
   });
 
-  const { nodes, materials } = useGLTF('/3d/self.glb') as GLTFResult;
+  const { nodes, materials } = useGLTF('/3d/self1.glb') as GLTFResult;
   return (
     <group {...props} dispose={null} ref={ref}>
       <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />
@@ -30,4 +30,4 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   );
 }
 
-useGLTF.preload('/3d/self.glb');
+useGLTF.preload('/3d/self1.glb');

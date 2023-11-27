@@ -1,5 +1,4 @@
 import { Canvas } from '@react-three/fiber';
-import { Model } from '../../3Dmodels/Model';
 import { Hand1 } from '@/components/3Dmodels/Hand1';
 import { Foot1 } from '@/components/3Dmodels/Foot1';
 import { Brain } from '@/components/3Dmodels/Brain';
