@@ -5,7 +5,7 @@ import { Model } from '../../3Dmodels/Model';
 const Hero = () => {
   return (
     <div className="relative h-screen items-center">
-      <Suspense fallback={<div>Get Ready!</div>}>
+      <Suspense fallback={<div style={{ height: '85%' }}>Get Ready!</div>}>
         <Canvas className="bg-white opacity-80" style={{ height: '85%' }}>
           <directionalLight />
           <pointLight position={[0, 0.5, 4]} power={60.0} />
