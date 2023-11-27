@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import Navbar from '@/components/Widgets/Navbar';
 
 const Home = () => {
-  const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'), { ssr: false });
+  const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'));
   const [isClient, setIsClient] = React.useState(false);
   const isBrowser = typeof window !== 'undefined';
   const storedAuth = isBrowser ? sessionStorage.getItem('isAuthenticated') : null;
