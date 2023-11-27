@@ -107,8 +107,8 @@ const Skills = () => {
     <div className="relative h-screen items-center flex flex-wrap justify-center">
       <Suspense
         fallback={
-          <div className="text-white" style={{ height: '100%' }}>
-            Loading 3D Model...
+          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+            Loading his hand
           </div>
         }>
         <div
@@ -129,8 +129,8 @@ const Skills = () => {
       </Suspense>
       <Suspense
         fallback={
-          <div className="text-white" style={{ height: '100%' }}>
-            Loading 3D Model...
+          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+            Loading his legs
           </div>
         }>
         <div
@@ -151,8 +151,8 @@ const Skills = () => {
       </Suspense>
       <Suspense
         fallback={
-          <div className="text-white" style={{ height: '100%' }}>
-            Loading 3D Model...
+          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+            Loading his room
           </div>
         }>
         <div
@@ -174,8 +174,8 @@ const Skills = () => {
       </Suspense>
       <Suspense
         fallback={
-          <div className="text-white" style={{ height: '100%' }}>
-            Loading 3D Model...
+          <div className="text-white text-xl" style={{ height: '50%', width: '50%' }}>
+            Loading his face
           </div>
         }>
         <div
