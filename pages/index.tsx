@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Hero from '@/components/Features/MainPage/Hero';
 import TrippyScroll from '@/components/Widgets/MainPage/TrippyScroll';
 import PasswordInput from '@/components/Widgets/MainPage/PasswordInput';

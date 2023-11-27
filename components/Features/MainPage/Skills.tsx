@@ -3,7 +3,7 @@ import { Hand1 } from '@/components/3Dmodels/Hand1';
 import { Foot1 } from '@/components/3Dmodels/Foot1';
 import { Brain } from '@/components/3Dmodels/Brain';
 import { Face } from '@/components/3Dmodels/Face';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -124,11 +124,13 @@ const Skills = () => {
         className="w-[50%] h-[50%] hover:cursor-pointer"
         onMouseMove={handleMouseEnterFoot}
         onMouseLeave={handleMouseLeave}>
-        <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
-          <directionalLight />
-          <pointLight position={[0, 0, 5]} power={30.0} />
-          <Foot1 position={[0, -0.5, 4]} />
-        </Canvas>
+        <Suspense fallback={<div>Loading 3D Model...</div>}>
+          <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
+            <directionalLight />
+            <pointLight position={[0, 0, 5]} power={30.0} />
+            <Foot1 position={[0, -0.5, 4]} />
+          </Canvas>
+        </Suspense>
         {tooltipTextFoot && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextFoot} position={tooltipPositionFoot} />
         )}
@@ -138,12 +140,14 @@ const Skills = () => {
         onClick={handleBrainClick}
         onMouseMove={handleMouseEnterArm}
         onMouseLeave={handleMouseLeave}>
-        <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
-          <directionalLight />
-          <pointLight position={[0, 0, 2.5]} power={90.0} />
-          <pointLight position={[-1, 0, 4]} power={60.0} />
-          <Brain position={[0, -1, 2]} />
-        </Canvas>
+        <Suspense fallback={<div>Loading 3D Model...</div>}>
+          <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
+            <directionalLight />
+            <pointLight position={[0, 0, 2.5]} power={90.0} />
+            <pointLight position={[-1, 0, 4]} power={60.0} />
+            <Brain position={[0, -1, 2]} />
+          </Canvas>
+        </Suspense>
         {tooltipTextArm && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextArm} position={tooltipPositionArm} />
         )}
@@ -153,11 +157,13 @@ const Skills = () => {
         onClick={handleFaceClick}
         onMouseMove={handleMouseEnterFace}
         onMouseLeave={handleMouseLeave}>
-        <Canvas className="bg-white " style={{ width: '100%', height: '100%' }}>
-          <directionalLight />
-          <pointLight position={[0, 0, 5]} power={12.0} />
-          <Face position={[0, -0.3, 4.5]} />
-        </Canvas>
+        <Suspense fallback={<div>Loading 3D Model...</div>}>
+          <Canvas className="bg-white " style={{ width: '100%', height: '100%' }}>
+            <directionalLight />
+            <pointLight position={[0, 0, 5]} power={12.0} />
+            <Face position={[0, -0.3, 4.5]} />
+          </Canvas>
+        </Suspense>
         {tooltipTextFace && (
           <CustomTooltip tooltipTextToDisplay={tooltipTextFace} position={tooltipPositionFace} />
         )}

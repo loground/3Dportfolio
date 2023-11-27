@@ -18,7 +18,7 @@ export function Foot1(props: JSX.IntrinsicElements['group']) {
 
   useFrame(({ clock }) => {
     if (ref.current) {
-      ref.current.rotation.y = clock.getElapsedTime() * 0.5;
+      ref.current.rotation.y = Math.sin(clock.elapsedTime) * 0.7;
     }
   });
 
