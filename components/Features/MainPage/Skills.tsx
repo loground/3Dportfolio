@@ -105,69 +105,95 @@ const Skills = () => {
 
   return (
     <div className="relative h-screen items-center flex flex-wrap justify-center">
-      <div
-        onClick={handleHandClick}
-        className="w-[50%] h-[50%] hover:cursor-pointer"
-        onMouseMove={handleMouseEnterHand}
-        onMouseLeave={handleMouseLeave}>
-        <Canvas className="bg-white" style={{ width: '100%', height: '100%' }}>
-          <directionalLight />
-          <pointLight position={[0, 1, 4.6]} power={12.0} />
-          <Hand1 position={[0, -0.2, 4.4]} />
-        </Canvas>
-        {tooltipTextHand && (
-          <CustomTooltip tooltipTextToDisplay={tooltipTextHand} position={tooltipPositionHand} />
-        )}
-      </div>
-      <div
-        onClick={handleFootClick}
-        className="w-[50%] h-[50%] hover:cursor-pointer"
-        onMouseMove={handleMouseEnterFoot}
-        onMouseLeave={handleMouseLeave}>
-        <Suspense fallback={<div>Loading 3D Model...</div>}>
+      <Suspense
+        fallback={
+          <div className="text-white" style={{ height: '100%' }}>
+            Loading 3D Model...
+          </div>
+        }>
+        <div
+          onClick={handleHandClick}
+          className="w-[50%] h-[50%] hover:cursor-pointer"
+          onMouseMove={handleMouseEnterHand}
+          onMouseLeave={handleMouseLeave}>
+          <Canvas className="bg-white" style={{ width: '100%', height: '100%' }}>
+            <directionalLight />
+            <pointLight position={[0, 1, 4.6]} power={12.0} />
+            <Hand1 position={[0, -0.2, 4.4]} />
+          </Canvas>
+
+          {tooltipTextHand && (
+            <CustomTooltip tooltipTextToDisplay={tooltipTextHand} position={tooltipPositionHand} />
+          )}
+        </div>
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="text-white" style={{ height: '100%' }}>
+            Loading 3D Model...
+          </div>
+        }>
+        <div
+          onClick={handleFootClick}
+          className="w-[50%] h-[50%] hover:cursor-pointer"
+          onMouseMove={handleMouseEnterFoot}
+          onMouseLeave={handleMouseLeave}>
           <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 0, 5]} power={30.0} />
             <Foot1 position={[0, -0.5, 4]} />
           </Canvas>
-        </Suspense>
-        {tooltipTextFoot && (
-          <CustomTooltip tooltipTextToDisplay={tooltipTextFoot} position={tooltipPositionFoot} />
-        )}
-      </div>
-      <div
-        className="w-[50%] h-[50%] hover:cursor-pointer"
-        onClick={handleBrainClick}
-        onMouseMove={handleMouseEnterArm}
-        onMouseLeave={handleMouseLeave}>
-        <Suspense fallback={<div>Loading 3D Model...</div>}>
+
+          {tooltipTextFoot && (
+            <CustomTooltip tooltipTextToDisplay={tooltipTextFoot} position={tooltipPositionFoot} />
+          )}
+        </div>
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="text-white" style={{ height: '100%' }}>
+            Loading 3D Model...
+          </div>
+        }>
+        <div
+          className="w-[50%] h-[50%] hover:cursor-pointer"
+          onClick={handleBrainClick}
+          onMouseMove={handleMouseEnterArm}
+          onMouseLeave={handleMouseLeave}>
           <Canvas className="bg-black" style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 0, 2.5]} power={90.0} />
             <pointLight position={[-1, 0, 4]} power={60.0} />
             <Brain position={[0, -1, 2]} />
           </Canvas>
-        </Suspense>
-        {tooltipTextArm && (
-          <CustomTooltip tooltipTextToDisplay={tooltipTextArm} position={tooltipPositionArm} />
-        )}
-      </div>
-      <div
-        className="w-[50%] h-[50%]  hover:cursor-pointer"
-        onClick={handleFaceClick}
-        onMouseMove={handleMouseEnterFace}
-        onMouseLeave={handleMouseLeave}>
-        <Suspense fallback={<div>Loading 3D Model...</div>}>
+
+          {tooltipTextArm && (
+            <CustomTooltip tooltipTextToDisplay={tooltipTextArm} position={tooltipPositionArm} />
+          )}
+        </div>
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className="text-white" style={{ height: '100%' }}>
+            Loading 3D Model...
+          </div>
+        }>
+        <div
+          className="w-[50%] h-[50%]  hover:cursor-pointer"
+          onClick={handleFaceClick}
+          onMouseMove={handleMouseEnterFace}
+          onMouseLeave={handleMouseLeave}>
           <Canvas className="bg-white " style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 0, 5]} power={12.0} />
             <Face position={[0, -0.3, 4.5]} />
           </Canvas>
-        </Suspense>
-        {tooltipTextFace && (
-          <CustomTooltip tooltipTextToDisplay={tooltipTextFace} position={tooltipPositionFace} />
-        )}
-      </div>
+
+          {tooltipTextFace && (
+            <CustomTooltip tooltipTextToDisplay={tooltipTextFace} position={tooltipPositionFace} />
+          )}
+        </div>
+      </Suspense>
     </div>
   );
 };
