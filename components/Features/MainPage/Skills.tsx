@@ -110,7 +110,7 @@ const Skills = () => {
           <div
             className="flex items-center justify-center text-white text-xl"
             style={{ height: '50%', width: '50%' }}>
-            Loading his hand
+            Loading hand
           </div>
         }>
         <div
@@ -137,7 +137,7 @@ const Skills = () => {
           <div
             className="flex items-center justify-center text-white text-xl"
             style={{ height: '50%', width: '50%' }}>
-            Loading his legs
+            Loading legs
           </div>
         }>
         <div
@@ -164,7 +164,7 @@ const Skills = () => {
           <div
             className="flex items-center justify-center text-white text-xl"
             style={{ height: '50%', width: '50%' }}>
-            Loading his room
+            Loading room
           </div>
         }>
         <div
@@ -191,7 +191,7 @@ const Skills = () => {
           <div
             className="flex items-center justify-center text-white text-xl"
             style={{ height: '50%', width: '50%' }}>
-            Loading his face
+            Loading face
           </div>
         }>
         <div
