@@ -13,9 +13,9 @@ const Hero = () => {
             Get Ready!
           </div>
         }>
-        <Canvas className="bg-white opacity-80" style={{ height: '85%' }}>
+        <Canvas gl={{ antialias: false }} className="bg-white opacity-80" style={{ height: '85%' }}>
           <directionalLight />
-          <pointLight position={[0, 0.5, 4]} power={60.0} />
+          <pointLight position={[0, 0.5, 4]} power={30.0} />
           <Model position={[0, -1, 3.2]} />
         </Canvas>
       </Suspense>
