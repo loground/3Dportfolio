@@ -5,6 +5,7 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 import Navbar from '@/components/Widgets/Navbar';
+import Head from 'next/head';
 
 const Handjobs = () => {
   const router = useRouter();
@@ -19,6 +20,10 @@ const Handjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <Head>
+        <title>Handsground</title>
+        <meta name="Handjobs" content="HandsPage" />
+      </Head>
       <div className="hidden lg:block">
         <Navbar />
       </div>

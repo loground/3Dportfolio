@@ -1,10 +1,11 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Hero from '@/components/Features/MainPage/Hero';
 import TrippyScroll from '@/components/Widgets/MainPage/TrippyScroll';
 import PasswordInput from '@/components/Widgets/MainPage/PasswordInput';
 import Socials from '@/components/Widgets/Socials';
 import dynamic from 'next/dynamic';
 import Navbar from '@/components/Widgets/Navbar';
+import Head from 'next/head';
 
 const Home = () => {
   const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'));
@@ -27,6 +28,11 @@ const Home = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <Head>
+        <title>Logroundfolio</title>
+        <meta name="Main" content="MainPage" />
+        <link rel="icon" href="/favic.png" />
+      </Head>
       <div className="hidden lg:block">
         <Navbar />
       </div>

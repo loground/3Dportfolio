@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { FaGithubSquare } from 'react-icons/fa';
 import Navbar from '@/components/Widgets/Navbar';
 import Image from 'next/image';
+import Head from 'next/head';
 
 const iconStyles = {
   color: 'black',
@@ -116,6 +117,10 @@ const Programming = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
+      <Head>
+        <title>Codeground</title>
+        <meta name="Programming" content="My way to become junior" />
+      </Head>
       <div className="hidden lg:block">
         <Navbar />
       </div>

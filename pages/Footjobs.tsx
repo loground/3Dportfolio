@@ -5,6 +5,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import SkateSchool from '@/components/Features/Skate/SkateSchool';
 import Navbar from '@/components/Widgets/Navbar';
+import Head from 'next/head';
 
 const Footjobs = () => {
   const router = useRouter();
@@ -23,6 +24,10 @@ const Footjobs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <Head>
+        <title>Legsground</title>
+        <meta name="Skate and surf" content="Skate and surf" />
+      </Head>
       <div className="hidden lg:block">
         <Navbar />
       </div>
