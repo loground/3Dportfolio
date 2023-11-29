@@ -124,7 +124,7 @@ const Skills = () => {
             style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 1, 4.6]} power={8.0} />
-            <Hand1 position={[0, -0.2, 4.4]} />
+            <Hand1 position={[0, -0.2, 4.3]} />
           </Canvas>
 
           {tooltipTextHand && (

@@ -35,13 +35,6 @@ const BurningText: React.FC = () => {
               </mark>
               Journey
             </h1>
-            <Image
-              src="/SMM/ogon.png"
-              alt="ogon logo"
-              width={100}
-              height={100}
-              className="rounded-2xl ml-10 md:ml-20"
-            />
           </div>
           <p className="text-2xl text-left text-black mt-10">
             After finishing the university with marketing major I came back to homeland and got into
