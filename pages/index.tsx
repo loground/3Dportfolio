@@ -39,11 +39,7 @@ const Home = () => {
           Enter password below to find more:
         </h1>
       </div>
-      {isClient && (
-        <div className="relative">
-          {isAuthenticated ? <Skills /> : <PasswordInput onPasswordCorrect={setIsAuthenticated} />}
-        </div>
-      )}
+      <Skills />
       <Socials />
     </div>
   );
