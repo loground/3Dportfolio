@@ -246,8 +246,8 @@ const Skills = () => {
               <Image
                 src="/modeling/1.png"
                 alt="face"
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 className="rounded-xl opacity-70"
               />
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
