@@ -71,39 +71,39 @@ const Skills = () => {
       }
 
       if (screenWidth >= 950) {
-        setTooltipPositionArm({ top: 435, left: 5 });
+        setTooltipPositionArm({ top: 370, left: 5 });
       } else if (screenWidth >= 720) {
-        setTooltipPositionArm({ top: 435, left: 5 });
+        setTooltipPositionArm({ top: 370, left: 5 });
       } else if (screenWidth >= 500) {
-        setTooltipPositionArm({ top: 435, left: 5 });
+        setTooltipPositionArm({ top: 370, left: 5 });
       } else {
-        setTooltipPositionArm({ top: 435, left: 5 });
+        setTooltipPositionArm({ top: 370, left: 5 });
       }
 
       if (screenWidth >= 950) {
-        setTooltipPositionFace({ top: 435, left: 455 });
+        setTooltipPositionFace({ top: 370, left: 455 });
       } else if (screenWidth >= 840) {
-        setTooltipPositionFace({ top: 435, left: 450 });
+        setTooltipPositionFace({ top: 370, left: 450 });
       } else if (screenWidth >= 720) {
-        setTooltipPositionFace({ top: 435, left: 420 });
+        setTooltipPositionFace({ top: 370, left: 420 });
       } else if (screenWidth >= 680) {
-        setTooltipPositionFace({ top: 435, left: 360 });
+        setTooltipPositionFace({ top: 370, left: 360 });
       } else if (screenWidth >= 640) {
-        setTooltipPositionFace({ top: 435, left: 340 });
+        setTooltipPositionFace({ top: 370, left: 340 });
       } else if (screenWidth >= 600) {
-        setTooltipPositionFace({ top: 435, left: 320 });
+        setTooltipPositionFace({ top: 370, left: 320 });
       } else if (screenWidth >= 560) {
-        setTooltipPositionFace({ top: 435, left: 300 });
+        setTooltipPositionFace({ top: 370, left: 300 });
       } else if (screenWidth >= 540) {
-        setTooltipPositionFace({ top: 435, left: 280 });
+        setTooltipPositionFace({ top: 370, left: 280 });
       } else if (screenWidth >= 520) {
-        setTooltipPositionFace({ top: 435, left: 270 });
+        setTooltipPositionFace({ top: 370, left: 270 });
       } else if (screenWidth >= 500) {
-        setTooltipPositionFace({ top: 435, left: 260 });
+        setTooltipPositionFace({ top: 370, left: 260 });
       } else if (screenWidth >= 440) {
-        setTooltipPositionFace({ top: 435, left: 250 });
+        setTooltipPositionFace({ top: 370, left: 250 });
       } else if (screenWidth >= 420) {
-        setTooltipPositionFace({ top: 435, left: 220 });
+        setTooltipPositionFace({ top: 370, left: 220 });
       } else {
         setTooltipPositionFace({ top: 435, left: 215 });
       }
@@ -180,7 +180,7 @@ const Skills = () => {
           ) : (
             <Canvas
               gl={{ antialias: false }}
-              className="bg-black"
+              className="bg-black  rounded-xl"
               style={{ width: '100%', height: '100%' }}>
               <directionalLight />
               <pointLight position={[0, 0, 5]} power={10.0} />
