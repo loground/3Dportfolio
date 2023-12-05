@@ -169,7 +169,7 @@ const Skills = () => {
           onMouseLeave={() => setShowHoverDivFoot(false)}>
           {showHoverDivFoot ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <h1 className="text-white text-2xl">Skateboarding and surfing</h1>
+              <h1 className="text-white text-2xl text-center">Skateboarding and surfing</h1>
               <p className="text-white text-center p-5">
                 Are not just a hobbies - they are a passion.
               </p>
