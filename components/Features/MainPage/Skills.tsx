@@ -132,13 +132,11 @@ const Skills = () => {
           onMouseLeave={() => setShowHoverDivHand(false)}>
           {showHoverDivHand ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <Image
-                src="/skateparks/BuildingBG.jpg"
-                alt="skateboarding"
-                width={300}
-                height={300}
-                className="rounded-xl opacity-80"
-              />
+              <h1 className="text-white text-2xl">Skateparks building</h1>
+              <p className="text-white text-center p-5">
+                Building is more than just constructing concrete structures; it is a passion that
+                fuels my creativity and determination.
+              </p>
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
                 See projects
               </button>
@@ -171,13 +169,10 @@ const Skills = () => {
           onMouseLeave={() => setShowHoverDivFoot(false)}>
           {showHoverDivFoot ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <Image
-                src="/sk8.PNG"
-                alt="skateboarding"
-                width={400}
-                height={400}
-                className="rounded-xl opacity-80"
-              />
+              <h1 className="text-white text-2xl">Skateboarding and surfing</h1>
+              <p className="text-white text-center p-5">
+                Are not just a hobbies - they are a passion.
+              </p>
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
                 Learn more
               </button>
@@ -251,13 +246,8 @@ const Skills = () => {
           onMouseLeave={() => setShowHoverDivFace(false)}>
           {showHoverDivFace ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <Image
-                src="/modeling/1.png"
-                alt="face"
-                width={300}
-                height={300}
-                className="rounded-xl opacity-70"
-              />
+              <h1 className="text-white text-2xl">Modeling</h1>
+              <p className="text-white text-center p-5">Not very fashionable, but still</p>
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
                 Find out
               </button>
