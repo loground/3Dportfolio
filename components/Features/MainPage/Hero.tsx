@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef, useEffect } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
 import { Canvas } from '@react-three/fiber';
 import { Model } from '../../3Dmodels/Model';
 import { OrbitControls } from '@react-three/drei';
-import { Square } from 'react-feather';
+import * as THREE from 'three';
 
 const Hero = () => {
   return (

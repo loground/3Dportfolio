@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -15,6 +15,16 @@ type GLTFResult = GLTF & {
 
 export function Model(props: JSX.IntrinsicElements['group']) {
   const ref: any = useRef();
+  const { camera } = useThree();
+  const prevRotation = useRef(0);
+
+  useFrame(() => {
+    const deltaRotation = camera.rotation.y - prevRotation.current;
+    if (Math.abs(deltaRotation) > 0.01) {
+      window.scrollBy(0, deltaRotation * 100);
+      prevRotation.current = camera.rotation.y;
+    }
+  });
 
   const { nodes, materials } = useGLTF('/3d/self2.glb') as GLTFResult;
 
