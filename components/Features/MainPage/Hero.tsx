@@ -32,7 +32,7 @@ const Hero = () => {
           />
         </Canvas>
       </Suspense>
-      <h1 className="absolute w-[100vw] h-[30vh] text-white font-xl p-5 text-4xl mt-[-10%] md:mt-[-6%] lg:mt-[-7%] rounded-2xl bg-black md:text-5xl md:w-[100%]">
+      <h1 className="absolute w-[100vw] h-[30vh] text-white font-xl p-5 text-4xl mt-[-25%] md:mt-[-6%] lg:mt-[-7%] rounded-2xl bg-black md:text-5xl md:w-[100%]">
         Nikita, 26, Junior 🖖 Frontend {'=>'}{' '}
         <a
           href="mailto:nickvoroninwork@gmail.com"
