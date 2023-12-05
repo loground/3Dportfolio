@@ -1,4 +1,4 @@
-import { FaLinkedinIn, FaInstagramSquare, FaTwitterSquare, FaGithubSquare } from 'react-icons/fa';
+import { FaLinkedin, FaInstagramSquare, FaTwitterSquare, FaGithubSquare } from 'react-icons/fa';
 
 const Socials = () => {
   const iconStyles = {
@@ -8,10 +8,9 @@ const Socials = () => {
   };
 
   return (
-    <div>
-      <p className="text-white text-3xl ml-[5%]"> My socials:</p>
-      <div className="flex flex-row mt-2 ml-[0%] gap-5 pb-5">
-        <FaLinkedinIn
+    <div className="flex justify-center items-center">
+      <div className="flex flex-row h-[20vh] md:h-[30vh] pt-[10%] ml-[0%] gap-5 pb-5">
+        <FaLinkedin
           style={iconStyles}
           onClick={() =>
             window.open('https://www.linkedin.com/in/nikita-voronin-4b6758293/', '_blank')

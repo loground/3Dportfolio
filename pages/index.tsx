@@ -41,9 +41,19 @@ const Home = () => {
       </div>
       <div className="relative">
         <TrippyScroll />
-        <h1 className="text-white font-xl text-5xl mt-2 pl-5 md:pl-0 md:text-6xl lg:pl-0">
-          Enter password below to find more:
-        </h1>
+        <div className="flex justify-center items-center">
+          {isClient &&
+            (isAuthenticated ? (
+              <h1 className="text-white w-[100%] pt-10 pb-10 font-xl text-5xl mt-2 pl-5 md:text-5xl bg-zinc-900 rounded-2xl p-2">
+                Unlocked!🎉 Check this out 👇
+                <p className="pt-5 text-3xl">That is what i did with my:</p>
+              </h1>
+            ) : (
+              <h1 className="text-white pt-20 pb-10 md:pl-20 font-xl text-5xl mt-2 pl-5 md:text-6xl bg-zinc-900 rounded-2xl p-2">
+                Enter password below to 🔒 unlock more content
+              </h1>
+            ))}
+        </div>
       </div>
       {isClient && (
         <div className="relative">

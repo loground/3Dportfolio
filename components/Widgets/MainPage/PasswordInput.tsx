@@ -24,16 +24,18 @@ const PasswordInput: React.FC<PasswordComponentProps> = ({ onPasswordCorrect }) 
   };
 
   return (
-    <div className="password-form flex flex-col items-center justify-center h-screen">
-      <form onSubmit={handleFormSubmit}>
+    <div className="password-form flex flex-col items-center mt-[-3%] h-[30vh] bg-zinc-900  rounded-2xl">
+      <form className="mt-20" onSubmit={handleFormSubmit}>
         <input
           type="password"
           placeholder="Enter password"
           value={password}
           onChange={handlePasswordChange}
-          className="w-64 mb-4 px-4 py-2 border border-gray-400 rounded"
+          className={`input outline-white w-64 mb-4 px-4 py-2.5 bg-zinc-800 text-white rounded-xl ${
+            wrongPassword ? 'input-error' : ''
+          }`}
         />
-        <button className="text-white w-20 py-2 border border-gray-400 rounded" type="submit">
+        <button className="text-black w-20 py-3 ml-[-5%] rounded-xl bg-white" type="submit">
           Find out
         </button>
         {wrongPassword && <p className="text-white">{wrongPassword}</p>}
