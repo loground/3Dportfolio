@@ -77,7 +77,7 @@ const Skills = () => {
       } else if (screenWidth >= 500) {
         setTooltipPositionArm({ top: 390, left: 5 });
       } else {
-        setTooltipPositionArm({ top: 390, left: 5 });
+        setTooltipPositionArm({ top: 435, left: 5 });
       }
 
       if (screenWidth >= 950) {
