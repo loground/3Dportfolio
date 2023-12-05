@@ -8,7 +8,6 @@ import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
 
 import CustomTooltip from '../../Shared/CustomTooltip';
-import MainVideoHero from '../Skate/MainVideoHero';
 import Image from 'next/image';
 
 const Skills = () => {
