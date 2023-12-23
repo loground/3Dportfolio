@@ -170,9 +170,7 @@ const Skills = () => {
           {showHoverDivFoot ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
               <h1 className="text-white text-2xl text-center">Skateboarding and surfing</h1>
-              <p className="text-white text-center p-5">
-                Are not just a hobbies - they are a passion.
-              </p>
+              <p className="text-white text-center p-5">My favorite things to do in this life.</p>
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
                 Learn more
               </button>
