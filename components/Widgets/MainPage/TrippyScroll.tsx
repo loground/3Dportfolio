@@ -31,7 +31,7 @@ const TrippyScroll: React.FC = () => {
 
 const NUM_SECTIONS = 8;
 const PADDING = `${80 / NUM_SECTIONS / 2}vmin`;
-const password = 'dreamjob';
+const password = 'paymewell';
 
 const generateSections = (count: any, color: any, rotate: any) => {
   if (count === NUM_SECTIONS) {
@@ -39,7 +39,7 @@ const generateSections = (count: any, color: any, rotate: any) => {
       <>
         <div className="flex items-center justify-center h-full">
           <p className="rotate-90 text-s text-black md:rotate-0 lg:text-xl lg:rotate-0 py-20 px-auto font-semibold lg:text-m">
-            password: {password}
+            password: <span className="text-red-500">{password} </span>
           </p>
         </div>
       </>
