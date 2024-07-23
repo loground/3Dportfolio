@@ -14,7 +14,7 @@ const PasswordInput: React.FC<PasswordComponentProps> = ({ onPasswordCorrect }) 
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
-    if (password === 'dreamjob') {
+    if (password === 'paymewell') {
       onPasswordCorrect(true);
       setWrongPassword(null);
     } else {
