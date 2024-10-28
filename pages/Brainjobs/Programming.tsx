@@ -29,7 +29,7 @@ const textContent = [
             alt="programming-1"
             width={300}
             height={300}
-            className="ml-[20%] md:ml-0"
+            className="md:ml-0"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@ const textContent = [
           alt="programming-2"
           width={300}
           height={300}
-          className="ml-[20%] md:ml-[30%]"
+          className="md:ml-[30%]"
         />
       </div>
     ),
