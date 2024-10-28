@@ -56,7 +56,7 @@ export const MarketingFeatures: React.FC<BounceCardProps> = () => {
           <div className="absolute bottom-0 left-4 right-4 top-28 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
             <CardTitle>Skills</CardTitle>
             <span className="block text-center font-semibold text-white mt-0">
-              Market-analysis, content-planning, generating, community-management, copywriting,
+              Market-analysis, content-planning, community-management, copywriting,
               project-management, targeting tools, photo/video-editing.
             </span>
           </div>
@@ -75,7 +75,7 @@ export const MarketingFeatures: React.FC<BounceCardProps> = () => {
           <div className="absolute bottom-0 left-4 right-4 top-32 translate-y-8 rounded-t-2xl bg-slate-700 p-4 transition-transform duration-[250ms] group-hover:translate-y-4 group-hover:rotate-[2deg]">
             <CardTitle>And what?</CardTitle>
             <span className="block text-center font-semibold text-white mt-0">
-              I still apply those skills on regular basis using twitter and other platforms.
+              I still apply those skills on regular basis using twitter and other social media.
             </span>
           </div>
         </BounceCard>

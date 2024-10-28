@@ -61,8 +61,8 @@ const SideStaggerNavigation = () => {
 
 const SPRING_OPTIONS = {
   mass: 1,
-  stiffness: 200,
-  damping: 15,
+  stiffness: 100,
+  damping: 7,
 };
 
 const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title, path, router }) => {
@@ -73,7 +73,7 @@ const LinkLine: React.FC<LinkLineProps> = ({ mouseY, isHovered, title, path, rou
     return val - (bounds?.y || 0) - (bounds?.height || 0) / 2;
   });
 
-  const lineWidthRaw = useTransform(distance, [-80, 0, 80], [15, 100, 15]);
+  const lineWidthRaw = useTransform(distance, [-80, 0, 80], [15, 60, 15]);
   const lineWidth = useSpring(lineWidthRaw, SPRING_OPTIONS);
 
   const linkWidth = useSpring(25, SPRING_OPTIONS);

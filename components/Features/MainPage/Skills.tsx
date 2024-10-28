@@ -134,8 +134,7 @@ const Skills = () => {
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
               <h1 className="text-white text-2xl">Skateparks building</h1>
               <p className="text-white text-center p-5">
-                Building is more than just constructing concrete structures; it is a passion that
-                fuels my creativity and determination.
+                was my favorite thing to do besides skateboarding itself.
               </p>
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
                 See projects
@@ -170,7 +169,7 @@ const Skills = () => {
           {showHoverDivFoot ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
               <h1 className="text-white text-2xl text-center">Skateboarding and surfing</h1>
-              <p className="text-white text-center p-5">My favorite things to do in this life.</p>
+              <p className="text-white text-center p-5">are biggest parts of my life.</p>
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
                 Learn more
               </button>
@@ -204,15 +203,11 @@ const Skills = () => {
           onMouseLeave={() => setShowHoverDivBrain(false)}>
           {showHoverDivBrain ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <Image
-                src="/w1.jpg.webp"
-                alt="brain"
-                width={300}
-                height={300}
-                className="rounded-xl"
-              />
+              <h1 className="text-white text-2xl text-center">Brains</h1>
+              <p className="text-white text-center p-5">that work pretty well</p>
+
               <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
-                Brains? What is that?
+                See the proofs
               </button>
             </div>
           ) : (

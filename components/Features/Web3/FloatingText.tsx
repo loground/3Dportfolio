@@ -4,6 +4,7 @@ import { useAnimate } from 'framer-motion';
 import DottedButton from '../../Shared/DottedButton';
 import NFTCard from './NFTCard';
 import { useRouter } from 'next/router';
+import ArtsCarousel from './ArtsCarousel';
 
 const NFTCards = [
   {
@@ -65,24 +66,24 @@ const FloatingText: React.FC = () => {
   return (
     <div className={styles.wrapper} id="wrapper" ref={scope}>
       <div
-        className="mt-10 md:mt-16 xl:mt-16 lg:mt-16  absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30 lg:p-5"
+        className="mt-20 px-2 py-2 md:mt-16 xl:mt-16 lg:mt-16  absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30 lg:p-5"
         id="first_button">
         <DottedButton text={'What about it?'} action={handleAnimate1stButton} />
       </div>
       <div
-        className="mt-10 md:mt-16 xl:mt-16 lg:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5   z-20"
+        className="mt-20 px-2 py-2 md:mt-16 xl:mt-16 lg:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5   z-20"
         id="second_button">
-        <DottedButton text={'what happened next?'} action={handleAnimate2ndButton} />
+        <DottedButton text={'NFT Journey'} action={handleAnimate2ndButton} />
       </div>
       <div
-        className="mt-10 md:mt-16 xl:mt-16 lg:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5 z-10 "
+        className="mt-10 px-2 py-2 md:mt-16 xl:mt-16 lg:mt-16 overflow-hidden absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 lg:p-5 z-10 "
         id="nft_button">
-        <DottedButton text={'what else you can?'} action={moveToMarketing} />
+        <DottedButton text={'Move to Marketing'} action={moveToMarketing} />
       </div>
 
       <span
         id="main_header"
-        className={`select-none overflow-hidden text text-white text-[3rem] md:text-[6rem] lg:text-[8rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-50px] rotate-[-15deg] z-6 ${styles.baseAnim} ${styles.text_stroke2}`}>
+        className={` overflow-hidden text text-white text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  rotate-[-15deg] z-6 ${styles.baseAnim} ${styles.text_stroke2}`}>
         {`WEB 3.0`}
       </span>
       {[...Array(10)].map((_, idx) => (
@@ -90,39 +91,62 @@ const FloatingText: React.FC = () => {
           key={idx}
           id="main_header"
           ref={(el) => el && textRefs.current.push(el)}
-          className={`select-none overflow-hidden text text-white text-[3rem] md:text-[6rem] lg:text-[8rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-y-[-50px] rotate-[-15deg] z-5 ${styles.baseAnim} ${styles.text_stroke}`}>
+          className={` overflow-hidden text text-white text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold select-none uppercase absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  rotate-[-15deg] z-5 ${styles.baseAnim} ${styles.text_stroke}`}>
           {`WEB 3.0`}
         </span>
       ))}
 
       <div
-        className="absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] md:top-[40%] opacity-0 z-50 flex flex-col xl:flex-row md:flex-row lg:flex-row justify-center gap-6 lg:gap-10"
-        id="nftCardContainer"
-        style={{ pointerEvents: isAnimationComplete ? 'auto' : 'none' }}>
-        {NFTCards.map((card, idx) => (
-          <div key={idx} className="flex-shrink z-60 text-black mt-10">
-            <NFTCard name={card.name} link={card.link} img={card.img} />
+        className={`absolute left-1/2 pt-10 transform -translate-x-1/2 top-[40%] md:top-[40%] z-50 ${
+          isAnimationComplete ? 'opacity-1 flex' : 'opacity-0 hidden'
+        }`}
+        id="nftCardContainer">
+        <div className="flex flex-col items-center justify-center gap-6 lg:gap-10 w-full">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 w-full">
+            {NFTCards.map((card, idx) => (
+              <div key={idx} className="flex-shrink text-black mt-10">
+                <NFTCard name={card.name} link={card.link} img={card.img} />
+              </div>
+            ))}
           </div>
-        ))}
+          <h1 className="text-3xl">Some of the arts👇</h1>
+          <div className="w-screen h-[100%]">
+            <ArtsCarousel />
+          </div>
+        </div>
       </div>
 
       <div>
         <h3
           id="third_text"
-          className="absolute select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:text-2xl p-4 lg:mr-[15%] xl:mr-[20%]">
-          My friends took me and wife into NFTs and we started illustrating a lot. Since then we are
-          part-time illustrators for different collections and selling arts ourselves. I did:
-          generated the ideas, marketing and communication, drew some arts myself. While my wife is
-          full-time into illustration.
+          className="absolute bottom-[80%] lg:bottom-[80%] select-none overflow-hidden text-white text-l text-center opacity-0 xl:text-2xl md:text-xl p-4 lg:mr-[15%] xl:mr-[20%]">
+          - Got into NFT space as an artist doing arts myself and curating arts of my wife.
+          <br />
+          - Participated in several collection such as: Cryptobatz by Ozzy Osborne, Jungle Bay,
+          Toweli Rarecards.
+          <br />
+          - Showcased in Beeple's art gallery
+          <br />
+          - Participated in Rare Pepes exhibition in Bali
+          <br />
+          - Got art featured on main page of Exchange.art
+          <br />- Created over 50 arts for different memecoins projects on Solana, Base and Eth
         </h3>
       </div>
 
-      <div className="md:mt-[22%] lg:mt-6 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+      <div className=" px-10 mt-[10%] md:mt-[22%] lg:mt-10 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <h1
           id="first_text"
-          className="overflow-hidden pt-40 text-xl md:text-2xl lg:mt-10 md:mt-0 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 md:pt-20 lg:p-10">
-          Since 2021 I started digging about crypto-tech and found out how interesting it is. And
-          since then I couldnt stop. I kept learning using YouTube and books, I still do that.
+          className="overflow-hidden pt-40  md:text-2xl lg:mt-10 md:mt-0 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 md:pt-20 lg:p-10">
+          <span className="font-bold text-pink-200">2021</span> got into web3.
+          <br />
+          <span className="font-bold text-pink-300">2022</span> sold first nft.
+          <br />
+          <span className="font-bold text-pink-400">2023</span> joined defi startup on Algorand.
+          <br />
+          <span className="font-bold text-pink-500">2024</span> won 2 grants.
+          <br />
+          <span className="font-bold text-pink-600">2025</span> will see what it brings
         </h1>
       </div>
 

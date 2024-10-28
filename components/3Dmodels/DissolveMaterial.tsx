@@ -53,7 +53,7 @@ const uniforms: Record<string, THREE.IUniform> = {
   uMatrix: { value: o.matrixWorld },
   uFeather: { value: 6 },
   uThickness: { value: 0.1 },
-  uColor: { value: new THREE.Color('#f054fb').multiplyScalar(20) },
+  uColor: { value: new THREE.Color('#ffc0cb').multiplyScalar(20) },
 };
 
 interface DissolveMaterialProps {
@@ -70,13 +70,13 @@ export function DissolveMaterial({
   baseMaterial,
   mode,
   isHovered,
-  thickness = 0.4,
-  feather = 8,
+  thickness = 10,
+  feather = 5,
   color = '#f86dff',
   intensity = 25,
 }: DissolveMaterialProps) {
   const targetPosition = React.useRef(new THREE.Vector3());
-  const lerpSpeed = 0.05; // Adjust this value to change animation speed
+  const lerpSpeed = 0.03; // Adjust this value to change animation speed
 
   React.useLayoutEffect(() => {
     uniforms.uFeather.value = feather;

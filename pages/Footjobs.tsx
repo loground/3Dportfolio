@@ -33,8 +33,8 @@ const Footjobs = () => {
       </div>
       <div className="flex flex-row gap-5 md:gap-20 pt-10 justify-center">
         <DottedButton text="Main" action={backToMainPage} />
-        <DottedButton text="Hands" action={backToHandjob} />
-        <DottedButton text="See what's next" action={moveToNextPage} />
+        <DottedButton text="Back" action={backToHandjob} />
+        <DottedButton text="Web 3.0" action={moveToNextPage} />
       </div>
       <div className="flex justify-center align-items-center mt-5"></div>
       <div>

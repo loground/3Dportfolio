@@ -16,7 +16,7 @@ const Hero = () => {
         }>
         <p className="absolute z-20 top-20 left-[45%] md:left-[47%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white">
           {' '}
-          spin me
+          it's me
         </p>
         <Canvas gl={{ antialias: false }} className="bg-white opacity-80" style={{ height: '85%' }}>
           <directionalLight />

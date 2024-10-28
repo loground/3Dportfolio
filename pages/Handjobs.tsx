@@ -28,8 +28,8 @@ const Handjobs = () => {
         <Navbar />
       </div>
       <div className="flex flex-row gap-5 md:gap-10 md:pt-8 align-items-center pt-10 justify-center">
-        <DottedButton text="Back to main" action={backToMainPage} />
-        <DottedButton text="Move to next" action={moveToNextPage} />
+        <DottedButton text="Back" action={backToMainPage} />
+        <DottedButton text="Next" action={moveToNextPage} />
       </div>
       <div
         className="flex mt-10 mb-10"
@@ -41,17 +41,13 @@ const Handjobs = () => {
           height: '400px',
         }}>
         <p className="flex justify-center text-white text-l md:text-xl xl:text-xl xl:mt-40 m-15 mt-20 ml-3 md:m-16">
-          Building skateparks is more than just constructing concrete structures; it is a passion
-          that fuels my creativity and determination. There is something incredibly fulfilling about
-          shaping spaces where people, especially skateboarders, can express themselves freely.
-          Every curve and slope designed is a canvas for endless possibilities, encouraging riders
-          to push their limits and explore the bounds of their abilities. So here are the projects I
-          worked with:
+          Building Is hella fun, I loved it a lot. Best times with best people creating something
+          significant out of nothing is a pure magic. Here are some of my works:
         </p>
       </div>
       <div>
         <p
-          className="text-white font-xl text-4xl mt-10 ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
+          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
           onClick={() => window.open('https://xsaramps.com/projects/', '_blank')}>
           XSA
         </p>
@@ -69,7 +65,7 @@ const Handjobs = () => {
       </div>
       <div>
         <p
-          className="text-white font-xl text-4xl mt-10 ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
+          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
           onClick={() => window.open('https://rampstroy.com', '_blank')}>
           Rampstroy
         </p>
@@ -89,7 +85,7 @@ const Handjobs = () => {
       </div>
       <div>
         <p
-          className="text-white font-xl text-4xl mt-10 ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
+          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
           onClick={() => window.open('https://xsaramps.com/projects/', '_blank')}>
           NBD
         </p>
@@ -106,7 +102,7 @@ const Handjobs = () => {
       </div>
       <div>
         <p
-          className="text-white font-xl text-4xl mt-10 ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
+          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
           onClick={() => window.open('https://xsaramps.com/projects/', '_blank')}>
           Moses
         </p>
@@ -121,7 +117,7 @@ const Handjobs = () => {
         </div>
         <BuildingCompanyPics card={cardMoses} />
       </div>
-      <div className="flex justify-center pb-10">
+      <div className="flex justify-center pb-20">
         <DottedButton text="Move on to next page" action={moveToNextPage} />
       </div>
     </div>
