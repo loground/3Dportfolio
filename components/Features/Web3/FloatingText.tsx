@@ -35,7 +35,7 @@ const FloatingText: React.FC = () => {
   };
 
   const handleAnimate1stButton = async () => {
-    await animate('#main_header', { opacity: 0 }, { duration: 1.5 });
+    await animate('#main_header', { display: 'none' }, { duration: 1.5 });
     await animate('#img', { rotate: '360deg', opacity: 1 });
     await animate('#first_text', { opacity: 1 });
     await animate('#first_button', { opacity: 0, y: '-200px' }, { duration: 1 });

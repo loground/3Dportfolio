@@ -11,7 +11,7 @@ export default function ArtsCarousel() {
   const imageIndex = Math.abs(idx % images.length);
 
   return (
-    <div className="h-[50vw] min-h-[400px] max-h-[600px] bg-black relative overflow-hidden w-[100vw]">
+    <div className="h-[50vw] min-h-[400px] max-h-[600px] bg-black relative overflow-hidden min-w-[100vw]">
       <button
         onClick={() => {
           setPrevIdx(idx);
@@ -33,7 +33,7 @@ export default function ArtsCarousel() {
             src={images[imageIndex].src}
             alt={images[imageIndex].title}
             style={{ y: '-50%', x: '-50%' }}
-            className="aspect-square max-h-[90%] max-w-[calc(100%_-_80px)] mx-auto bg-transparent object-contain shadow-2xl absolute left-1/2 top-1/2"
+            className="aspect-square max-h-[90%] max-w-[100%] mx-auto bg-transparent object-contain shadow-2xl absolute left-1/2 top-1/2"
           />
         </AnimatePresence>
       </div>
@@ -54,7 +54,7 @@ export default function ArtsCarousel() {
           animate="animate"
           exit="exit"
           key={images[imageIndex].id}
-          className="text-white text-xl md:text-2xl p-2 rounded-lg bg-white/10 backdrop-blur-lg font-semibold shadow-lg absolute z-20 left-10 bottom-4">
+          className="text-white text-sm md:text-2xl p-2 rounded-lg bg-white/10 backdrop-blur-lg font-semibold shadow-lg absolute z-20 left-10 bottom-4">
           {images[imageIndex].title}
         </motion.span>
       </AnimatePresence>
@@ -65,7 +65,7 @@ export default function ArtsCarousel() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
           exit={{ opacity: 0 }}
-          className="absolute inset-0 object-fill z-0"
+          className="absolute inset-0 object-cover z-0"
           style={{
             backgroundImage: `url(${images[imageIndex].src})`,
             backgroundPosition: 'center',
