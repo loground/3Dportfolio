@@ -125,7 +125,7 @@ const FloatingText: React.FC = () => {
           - Participated in several collection such as: Cryptobatz by Ozzy Osborne, Jungle Bay,
           Toweli Rarecards.
           <br />
-          - Showcased in Beeple's art gallery
+          - Showcased in Beeples art gallery
           <br />
           - Participated in Rare Pepes exhibition in Bali
           <br />
