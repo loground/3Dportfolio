@@ -1,8 +1,9 @@
 import * as THREE from 'three';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { useFrame, useThree } from '@react-three/fiber';
+import { DissolveMaterial } from './DissolveMaterial';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -18,10 +19,12 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const { camera } = useThree();
   const prevRotation = useRef(0);
 
+  const [isHovered, setIsHovered] = React.useState(false);
+
   useFrame(() => {
     const deltaRotation = camera.rotation.y - prevRotation.current;
-    if (Math.abs(deltaRotation) > 0.01) {
-      window.scrollBy(0, deltaRotation * 100);
+    if (deltaRotation > 0.01) {
+      window.scrollBy(0, deltaRotation * 200);
       prevRotation.current = camera.rotation.y;
     }
   });
@@ -34,9 +37,23 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     }
   });
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <group {...props} dispose={null} ref={ref}>
+    <group
+      {...props}
+      onPointerEnter={handleMouseEnter}
+      onPointerLeave={handleMouseLeave}
+      dispose={null}
+      ref={ref}>
       <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />
+      <DissolveMaterial baseMaterial={materials.main} isHovered={isHovered} />
     </group>
   );
 }

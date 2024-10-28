@@ -14,7 +14,7 @@ const Hero = () => {
             Get Ready!
           </div>
         }>
-        <p className="absolute z-20 top-20 left-[45%] md:left-[47%] select-none bg-pink-400 rounded-xl p-1 text-white">
+        <p className="absolute z-20 top-20 left-[45%] md:left-[47%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white">
           {' '}
           spin me
         </p>
