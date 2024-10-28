@@ -33,7 +33,7 @@ export default function ArtsCarousel() {
             src={images[imageIndex].src}
             alt={images[imageIndex].title}
             style={{ y: '-50%', x: '-50%' }}
-            className="aspect-square max-h-[90%] max-w-[calc(100%_-_80px)] mx-auto bg-black object-cover shadow-2xl absolute left-1/2 top-1/2"
+            className="aspect-square max-h-[90%] max-w-[calc(100%_-_80px)] mx-auto bg-transparent object-contain shadow-2xl absolute left-1/2 top-1/2"
           />
         </AnimatePresence>
       </div>
