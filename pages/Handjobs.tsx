@@ -40,7 +40,7 @@ const Handjobs = () => {
           opacity: '80%',
           height: '400px',
         }}>
-        <p className="flex justify-center text-white text-l md:text-xl xl:text-xl xl:mt-40 m-15 mt-20 ml-3 md:m-16">
+        <p className="flex justify-center text-white text-l md:text-xl xl:text-xl xl:mt-40 m-15 mt-40 ml-3 md:m-16">
           Building Is hella fun, I loved it a lot. Best times with best people creating something
           significant out of nothing is a pure magic. Here are some of my works:
         </p>

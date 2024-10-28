@@ -11,7 +11,7 @@ export default function ArtsCarousel() {
   const imageIndex = Math.abs(idx % images.length);
 
   return (
-    <div className="h-[50vw] min-h-[400px] max-h-[600px] bg-black relative overflow-hidden">
+    <div className="h-[50vw] min-h-[400px] max-h-[600px] bg-black relative overflow-hidden w-[100vw]">
       <button
         onClick={() => {
           setPrevIdx(idx);

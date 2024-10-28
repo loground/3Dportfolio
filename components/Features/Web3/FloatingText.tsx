@@ -134,7 +134,7 @@ const FloatingText: React.FC = () => {
         </h3>
       </div>
 
-      <div className=" px-10 mt-[10%] md:mt-[22%] lg:mt-10 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+      <div className="md:px-10 mt-[10%] md:mt-[22%] lg:mt-10 xl:mt-6 absolute lg:top-[75%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <h1
           id="first_text"
           className="overflow-hidden pt-40  md:text-2xl lg:mt-10 md:mt-0 xl:mt-10 select-none relative text-white text-2xl opacity-0 md:p-10 md:pt-20 lg:p-10">

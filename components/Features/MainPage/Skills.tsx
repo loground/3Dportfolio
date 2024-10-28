@@ -132,7 +132,7 @@ const Skills = () => {
           onMouseLeave={() => setShowHoverDivHand(false)}>
           {showHoverDivHand ? (
             <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <h1 className="text-white text-2xl">Skateparks building</h1>
+              <h1 className="text-white text-2xl text-center">Skateparks building</h1>
               <p className="text-white text-center p-5">
                 was my favorite thing to do besides skateboarding itself.
               </p>
