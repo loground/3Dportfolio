@@ -142,9 +142,7 @@ const FloatingText: React.FC = () => {
           <br />
           <span className="font-bold text-pink-300">2022</span> sold first nft.
           <br />
-          <span className="font-bold text-pink-400">2023</span> joined defi startup on Algorand.
-          <br />
-          <span className="font-bold text-pink-500">2024</span> won 2 grants.
+          <span className="font-bold text-pink-400">2023</span> joined defi startup.
           <br />
           <span className="font-bold text-pink-600">2025</span> will see what it brings
         </h1>
