@@ -41,9 +41,9 @@ const textContent = [
       <div className="flex flex-col gap-6 justify-center px-4 py-10 bg-base-200">
         <p className="text-gray">
           Moving forward, I was working on this website and got interested in 3D. I began learning
-          basics of three-fiber and found my first paid project in Cometa Team. We worked on
-          creation of 3D game on Algorand blockchain that is related to NFT collection where you
-          could dance against computer using 3d NFT characters.
+          basics of three-fiber and got into my first project to develop. We worked on creation of
+          3D game that is based on NFT collection where you could dance against computer using 3d
+          NFT characters.
         </p>
         <Image
           src="/programming/2.png"
@@ -75,16 +75,11 @@ const textContent = [
     content: (
       <div className="flex flex-col items-center gap-5 px-4 py-16 bg-base-200">
         <p className="text-gray">
-          I am currently working on the{' '}
-          <a className="text-white" target="_blank" href="https://app.cometa.farm">
-            app.cometa.farm
-          </a>{' '}
-          project, where I am deeply engaged in building innovative solutions for decentralized
-          platforms. Alongside this main project, I continue to take on part-time projects that keep
-          my skills sharp and allow me to experiment with new ideas and technologies. Recently, I
-          have also dived into a Three.js and three-fiber course, expanding my expertise into the
-          world of 3D rendering and interactive web experiences. Balancing these diverse projects
-          keeps me on the cutting edge, blending practical experience with new knowledge.
+          I continue to take on part-time projects that keep my skills sharp and allow me to
+          experiment with new ideas and technologies. Recently, I have also dived into a Three.js
+          and three-fiber course, expanding my expertise into the world of 3D rendering and
+          interactive web experiences. Balancing these diverse projects keeps me on the cutting
+          edge, blending practical experience with new knowledge.
         </p>
         <FaGithubSquare
           style={iconStyles}
