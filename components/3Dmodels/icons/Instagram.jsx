@@ -28,7 +28,12 @@ export function InstagramLogo(props) {
 
   return (
     <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5} floatingRange={[0, 1]}>
-      <group {...props} position={[-1, 1.5, 0]} dispose={null} scale={0.022} rotation={[0, 2.6, 0]}>
+      <group
+        {...props}
+        position={[-0.8, 1.5, 0]}
+        dispose={null}
+        scale={0.022}
+        rotation={[0, 2.6, 0]}>
         <group>
           <group
             onClick={handleClick}

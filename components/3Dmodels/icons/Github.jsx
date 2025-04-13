@@ -39,12 +39,7 @@ export function GithubLogo(props) {
 
   return (
     <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5} floatingRange={[0, 1]}>
-      <group
-        {...props}
-        position={[1.5, 1.5, 0]}
-        dispose={null}
-        scale={0.025}
-        rotation={[0, -1.1, 0]}>
+      <group {...props} position={[1, 1.5, 0]} dispose={null} scale={0.025} rotation={[0, -1.1, 0]}>
         <group>
           <group
             onClick={handleClick}
