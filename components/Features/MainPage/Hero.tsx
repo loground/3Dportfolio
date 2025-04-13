@@ -26,7 +26,11 @@ const Hero = () => {
         }>
         <ScrambleIn isHovered={hovered} />
 
-        <Canvas gl={{ antialias: false }} className="bg-white opacity-80" style={{ height: '85%' }}>
+        <Canvas
+          key="hero-canvas"
+          gl={{ antialias: false }}
+          className="bg-white opacity-80"
+          style={{ height: '85%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 4]} power={30.0} />
 
@@ -39,15 +43,9 @@ const Hero = () => {
           <Model
             onPointerEnter={() => setIsHovered(true)}
             onPointerLeave={() => setIsHovered(false)}
-            position={[0, -2, 3.3]}
+            position={[0, -1, 2.6]}
           />
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            target={[0, -1, 3]}
-            minPolarAngle={Math.PI / 2}
-            maxPolarAngle={Math.PI / 2}
-          />
+          <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </Suspense>
       <h1 className="absolute w-[100vw] h-[30vh] text-white font-xl p-5 text-4xl mt-[-25%] md:mt-[-6%] lg:mt-[-7%] rounded-2xl bg-black md:text-5xl md:w-[100%]">

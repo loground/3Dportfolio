@@ -28,7 +28,7 @@ export function TwitterLogo(props) {
 
   return (
     <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5} floatingRange={[0, 1]}>
-      <group {...props} position={[-1, -1, 0]} dispose={null} scale={0.013} rotation={[0, 2.6, 0]}>
+      <group {...props} position={[-1, 0, 0]} dispose={null} scale={0.013} rotation={[0, 2.6, 0]}>
         <group>
           <group
             onClick={handleClick}
