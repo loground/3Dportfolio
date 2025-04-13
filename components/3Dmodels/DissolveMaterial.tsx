@@ -72,7 +72,7 @@ export function DissolveMaterial({
   isHovered,
   thickness = 20,
   feather = 8,
-  color = '#CCCC0D',
+  color = '#fb95ff',
   intensity = 5,
 }: DissolveMaterialProps) {
   const targetPosition = React.useRef(new THREE.Vector3());

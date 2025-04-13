@@ -3,15 +3,15 @@ import { useGLTF, Float, MeshDistortMaterial, GradientTexture } from '@react-thr
 import { useThree } from '@react-three/fiber';
 import { useState } from 'react';
 
-export function InstagramLogo(props) {
-  const { nodes, materials } = useGLTF('/3d/icon/instagram.glb');
+export function LinkedLogo(props) {
+  const { nodes, materials } = useGLTF('/3d/icon/linked.glb');
   const { gl } = useThree();
   const ref = useRef();
   const [color, setColor] = useState('#ffffff');
-  const [distortion, setDistortion] = useState(0.2);
+  const [distortion, setDistortion] = useState(0.1);
 
   const handleClick = () => {
-    window.open('https://instagram.com/loground', '_blank');
+    window.open('https://x.com/nickvrnn', '_blank');
   };
 
   const handlePointerEnter = () => {
@@ -28,7 +28,12 @@ export function InstagramLogo(props) {
 
   return (
     <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5} floatingRange={[0, 1]}>
-      <group {...props} position={[-1, 1, 0]} dispose={null} scale={0.022} rotation={[0, 2.6, 0]}>
+      <group
+        {...props}
+        position={[1.5, -1, 0]}
+        dispose={null}
+        scale={0.013}
+        rotation={[0, -1.1, 0]}>
         <group>
           <group
             onClick={handleClick}
@@ -37,19 +42,10 @@ export function InstagramLogo(props) {
             rotation={[0, Math.PI / 4, 0]}
             scale={[2, -2, 2]}>
             <mesh geometry={nodes.mesh_0.geometry}>
-              <MeshDistortMaterial distort={distortion} speed={3}>
+              <MeshDistortMaterial distort={distortion} speed={10}>
                 <GradientTexture
                   stops={[0, 0.8, 1]}
-                  colors={[color, '#ffe100', '#ffffff']}
-                  size={1}
-                />
-              </MeshDistortMaterial>
-            </mesh>
-            <mesh geometry={nodes.mesh_1.geometry}>
-              <MeshDistortMaterial distort={distortion} speed={3}>
-                <GradientTexture
-                  stops={[0, 0.8, 1]}
-                  colors={[color, '#ffffff', '#ffffff']}
+                  colors={[color, '#60ff04', '#ffffff']}
                   size={1}
                 />
               </MeshDistortMaterial>
@@ -61,4 +57,4 @@ export function InstagramLogo(props) {
   );
 }
 
-useGLTF.preload('/3d/icon/instagram.glb');
+useGLTF.preload('/3d/icon/linked.glb');

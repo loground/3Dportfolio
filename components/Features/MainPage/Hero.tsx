@@ -4,7 +4,10 @@ import { Model } from '../../3Dmodels/Model';
 import { OrbitControls } from '@react-three/drei';
 import ScrambleIn from './AnimatedTooltip';
 import RightWall from '../../3Dmodels/Background';
-import { InstaB } from '../../3Dmodels/icons/Instagram';
+import { TwitterLogo } from '../../3Dmodels/icons/Twitter';
+import { InstagramLogo } from '../../3Dmodels/icons/Instagram';
+import { LinkedLogo } from '../../3Dmodels/icons/LinkedIn';
+import { GithubLogo } from '../../3Dmodels/icons/Github';
 
 const Hero = () => {
   const [hovered, setIsHovered] = React.useState(false);
@@ -28,7 +31,11 @@ const Hero = () => {
           <pointLight position={[0, 0, 4]} power={30.0} />
 
           <RightWall />
-
+          <ambientLight intensity={0.5} />
+          <TwitterLogo />
+          <InstagramLogo />
+          <LinkedLogo />
+          <GithubLogo />
           <Model
             onPointerEnter={() => setIsHovered(true)}
             onPointerLeave={() => setIsHovered(false)}
