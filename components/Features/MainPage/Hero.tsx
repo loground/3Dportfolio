@@ -2,6 +2,9 @@ import React, { Suspense, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Model } from '../../3Dmodels/Model';
 import { OrbitControls } from '@react-three/drei';
+import ScrambleIn from './AnimatedTooltip';
+import RightWall from '../../3Dmodels/Background';
+import { BoxGeometry } from 'three';
 
 const Hero = () => {
   return (
@@ -14,13 +17,12 @@ const Hero = () => {
             Get Ready!
           </div>
         }>
-        <p className="absolute z-20 top-20 left-[45%] md:left-[47%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white">
-          {' '}
-          it is me
-        </p>
+        <ScrambleIn />
+
         <Canvas gl={{ antialias: false }} className="bg-white opacity-80" style={{ height: '85%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 4]} power={30.0} />
+          <RightWall />
           <Model position={[0, -2, 3]} />
           <OrbitControls
             enableZoom={false}
@@ -32,7 +34,7 @@ const Hero = () => {
         </Canvas>
       </Suspense>
       <h1 className="absolute w-[100vw] h-[30vh] text-white font-xl p-5 text-4xl mt-[-25%] md:mt-[-6%] lg:mt-[-7%] rounded-2xl bg-black md:text-5xl md:w-[100%]">
-        Nikita, 27, 🖖 Frontend {'=>'}{' '}
+        Nikita, 28, Frontend {'=>'}{' '}
         <a
           href="mailto:nickvoroninwork@gmail.com"
           className="bg-white hover:bg-black text-black text-3xl hover:text-white p-1 rounded-xl">

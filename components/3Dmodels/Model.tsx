@@ -16,18 +16,8 @@ type GLTFResult = GLTF & {
 
 export function Model(props: JSX.IntrinsicElements['group']) {
   const ref: any = useRef();
-  const { camera } = useThree();
-  const prevRotation = useRef(0);
 
   const [isHovered, setIsHovered] = React.useState(false);
-
-  useFrame(() => {
-    const deltaRotation = camera.rotation.y - prevRotation.current;
-    if (deltaRotation > 0.01) {
-      window.scrollBy(0, deltaRotation * 200);
-      prevRotation.current = camera.rotation.y;
-    }
-  });
 
   const { nodes, materials } = useGLTF('/3d/self2.glb') as GLTFResult;
 

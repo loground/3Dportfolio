@@ -24,8 +24,8 @@ const SkateSchool = () => {
           Non-commercial skate-project
         </h3>
         <p className="text-base md:text-lg text-white my-4 md:my-6">
-          Ran a little skate-school in my hometown where me and my friends gaveaway free skateboards
-          to local kids and explained them basics about skateboarding.
+          Ran a little skate-school in my hometown where me and friends gaveaway free skateboards to
+          local kids and taught them basics of skateboarding.
         </p>
         <button
           onClick={handleMoveToBrains}
@@ -124,7 +124,7 @@ const generateSquares = (): JSX.Element[] => {
     <motion.div
       key={sq.id}
       layout
-      transition={{ duration: 1.5, type: 'spring' }}
+      transition={{ duration: 3.5, type: 'spring' }}
       className="w-full h-full"
       style={{
         backgroundImage: `url(${sq.src})`,
@@ -155,7 +155,7 @@ const ShuffleGrid = () => {
       clearTimeout(timeoutRef.current);
     }
 
-    timeoutRef.current = setTimeout(shuffleSquares, 3000);
+    timeoutRef.current = setTimeout(shuffleSquares, 5000);
   };
 
   return (
