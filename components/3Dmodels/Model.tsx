@@ -27,19 +27,17 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     }
   });
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
     <group
       {...props}
-      onPointerEnter={handleMouseEnter}
-      onPointerLeave={handleMouseLeave}
+      onPointerEnter={(e) => {
+        setIsHovered(true);
+        props.onPointerEnter?.(e);
+      }}
+      onPointerLeave={(e) => {
+        setIsHovered(false);
+        props.onPointerLeave?.(e);
+      }}
       dispose={null}
       ref={ref}>
       <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />

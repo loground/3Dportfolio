@@ -1,12 +1,16 @@
-import React, { Suspense, useRef, useEffect } from 'react';
+import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Model } from '../../3Dmodels/Model';
 import { OrbitControls } from '@react-three/drei';
 import ScrambleIn from './AnimatedTooltip';
 import RightWall from '../../3Dmodels/Background';
-import { BoxGeometry } from 'three';
+import { InstaB } from '../../3Dmodels/icons/Instagram';
 
 const Hero = () => {
+  const [hovered, setIsHovered] = React.useState(false);
+
+  console.log(hovered);
+
   return (
     <div className="relative h-screen items-center">
       <Suspense
@@ -17,13 +21,19 @@ const Hero = () => {
             Get Ready!
           </div>
         }>
-        <ScrambleIn />
+        <ScrambleIn isHovered={hovered} />
 
         <Canvas gl={{ antialias: false }} className="bg-white opacity-80" style={{ height: '85%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 4]} power={30.0} />
+
           <RightWall />
-          <Model position={[0, -2, 3]} />
+
+          <Model
+            onPointerEnter={() => setIsHovered(true)}
+            onPointerLeave={() => setIsHovered(false)}
+            position={[0, -2, 3.3]}
+          />
           <OrbitControls
             enableZoom={false}
             enablePan={false}

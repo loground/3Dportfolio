@@ -70,10 +70,10 @@ export function DissolveMaterial({
   baseMaterial,
   mode,
   isHovered,
-  thickness = 10,
-  feather = 5,
-  color = '#f86dff',
-  intensity = 25,
+  thickness = 20,
+  feather = 8,
+  color = '#CCCC0D',
+  intensity = 5,
 }: DissolveMaterialProps) {
   const targetPosition = React.useRef(new THREE.Vector3());
   const lerpSpeed = 0.03; // Adjust this value to change animation speed
@@ -86,7 +86,7 @@ export function DissolveMaterial({
 
   React.useEffect(() => {
     // Set the target position based on hover state
-    targetPosition.current.set(isHovered ? 0 : -4, isHovered ? 1 : 1, 0);
+    targetPosition.current.set(isHovered ? 0 : -8, isHovered ? 1 : 1, 0);
   }, [isHovered]);
 
   useFrame(() => {

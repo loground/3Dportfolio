@@ -2,6 +2,8 @@ import { useFrame } from '@react-three/fiber';
 import { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 
+//Shader Liquid spectrum, all props to ryk for making it
+
 const RightWall = () => {
   const meshRef = useRef();
   const [iTime, setITime] = useState(0);
@@ -41,7 +43,7 @@ const RightWall = () => {
       varying vec2 vUv;
       void main() {
         vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0) ;
       }
     `,
     fragmentShader: `
@@ -51,7 +53,7 @@ const RightWall = () => {
       float ltime;
 
       float noise(vec2 p) {
-        return sin(p.x*10.0) * sin(p.y*(3.0 + sin(ltime/11.0))) + 0.2;
+        return sin(p.x*10.0) * sin(p.y*(3.0 + sin(ltime/11.0))) + 0.3;
       }
 
       mat2 rotate(float angle) {
@@ -91,7 +93,7 @@ const RightWall = () => {
       }
 
       void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-        vec2 p = fragCoord.xy / iResolution.xy;
+        vec2 p = fragCoord.xy / iResolution.xy ;
         ltime = iTime;
         float ctime = iTime + fbm(p/8.0) * 40.0;
         float ftime = fract(ctime/6.0);

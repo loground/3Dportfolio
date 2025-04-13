@@ -1,21 +1,43 @@
 'use client';
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';
 
-const ScrambleIn = forwardRef(
+type ScrambleInProps = {
+  isHovered: boolean;
+  text?: string;
+  scrambleSpeed?: number;
+  scrambledLetterCount?: number;
+  characters?: string;
+  className?: string;
+  scrambledClassName?: string;
+  autoStart?: boolean;
+  onStart?: () => void;
+  onComplete?: () => void;
+};
+
+const ScrambleIn = forwardRef<any, ScrambleInProps>(
   (
     {
-      text = 'Hi, I make frontend and some projects are behind me, have fun!',
-      scrambleSpeed = 40,
+      isHovered,
+      text,
+      scrambleSpeed = 30,
       scrambledLetterCount = 1,
       characters = '{b}[]/logrund',
-      className = 'absolute z-20 text-center top-20 text-sm left-[5%] md:text-lg md:left-[20%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white',
-      scrambledClassName = 'absolute z-20 text-center text-sm top-20 left-[80%] md:left-[20%] select-none  rounded-xl p-1 px-2 text-white',
+      className = isHovered
+        ? 'absolute z-20 text-center top-20 text-sm left-[39%] m-2 md:text-lg md:left-[42%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white'
+        : 'absolute z-20 text-center top-20 text-sm left-[0%] m-2 md:text-lg md:left-[1%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white',
+      scrambledClassName = 'absolute z-20 text-center text-sm top-20 left-[80%] md:left-[1%] select-none  rounded-xl p-1 px-2 text-white',
       autoStart = true,
       onStart,
       onComplete,
     },
     ref,
   ) => {
+    const actualText =
+      text ??
+      (isHovered
+        ? 'I have told you.'
+        : 'Hello! Scroll down for all my works. My socials behind. Do not point your mouse on me, or I will disappear.');
+
     const [displayText, setDisplayText] = useState('');
     const [isAnimating, setIsAnimating] = useState(false);
     const [visibleLetterCount, setVisibleLetterCount] = useState(0);
@@ -41,42 +63,34 @@ const ScrambleIn = forwardRef(
     }));
 
     useEffect(() => {
-      if (autoStart) {
-        startAnimation();
-      }
-    }, [autoStart, startAnimation]);
+      reset();
+      startAnimation();
+    }, [isHovered, startAnimation, reset]);
 
     useEffect(() => {
-      let interval;
+      let interval: any;
 
       if (isAnimating) {
         interval = setInterval(() => {
-          // Increase visible text length
-          if (visibleLetterCount < text.length) {
+          if (visibleLetterCount < actualText.length) {
             setVisibleLetterCount((prev) => prev + 1);
-          }
-          // Start sliding scrambled text out
-          else if (scrambleOffset < scrambledLetterCount) {
+          } else if (scrambleOffset < scrambledLetterCount) {
             setScrambleOffset((prev) => prev + 1);
-          }
-          // Complete animation
-          else {
+          } else {
             clearInterval(interval);
             setIsAnimating(false);
             onComplete?.();
           }
 
-          // Calculate how many scrambled letters we can show
-          const remainingSpace = Math.max(0, text.length - visibleLetterCount);
+          const remainingSpace = Math.max(0, actualText.length - visibleLetterCount);
           const currentScrambleCount = Math.min(remainingSpace, scrambledLetterCount);
 
-          // Generate scrambled text
           const scrambledPart = Array(currentScrambleCount)
             .fill(0)
             .map(() => characters[Math.floor(Math.random() * characters.length)])
             .join('');
 
-          setDisplayText(text.slice(0, visibleLetterCount) + scrambledPart);
+          setDisplayText(actualText.slice(0, visibleLetterCount) + scrambledPart);
         }, scrambleSpeed);
       }
 
@@ -85,7 +99,7 @@ const ScrambleIn = forwardRef(
       };
     }, [
       isAnimating,
-      text,
+      actualText,
       visibleLetterCount,
       scrambleOffset,
       scrambledLetterCount,
@@ -108,7 +122,7 @@ const ScrambleIn = forwardRef(
 
     return (
       <>
-        <span className="sr-only">{text}</span>
+        <span className="sr-only">{actualText}</span>
         <span className="inline-block whitespace-pre-wrap" aria-hidden="true">
           {renderText()}
         </span>
