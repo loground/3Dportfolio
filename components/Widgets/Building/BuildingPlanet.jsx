@@ -1036,45 +1036,48 @@ export default function InfiniteMenu({ items = [] }) {
           {/* Title */}
           <h2
             className={`
-          select-none
-          absolute
-          text-white
-          font-black
-          [font-size:3rem]
-          left-[0em]
-          top-1/2
-          transform
-          translate-x-[20%]
-          -translate-y-1/2
-          transition-all
-          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? 'opacity-0 pointer-events-none duration-[100ms]'
-              : 'opacity-100 pointer-events-auto duration-[500ms]'
-          }
-        `}>
+    select-none
+    absolute
+    text-white
+    font-black
+    [font-size:3rem]
+    top-8
+    md:top-5
+    left-1/2
+    transform
+    -translate-x-1/2
+    transition-all
+    ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+    ${
+      isMoving
+        ? 'opacity-0 pointer-events-none duration-[100ms]'
+        : 'opacity-100 pointer-events-auto duration-[500ms]'
+    }
+  `}>
             {activeItem.title}
           </h2>
 
-          {/* Description */}
           <p
             className={`
-          select-none
-          absolute
-          max-w-[10ch]
-          text-white
-          text-[1.5rem]
-          top-1/2
-          right-[-10%]
-          transition-all
-          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? 'opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2'
-              : 'opacity-100 pointer-events-auto duration-[500ms] translate-x-[-90%] -translate-y-1/2'
-          }
-        `}>
+    select-none
+    absolute
+    text-white
+    text-[1rem]
+    md:text-[1.3rem]
+    max-w-[60ch]
+   bottom-6
+    left-1/2
+    transform
+    -translate-x-1/2
+    transition-all
+    text-center
+    ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+    ${
+      isMoving
+        ? 'opacity-0 pointer-events-none duration-[100ms] translate-y-[20%]'
+        : 'opacity-100 pointer-events-auto duration-[500ms] translate-y-0'
+    }
+  `}>
             {activeItem.description}
           </p>
 
