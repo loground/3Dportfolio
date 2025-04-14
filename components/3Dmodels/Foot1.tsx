@@ -27,16 +27,15 @@ export function Foot1(props: JSX.IntrinsicElements['group']) {
   return (
     <>
       <Text3D
-        font="/font/Wilker.json"
+        font="/font/Jumpking.json"
         material={new THREE.MeshStandardMaterial()}
         size={1.5}
         height={0.1}
-        curveSegments={32}
         bevelEnabled
-        bevelThickness={0.03}
-        bevelSize={0.02}
-        bevelOffset={0}
-        position={[-2.8, 3, -2]}>
+        bevelThickness={0.05}
+        bevelSize={0.1}
+        bevelOffset={-0.08}
+        position={[-2.5, 2.8, -2]}>
         Legs
       </Text3D>
       <group {...props} dispose={null} ref={ref}>

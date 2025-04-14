@@ -27,16 +27,15 @@ export function Brain(props: JSX.IntrinsicElements['group']) {
   return (
     <>
       <Text3D
-        font="/font/Wilker.json"
+        font="/font/Jumpking.json"
         material={new THREE.MeshStandardMaterial()}
         size={1}
         height={0.1}
-        curveSegments={32}
         bevelEnabled
-        bevelThickness={0.03}
-        bevelSize={0.02}
-        bevelOffset={0}
-        position={[-2.6, 2, 0]}>
+        bevelThickness={0.05}
+        bevelSize={0.1}
+        bevelOffset={-0.08}
+        position={[-2, 2, 0]}>
         Brain
       </Text3D>
       <group {...props} dispose={null} ref={ref}>
