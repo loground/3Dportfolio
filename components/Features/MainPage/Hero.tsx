@@ -1,5 +1,6 @@
 import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
+
 import { Model } from '../../3Dmodels/Model';
 import { OrbitControls } from '@react-three/drei';
 import ScrambleIn from './AnimatedTooltip';
@@ -45,6 +46,7 @@ const Hero = () => {
             onPointerLeave={() => setIsHovered(false)}
             position={[0, -1, 2.6]}
           />
+
           <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </Suspense>

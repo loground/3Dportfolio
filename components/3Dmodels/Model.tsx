@@ -27,6 +27,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     }
   });
 
+  console.log(isHovered);
   return (
     <group
       {...props}
@@ -40,8 +41,9 @@ export function Model(props: JSX.IntrinsicElements['group']) {
       }}
       dispose={null}
       ref={ref}>
-      <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />
-      <DissolveMaterial baseMaterial={materials.main} isHovered={isHovered} />
+      <mesh castShadow receiveShadow geometry={nodes.mesh.geometry}>
+        <DissolveMaterial baseMaterial={materials.main} isHovered={isHovered} />
+      </mesh>
     </group>
   );
 }
