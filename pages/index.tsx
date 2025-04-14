@@ -6,6 +6,7 @@ import Socials from '@/components/Widgets/Socials';
 import dynamic from 'next/dynamic';
 import Navbar from '@/components/Widgets/Navbar';
 import Head from 'next/head';
+import LetterGlitch from '../components/Widgets/MainPage/TrippyPassword';
 
 const Home = () => {
   const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'));
@@ -40,7 +41,8 @@ const Home = () => {
         <Hero />
       </div>
       <div className="relative">
-        <TrippyScroll />
+        {/* <TrippyScroll /> */}
+        <LetterGlitch />
         <div className="flex justify-center items-center">
           {isClient &&
             (isAuthenticated ? (
