@@ -34,9 +34,10 @@ const Hero = () => {
           style={{ height: '85%' }}>
           <directionalLight />
           <pointLight position={[0, 0, 4]} power={30.0} />
-
+          <pointLight position={[1, 0, 1]} power={20.0} />
+          <pointLight position={[-1, 0, 1]} power={20.0} />
           <RightWall />
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.4} />
           <TwitterLogo />
           <InstagramLogo />
           <LinkedLogo />

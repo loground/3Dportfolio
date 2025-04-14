@@ -4,6 +4,7 @@ import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { useFrame } from '@react-three/fiber';
 import { Text3D } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -14,11 +15,11 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Hand1(props: JSX.IntrinsicElements['group']) {
+export function Hand1({ isHovered, ...props }: any) {
   const ref: any = useRef();
 
   useFrame(({ clock }) => {
-    if (ref.current) {
+    if (ref.current && isHovered) {
       ref.current.rotation.y = clock.getElapsedTime() * 0.8;
     }
   });
@@ -26,18 +27,20 @@ export function Hand1(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/3d/hand2.glb') as GLTFResult;
   return (
     <>
-      <Text3D
-        font="/font/Jumpking.json"
-        material={new THREE.MeshStandardMaterial()}
-        size={1}
-        height={0.1}
-        bevelEnabled
-        bevelThickness={0.05}
-        bevelSize={0.1}
-        bevelOffset={-0.08}
-        position={[-2.4, 2, 0]}>
-        HANDS
-      </Text3D>
+      <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5} floatingRange={[0, 1]}>
+        <Text3D
+          font="/font/Jumpking.json"
+          material={new THREE.MeshStandardMaterial()}
+          size={1}
+          height={0.1}
+          bevelEnabled
+          bevelThickness={0.05}
+          bevelSize={0.1}
+          bevelOffset={-0.08}
+          position={[-2.4, 2, 0]}>
+          HANDS
+        </Text3D>
+      </Float>
       <meshStandardMaterial color="#000" />
       <group {...props} dispose={null} ref={ref}>
         <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />

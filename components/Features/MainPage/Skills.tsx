@@ -8,10 +8,10 @@ import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
 
 const Skills = () => {
-  const [showHoverDivHand, setShowHoverDivHand] = React.useState(false);
-  const [showHoverDivFoot, setShowHoverDivFoot] = React.useState(false);
-  const [showHoverDivBrain, setShowHoverDivBrain] = React.useState(false);
-  const [showHoverDivFace, setShowHoverDivFace] = React.useState(false);
+  const [isHoveredHand, setIsHoveredHand] = React.useState(false);
+  const [isHoveredLegs, setIsHoveredLegs] = React.useState(false);
+  const [isHoveredBrain, setIsHoveredBrain] = React.useState(false);
+  const [isHoveredFace, setIsHoveredFace] = React.useState(false);
 
   const router = useRouter();
   const handleHandClick = () => {
@@ -42,12 +42,14 @@ const Skills = () => {
         }>
         <div onClick={handleHandClick} className="w-[48%] m-1 h-[48%] hover:cursor-pointer">
           <Canvas
+            onPointerEnter={() => setIsHoveredHand(true)}
+            onPointerLeave={() => setIsHoveredHand(false)}
             gl={{ antialias: false }}
             className="bg-white rounded-xl"
             style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 1, 4.6]} power={30.0} />
-            <Hand1 position={[0, -0.2, 4.3]} />
+            <Hand1 isHovered={isHoveredHand} position={[0, -0.2, 4.3]} />
           </Canvas>
         </div>
       </Suspense>
@@ -61,12 +63,14 @@ const Skills = () => {
         }>
         <div onClick={handleFootClick} className="w-[48%] m-1 h-[48%] hover:cursor-pointer">
           <Canvas
+            onPointerEnter={() => setIsHoveredLegs(true)}
+            onPointerLeave={() => setIsHoveredLegs(false)}
             gl={{ antialias: false }}
             className="bg-white  rounded-xl"
             style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 0, 4]} power={40.0} />
-            <Foot1 position={[0, -0.5, 3.3]} />
+            <Foot1 isHovered={isHoveredLegs} position={[0, -0.5, 3.3]} />
           </Canvas>
         </div>
       </Suspense>
@@ -80,12 +84,14 @@ const Skills = () => {
         }>
         <div className="w-[48%] h-[48%] m-1 hover:cursor-pointer" onClick={handleBrainClick}>
           <Canvas
+            onPointerEnter={() => setIsHoveredBrain(true)}
+            onPointerLeave={() => setIsHoveredBrain(false)}
             gl={{ antialias: false }}
             className="bg-white rounded-xl"
             style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 0.3, 2.3]} power={40.0} />
-            <Brain position={[0, -1.2, 1.8]} />
+            <Brain isHovered={isHoveredBrain} position={[0, -1.2, 1.8]} />
           </Canvas>
         </div>
       </Suspense>
@@ -99,12 +105,14 @@ const Skills = () => {
         }>
         <div className="w-[48%] m-1 h-[48%]  hover:cursor-pointer" onClick={handleFaceClick}>
           <Canvas
+            onPointerEnter={() => setIsHoveredFace(true)}
+            onPointerLeave={() => setIsHoveredFace(false)}
             gl={{ antialias: false }}
             className="bg-white rounded-xl"
             style={{ width: '100%', height: '100%' }}>
             <directionalLight />
             <pointLight position={[0, 0.5, 5]} power={30.0} />
-            <Face position={[0, -0.4, 4.3]} />
+            <Face isHovered={isHoveredFace} position={[0, -0.4, 4.3]} />
           </Canvas>
         </div>
       </Suspense>
