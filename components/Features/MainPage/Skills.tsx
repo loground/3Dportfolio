@@ -7,15 +7,7 @@ import React, { Suspense } from 'react';
 
 import { useRouter } from 'next/router';
 
-import CustomTooltip from '../../Shared/CustomTooltip';
-import Image from 'next/image';
-
 const Skills = () => {
-  const [tooltipPositionHand, setTooltipPositionHand] = React.useState({ top: 5, left: 5 });
-  const [tooltipPositionFoot, setTooltipPositionFoot] = React.useState({ top: 5, left: 215 });
-  const [tooltipPositionArm, setTooltipPositionArm] = React.useState({ top: 455, left: 5 });
-  const [tooltipPositionFace, setTooltipPositionFace] = React.useState({ top: 455, left: 215 });
-
   const [showHoverDivHand, setShowHoverDivHand] = React.useState(false);
   const [showHoverDivFoot, setShowHoverDivFoot] = React.useState(false);
   const [showHoverDivBrain, setShowHoverDivBrain] = React.useState(false);
@@ -38,83 +30,6 @@ const Skills = () => {
     router.push('/Facejobs');
   };
 
-  React.useEffect(() => {
-    const updatePositions = () => {
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 950) {
-        setTooltipPositionFoot({ top: 5, left: 455 });
-      } else if (screenWidth >= 840) {
-        setTooltipPositionFoot({ top: 5, left: 450 });
-      } else if (screenWidth >= 720) {
-        setTooltipPositionFoot({ top: 5, left: 420 });
-      } else if (screenWidth >= 680) {
-        setTooltipPositionFoot({ top: 5, left: 360 });
-      } else if (screenWidth >= 640) {
-        setTooltipPositionFoot({ top: 5, left: 340 });
-      } else if (screenWidth >= 600) {
-        setTooltipPositionFoot({ top: 5, left: 320 });
-      } else if (screenWidth >= 560) {
-        setTooltipPositionFoot({ top: 5, left: 300 });
-      } else if (screenWidth >= 540) {
-        setTooltipPositionFoot({ top: 5, left: 280 });
-      } else if (screenWidth >= 520) {
-        setTooltipPositionFoot({ top: 5, left: 270 });
-      } else if (screenWidth >= 500) {
-        setTooltipPositionFoot({ top: 5, left: 260 });
-      } else if (screenWidth >= 440) {
-        setTooltipPositionFoot({ top: 5, left: 250 });
-      } else if (screenWidth >= 420) {
-        setTooltipPositionFoot({ top: 5, left: 220 });
-      } else {
-        setTooltipPositionFoot({ top: 5, left: 215 });
-      }
-
-      if (screenWidth >= 950) {
-        setTooltipPositionArm({ top: 390, left: 5 });
-      } else if (screenWidth >= 720) {
-        setTooltipPositionArm({ top: 390, left: 5 });
-      } else if (screenWidth >= 500) {
-        setTooltipPositionArm({ top: 390, left: 5 });
-      } else {
-        setTooltipPositionArm({ top: 435, left: 5 });
-      }
-
-      if (screenWidth >= 950) {
-        setTooltipPositionFace({ top: 390, left: 455 });
-      } else if (screenWidth >= 840) {
-        setTooltipPositionFace({ top: 390, left: 450 });
-      } else if (screenWidth >= 720) {
-        setTooltipPositionFace({ top: 390, left: 420 });
-      } else if (screenWidth >= 680) {
-        setTooltipPositionFace({ top: 390, left: 360 });
-      } else if (screenWidth >= 640) {
-        setTooltipPositionFace({ top: 390, left: 340 });
-      } else if (screenWidth >= 600) {
-        setTooltipPositionFace({ top: 390, left: 320 });
-      } else if (screenWidth >= 560) {
-        setTooltipPositionFace({ top: 390, left: 300 });
-      } else if (screenWidth >= 540) {
-        setTooltipPositionFace({ top: 390, left: 280 });
-      } else if (screenWidth >= 520) {
-        setTooltipPositionFace({ top: 390, left: 270 });
-      } else if (screenWidth >= 500) {
-        setTooltipPositionFace({ top: 390, left: 260 });
-      } else if (screenWidth >= 440) {
-        setTooltipPositionFace({ top: 390, left: 250 });
-      } else if (screenWidth >= 420) {
-        setTooltipPositionFace({ top: 390, left: 220 });
-      } else {
-        setTooltipPositionFace({ top: 435, left: 215 });
-      }
-    };
-
-    updatePositions();
-    window.addEventListener('resize', updatePositions);
-
-    return () => window.removeEventListener('resize', updatePositions);
-  }, []);
-
   return (
     <div className="relative h-screen items-center flex flex-wrap justify-center">
       <Suspense
@@ -125,32 +40,15 @@ const Skills = () => {
             Loading hand
           </div>
         }>
-        <div
-          onClick={handleHandClick}
-          className="w-[50%] h-[50%] hover:cursor-pointer"
-          onMouseEnter={() => setShowHoverDivHand(true)}
-          onMouseLeave={() => setShowHoverDivHand(false)}>
-          {showHoverDivHand ? (
-            <div className="flex flex-col rounded-xl bg-zinc-900 h-[100%] justify-center items-center">
-              <h1 className="text-white text-2xl text-center">Skateparks building</h1>
-              <p className="text-white text-center p-5">
-                was my favorite thing to do besides skateboarding itself.
-              </p>
-              <button className="btn-neutral rounded-xl flex justify-center text-white text-md mt-2 p-2">
-                See projects
-              </button>
-            </div>
-          ) : (
-            <Canvas
-              gl={{ antialias: false }}
-              className="bg-white rounded-xl"
-              style={{ width: '100%', height: '100%' }}>
-              <directionalLight />
-              <pointLight position={[0, 1, 4.6]} power={8.0} />
-              <Hand1 position={[0, -0.2, 4.3]} />
-            </Canvas>
-          )}
-          <CustomTooltip tooltipTextToDisplay="Hands" position={tooltipPositionHand} />
+        <div onClick={handleHandClick} className="w-[50%] h-[50%] hover:cursor-pointer">
+          <Canvas
+            gl={{ antialias: false }}
+            className="bg-white rounded-xl"
+            style={{ width: '100%', height: '100%' }}>
+            <directionalLight />
+            <pointLight position={[0, 1, 4.6]} power={8.0} />
+            <Hand1 position={[0, -0.2, 4.3]} />
+          </Canvas>
         </div>
       </Suspense>
       <Suspense
@@ -184,8 +82,6 @@ const Skills = () => {
               <Foot1 position={[0, -0.5, 4]} />
             </Canvas>
           )}
-
-          <CustomTooltip tooltipTextToDisplay="Feet" position={tooltipPositionFoot} />
         </div>
       </Suspense>
       <Suspense
@@ -220,8 +116,6 @@ const Skills = () => {
               <Brain position={[0, -1, 2]} />
             </Canvas>
           )}
-
-          <CustomTooltip tooltipTextToDisplay="Brains" position={tooltipPositionArm} />
         </div>
       </Suspense>
       <Suspense
@@ -255,8 +149,6 @@ const Skills = () => {
               <Face position={[0, -0.3, 4.5]} />
             </Canvas>
           )}
-
-          <CustomTooltip tooltipTextToDisplay="Face" position={tooltipPositionFace} />
         </div>
       </Suspense>
     </div>

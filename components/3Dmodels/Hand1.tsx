@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { useFrame } from '@react-three/fiber';
+import { Text3D } from '@react-three/drei';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -24,9 +25,24 @@ export function Hand1(props: JSX.IntrinsicElements['group']) {
 
   const { nodes, materials } = useGLTF('/3d/hand2.glb') as GLTFResult;
   return (
-    <group {...props} dispose={null} ref={ref}>
-      <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />
-    </group>
+    <>
+      <Text3D
+        font="/font/Wilker.json"
+        size={1}
+        height={0.1}
+        curveSegments={32}
+        bevelEnabled
+        bevelThickness={0.03}
+        bevelSize={0.02}
+        bevelOffset={0}
+        position={[-2.6, 0, 0]}>
+        Hands
+      </Text3D>
+      <meshStandardMaterial color="#000" />
+      <group {...props} dispose={null} ref={ref}>
+        <mesh castShadow receiveShadow geometry={nodes.mesh.geometry} material={materials.main} />
+      </group>
+    </>
   );
 }
 

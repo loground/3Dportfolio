@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import Navbar from '@/components/Widgets/Navbar';
 import Head from 'next/head';
 import LetterGlitch from '../components/Widgets/MainPage/TrippyPassword';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'));
@@ -59,10 +60,18 @@ const Home = () => {
       </div>
       {isClient && (
         <div className="relative">
-          {isAuthenticated ? <Skills /> : <PasswordInput onPasswordCorrect={setIsAuthenticated} />}
+          {isAuthenticated ? (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 10 }}
+              transition={{ duration: 4, ease: [0.25, 0.1, 0.25, 1.0] }}>
+              <Skills />
+            </motion.div>
+          ) : (
+            <PasswordInput onPasswordCorrect={setIsAuthenticated} />
+          )}
         </div>
       )}
-      <Socials />
     </div>
   );
 };
