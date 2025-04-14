@@ -18,6 +18,7 @@
     "d3-ease": "^3.0.1",
     "framer-motion": "^10.16.4",
     "framer-motion-3d": "^10.16.4",
+    "gl-matrix": "^3.4.3",
     "gl-noise": "^1.6.1",
     "jotai": "^2.5.0",
     "merge": "^2.1.1",

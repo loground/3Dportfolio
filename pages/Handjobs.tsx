@@ -1,5 +1,6 @@
 import DottedButton from '@/components/Shared/DottedButton';
 import BuildingCompanyPics from '@/components/Widgets/Building/BuildingCompanyCard';
+import InfiniteMenu from '@/components/Widgets/Building/BuildingPlanet';
 
 import React from 'react';
 
@@ -42,83 +43,15 @@ const Handjobs = () => {
         }}>
         <p className="flex justify-center text-white text-l md:text-xl xl:text-xl xl:mt-40 m-15 mt-40 ml-3 md:m-16">
           Building Is hella fun, I loved it a lot. Best times with best people creating something
-          significant out of nothing is a pure magic. Here are some of my works:
+          significant out of nothing is a pure magic. Teamwork, work under the pressure, nighshifts,
+          everyday problem-solving. I miss it! Here are some of my works:
         </p>
       </div>
-      <div>
-        <p
-          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
-          onClick={() => window.open('https://xsaramps.com/projects/', '_blank')}>
-          XSA
-        </p>
-        <p className="text-white font-m text-xl ml-7 mt-2 md:ml-7 lg:ml-7 ">
-          Building a concrete skatepark projects. Was involved into several projects in: Krasnodar,
-          Simeiz and Armavir. All parks were built from scratch.
-        </p>
-        <div className="flex flex-row mt-2">
-          <p className="text-white font-m text-2xl mt-1 ml-7">Skills:</p>
-          <p className="text-white font-m text-xl mt-2 ml-2">
-            wood processing, concrete work, planning, reading documentation, communication
-          </p>
-        </div>
-        <BuildingCompanyPics card={cardXSA} />
-      </div>
-      <div>
-        <p
-          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
-          onClick={() => window.open('https://rampstroy.com', '_blank')}>
-          Rampstroy
-        </p>
-        <p className="text-white font-m text-xl ml-7 mt-2 md:ml-7 lg:ml-7 ">
-          Building a wooden skatepark projects with concrete elements. Was involved as regular
-          worker with wooden constructions and as project manajer for concrete part. All parks were
-          built for project called Moscow Seasons.
-        </p>
-        <div className="flex flex-row mt-2">
-          <p className="text-white font-m text-2xl mt-1 ml-7">Skills:</p>
-          <p className="text-white font-m text-xl mt-2 ml-2">
-            wood processing, concrete work, planning, personnel Management, communication, material
-            management, reports making.
-          </p>
-        </div>
-        <BuildingCompanyPics card={cardRampstroy} />
-      </div>
-      <div>
-        <p
-          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
-          onClick={() => window.open('https://xsaramps.com/projects/', '_blank')}>
-          NBD
-        </p>
-        <p className="text-white font-m text-xl ml-7 mt-2 md:ml-7 lg:ml-7 ">
-          Building several concrete skateparks projects. Using colored concrete.
-        </p>
-        <div className="flex flex-row mt-2">
-          <p className="text-white font-m text-2xl mt-1 ml-7">Skills:</p>
-          <p className="text-white font-m text-xl mt-2 ml-2">
-            wood processing, concrete work, planning, reading documentation, communication
-          </p>
-        </div>
-        <BuildingCompanyPics card={cardNBD} />
-      </div>
-      <div>
-        <p
-          className="text-white font-xl text-4xl  ml-7 mt-2 md:ml-7 lg:ml-7 hover:cursor-pointer hover:text-gray-500"
-          onClick={() => window.open('https://xsaramps.com/projects/', '_blank')}>
-          Moses
-        </p>
-        <p className="text-white font-m text-xl ml-7 mt-2 md:ml-7 lg:ml-7 ">
-          Wooden outdoorn and indoor skateparks
-        </p>
-        <div className="flex flex-row mt-2">
-          <p className="text-white font-m text-2xl mt-1 ml-7">Skills:</p>
-          <p className="text-white font-m text-xl mt-2 ml-2">
-            wood processing, planning, reading documentation, communication
-          </p>
-        </div>
-        <BuildingCompanyPics card={cardMoses} />
-      </div>
-      <div className="flex justify-center pb-20">
-        <DottedButton text="Move on to next page" action={moveToNextPage} />
+      <h1 className="text-white font-bold text-center text-3xl">
+        Swipe the image to see different projects:
+      </h1>
+      <div style={{ height: '600px', position: 'relative' }}>
+        <InfiniteMenu items={items} />
       </div>
     </div>
   );
@@ -126,105 +59,122 @@ const Handjobs = () => {
 
 export default Handjobs;
 
-const cardXSA = [
+const items = [
   {
-    url: '/skateparks/xsa/1.jpg',
+    image: '/skateparks/xsa/1.jpg',
     title: 'Krasnodar',
     id: 1,
+    description: 'Assisted in setting up the original bowl coping.',
   },
-  { url: '/skateparks/xsa/6.jpg', title: 'Simeiz', id: 2 },
   {
-    url: '/skateparks/xsa/4.jpg',
+    image: '/skateparks/xsa/6.jpg',
+    title: 'Simeiz',
+    id: 2,
+    description: 'Handled the entire concrete build from the ground up.',
+  },
+  {
+    image: '/skateparks/xsa/4.jpg',
     title: 'Armavir',
     id: 3,
+    description: 'Led full construction of a custom concrete park with colored surfaces.',
   },
   {
-    url: '/skateparks/xsa/3.jpg',
+    image: '/skateparks/xsa/3.jpg',
     title: 'Simeiz',
     id: 4,
+    description: 'Hand-shaped a custom skate table.',
   },
   {
-    url: '/skateparks/xsa/5.jpg',
+    image: '/skateparks/xsa/5.jpg',
     title: 'Armavir',
     id: 5,
+    description: 'Aerial drone view of the completed Armavir park.',
   },
   {
-    url: '/skateparks/xsa/2.jpg',
+    image: '/skateparks/xsa/2.jpg',
     title: 'Simeiz',
     id: 6,
+    description: 'Installed copings on a custom-built table.',
   },
-];
-
-const cardRampstroy = [
   {
-    url: '/skateparks/rampstroy/1.jpg',
+    image: '/skateparks/rampstroy/1.jpg',
     title: 'Moscow',
-    id: 1,
+    id: 7,
+    description:
+      'Part of the "Moscow Seasons" wooden skatepark series with integrated concrete features.',
   },
   {
-    url: '/skateparks/rampstroy/6.jpg',
+    image: '/skateparks/rampstroy/6.jpg',
     title: 'Moscow',
-    id: 2,
+    id: 8,
+    description: 'Another piece from the "Moscow Seasons" modular skatepark series.',
   },
   {
-    url: '/skateparks/rampstroy/4.jpg',
+    image: '/skateparks/rampstroy/3.jpg',
     title: 'Moscow',
-    id: 3,
+    id: 10,
+    description:
+      'Project from the wooden skatepark series with concrete elements for "Moscow Seasons".',
   },
   {
-    url: '/skateparks/rampstroy/3.jpg',
+    image: '/skateparks/rampstroy/4.jpg',
     title: 'Moscow',
-    id: 4,
+    id: 9,
+    description: 'Continuation of the "Moscow Seasons" series — wood and concrete hybrid build.',
   },
   {
-    url: '/skateparks/rampstroy/2.jpg',
+    image: '/skateparks/rampstroy/2.jpg',
     title: 'Moscow',
-    id: 5,
+    id: 11,
+    description:
+      'Part of the wooden skatepark lineup for "Moscow Seasons" with concrete transitions.',
   },
-];
-
-const cardNBD = [
   {
-    url: '/skateparks/nbd/6.jpg',
+    image: '/skateparks/nbd/6.jpg',
     title: 'Moscow',
-    id: 1,
+    id: 12,
+    description: 'Complete concrete skatepark built from scratch.',
   },
   {
-    url: '/skateparks/nbd/4.jpg',
+    image: '/skateparks/nbd/4.jpg',
     title: 'Moscow',
-    id: 2,
+    id: 13,
+    description: 'Legend grinding, 532.',
   },
   {
-    url: '/skateparks/nbd/3.webp',
+    image: '/skateparks/nbd/3.webp',
     title: 'Nizhny Novgorod',
-    id: 3,
+    id: 14,
+    description: 'Red concrete skatepark constructed from scratch.',
   },
-];
-
-const cardMoses = [
   {
-    url: '/skateparks/moses/1.jpeg',
+    image: '/skateparks/moses/1.jpeg',
     title: 'Kapotnya',
-    id: 1,
+    id: 15,
+    description: 'Built a modular wooden skatepark.',
   },
   {
-    url: '/skateparks/moses/2.jpg',
+    image: '/skateparks/moses/2.jpg',
     title: 'Kapotnya',
-    id: 2,
+    id: 16,
+    description: 'Another view of the modular wooden skatepark.',
   },
   {
-    url: '/skateparks/moses/3.jpeg',
+    image: '/skateparks/moses/3.jpeg',
     title: 'Kapotnya',
-    id: 3,
+    id: 17,
+    description: 'Yet another angle of the wooden modular setup.',
   },
   {
-    url: '/skateparks/moses/5.png',
-    title: 'Saint-Petersburg',
-    id: 4,
+    image: '/skateparks/moses/5.png',
+    title: 'Saint Petersburg',
+    id: 18,
+    description: 'Custom-built wooden halfpipe.',
   },
   {
-    url: '/skateparks/moses/4.jpg',
-    title: 'Saint-Petersburg',
-    id: 5,
+    image: '/skateparks/moses/4.jpg',
+    title: 'Saint Petersburg',
+    id: 19,
+    description: 'Funbox design with multiple quarterpipes.',
   },
 ];
