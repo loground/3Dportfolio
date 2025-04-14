@@ -28,6 +28,7 @@ export function Hand1(props: JSX.IntrinsicElements['group']) {
     <>
       <Text3D
         font="/font/Wilker.json"
+        material={new THREE.MeshStandardMaterial()}
         size={1}
         height={0.1}
         curveSegments={32}
@@ -35,8 +36,8 @@ export function Hand1(props: JSX.IntrinsicElements['group']) {
         bevelThickness={0.03}
         bevelSize={0.02}
         bevelOffset={0}
-        position={[-2.6, 0, 0]}>
-        Hands
+        position={[-2.6, 2, 0]}>
+        HANDS
       </Text3D>
       <meshStandardMaterial color="#000" />
       <group {...props} dispose={null} ref={ref}>
