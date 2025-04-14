@@ -22,7 +22,7 @@ export function GithubLogo(props) {
   ]);
 
   const handleClick = () => {
-    window.open('https://x.com/nickvrnn', '_blank');
+    window.open('https://github.com/loground', '_blank');
   };
 
   const handlePointerEnter = () => {

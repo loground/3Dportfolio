@@ -11,7 +11,7 @@ export function LinkedLogo(props) {
   const [distortion, setDistortion] = useState(0.1);
 
   const handleClick = () => {
-    window.open('https://x.com/nickvrnn', '_blank');
+    window.open('https://www.linkedin.com/in/nikita-voronin-4b6758293/', '_blank');
   };
 
   const handlePointerEnter = () => {

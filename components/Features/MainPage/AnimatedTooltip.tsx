@@ -19,7 +19,7 @@ const ScrambleIn = forwardRef<any, ScrambleInProps>(
     {
       isHovered,
       text,
-      scrambleSpeed = 30,
+      scrambleSpeed = 20,
       scrambledLetterCount = 1,
       characters = '{b}[]/logrund',
       className = isHovered
