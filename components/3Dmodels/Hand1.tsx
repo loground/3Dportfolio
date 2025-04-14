@@ -37,7 +37,7 @@ export function Hand1({ isHovered, ...props }: any) {
           bevelThickness={0.05}
           bevelSize={0.1}
           bevelOffset={-0.08}
-          position={[-2.4, 2, 0]}>
+          position={[-2.4, 2, -2]}>
           HANDS
         </Text3D>
       </Float>

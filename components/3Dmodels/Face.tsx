@@ -37,7 +37,7 @@ export function Face({ isHovered, ...props }: any) {
           bevelThickness={0.05}
           bevelSize={0.1}
           bevelOffset={-0.08}
-          position={[-1.7, 2, 0]}>
+          position={[-1.7, 2, -2]}>
           Face
         </Text3D>
       </Float>

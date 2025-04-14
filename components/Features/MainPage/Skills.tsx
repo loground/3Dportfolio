@@ -40,7 +40,7 @@ const Skills = () => {
             Loading hand
           </div>
         }>
-        <div onClick={handleHandClick} className="w-[48%] m-1 h-[48%] hover:cursor-pointer">
+        <div onClick={handleHandClick} className="w-[48%] m-0.5 h-[48%] hover:cursor-pointer">
           <Canvas
             onPointerEnter={() => setIsHoveredHand(true)}
             onPointerLeave={() => setIsHoveredHand(false)}
@@ -61,7 +61,7 @@ const Skills = () => {
             Loading legs
           </div>
         }>
-        <div onClick={handleFootClick} className="w-[48%] m-1 h-[48%] hover:cursor-pointer">
+        <div onClick={handleFootClick} className="w-[48%] m-0.5 h-[48%] hover:cursor-pointer">
           <Canvas
             onPointerEnter={() => setIsHoveredLegs(true)}
             onPointerLeave={() => setIsHoveredLegs(false)}
@@ -82,7 +82,7 @@ const Skills = () => {
             Loading room
           </div>
         }>
-        <div className="w-[48%] h-[48%] m-1 hover:cursor-pointer" onClick={handleBrainClick}>
+        <div className="w-[48%] h-[48%] m-0.5 hover:cursor-pointer" onClick={handleBrainClick}>
           <Canvas
             onPointerEnter={() => setIsHoveredBrain(true)}
             onPointerLeave={() => setIsHoveredBrain(false)}
@@ -103,7 +103,7 @@ const Skills = () => {
             Loading face
           </div>
         }>
-        <div className="w-[48%] m-1 h-[48%]  hover:cursor-pointer" onClick={handleFaceClick}>
+        <div className="w-[48%] m-0.5 h-[48%]  hover:cursor-pointer" onClick={handleFaceClick}>
           <Canvas
             onPointerEnter={() => setIsHoveredFace(true)}
             onPointerLeave={() => setIsHoveredFace(false)}

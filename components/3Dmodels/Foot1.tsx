@@ -37,7 +37,7 @@ export function Foot1({ isHovered, ...props }: any) {
           bevelThickness={0.05}
           bevelSize={0.1}
           bevelOffset={-0.08}
-          position={[-2.5, 2.8, -2]}>
+          position={[-2.5, 2.8, -4]}>
           Legs
         </Text3D>
       </Float>

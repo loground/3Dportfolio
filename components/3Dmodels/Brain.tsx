@@ -36,7 +36,7 @@ export function Brain({ isHovered, ...props }: any) {
           bevelThickness={0.05}
           bevelSize={0.1}
           bevelOffset={-0.08}
-          position={[-2, 2, 0]}>
+          position={[-2, 2, -2]}>
           Brain
         </Text3D>
       </Float>
