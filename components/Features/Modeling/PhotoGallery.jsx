@@ -226,7 +226,7 @@ class Media {
     }
     this.setScale();
 
-    this.padding = 5;
+    this.padding = 2;
     this.height = this.plane.scale.y + this.padding;
     this.heightTotal = this.height * this.length;
 
@@ -236,7 +236,13 @@ class Media {
   update(scroll) {
     this.plane.position.y = this.y - scroll.current - this.extra;
 
-    const position = map(this.plane.position.y, -this.viewport.height, this.viewport.height, 5, 15);
+    const position = map(
+      this.plane.position.y / 2,
+      -this.viewport.height,
+      this.viewport.height,
+      8,
+      15,
+    );
 
     this.program.uniforms.uPosition.value = position;
     this.program.uniforms.uTime.value += 0.04;
@@ -450,12 +456,12 @@ class Canvas {
 
 export default function FlyingPosters({
   items = [],
-  planeWidth = 350,
-  planeHeight = 350,
-  distortion = 1,
+  planeWidth = 300,
+  planeHeight = 400,
+  distortion = 0.5,
   scrollEase = 0.1,
-  cameraFov = 140,
-  cameraZ = 10,
+  cameraFov = 40,
+  cameraZ = 20,
   className,
   ...props
 }) {
@@ -519,18 +525,19 @@ export default function FlyingPosters({
 
   return (
     <>
-      <motion.button
-        onClick={backToMain}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.995, rotate: '3.5deg' }}
-        className="flex mt-2 items-center gap-2 rounded-md bg-white px-4 py-2 font-medium text-black transition-colors hover:bg-indigo-600">
-        <span>Back to main page</span>
-      </motion.button>
       <div
         ref={containerRef}
-        className={`w-full h-full mt-10 overflow-hidden relative z-2 ${className}`}
+        className={`w-full h-full overflow-hidden relative z-2 ${className}`}
         {...props}>
         <canvas ref={canvasRef} className="block w-full h-full" />
+      </div>
+      <div className="absolute left-4 lg:left-40 top-1/2 -translate-y-1/2 opacity-50 text-white text-4xl">
+        ↑
+      </div>
+
+      {/* Right side: Down Arrow */}
+      <div className="absolute right-4 lg:right-40 top-1/2 -translate-y-1/2 opacity-50 text-white text-4xl ">
+        ↓
       </div>
     </>
   );

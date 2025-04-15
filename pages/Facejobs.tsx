@@ -6,7 +6,7 @@ import Head from 'next/head';
 import FlyingPosters from '@/components/Features/Modeling/PhotoGallery';
 
 const items = [
-  '/modeling/1.PNG',
+  '/modeling/1.png',
   '/modeling/2.PNG',
   '/modeling/3.PNG',
   '/modeling/4.JPG',
@@ -21,6 +21,9 @@ const items = [
   '/modeling/13.jpg',
   '/modeling/14.jpeg',
   '/modeling/15.jpg',
+  '/modeling/16.png',
+  '/modeling/17.png',
+  '/modeling/18.png',
 ];
 
 const Facejob = () => {
@@ -30,11 +33,11 @@ const Facejob = () => {
         <title>Modelinground</title>
         <meta name="Modeling" content="modeling" />
       </Head>
+      <div style={{ height: '100svh', position: 'relative' }}>
+        <FlyingPosters className="" items={items} />
+      </div>
       <div className="hidden lg:block">
         <Navbar />
-      </div>
-      <div style={{ height: '100vh', position: 'relative' }}>
-        <FlyingPosters className="" items={items} />
       </div>
     </div>
   );
