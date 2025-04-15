@@ -454,8 +454,8 @@ export default function FlyingPosters({
   planeHeight = 350,
   distortion = 1,
   scrollEase = 0.1,
-  cameraFov = 70,
-  cameraZ = 20,
+  cameraFov = 140,
+  cameraZ = 10,
   className,
   ...props
 }) {
