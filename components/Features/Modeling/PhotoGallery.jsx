@@ -1,7 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Renderer, Camera, Transform, Plane, Program, Mesh, Texture } from 'ogl';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 
 const vertexShader = `
 precision highp float;
@@ -47,7 +45,7 @@ vec3 rotate(vec3 v, vec3 axis, float angle) {
 float qinticInOut(float t) {
   return t < 0.5
     ? 16.0 * pow(t, 5.0)
-    : -0.5 * abs(pow(2.0 * t  - 2.0, 5.0)) + 1.0;
+    : -0.5 * abs(pow(2.0 * t - 2.0, 5.0)) + 1.0;
 }
 
 void main() {
@@ -226,7 +224,7 @@ class Media {
     }
     this.setScale();
 
-    this.padding = 2;
+    this.padding = 5;
     this.height = this.plane.scale.y + this.padding;
     this.heightTotal = this.height * this.length;
 
@@ -237,11 +235,11 @@ class Media {
     this.plane.position.y = this.y - scroll.current - this.extra;
 
     const position = map(
-      this.plane.position.y / 2,
+      this.plane.position.y - 4,
       -this.viewport.height,
       this.viewport.height,
-      8,
-      15,
+      0,
+      16,
     );
 
     this.program.uniforms.uPosition.value = position;
@@ -282,7 +280,7 @@ class Canvas {
     this.distortion = distortion;
     this.scroll = {
       ease: scrollEase,
-      current: 0,
+      current: 2,
       target: 0,
       last: 0,
     };
@@ -326,7 +324,7 @@ class Canvas {
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
       heightSegments: 1,
-      widthSegments: 100,
+      widthSegments: 40,
     });
   }
 
@@ -401,7 +399,7 @@ class Canvas {
   onTouchMove(e) {
     if (!this.isDown) return;
     const y = e.touches ? e.touches[0].clientY : e.clientY;
-    const distance = (this.start - y) * 0.1;
+    const distance = (this.start - y) * 0.5;
     this.scroll.target = this.scroll.position + distance;
   }
 
@@ -454,14 +452,14 @@ class Canvas {
   }
 }
 
-export default function FlyingPosters({
+export default function TestPosters({
   items = [],
-  planeWidth = 300,
+  planeWidth = 280,
   planeHeight = 400,
-  distortion = 0.5,
+  distortion = 1.5,
   scrollEase = 0.1,
-  cameraFov = 40,
-  cameraZ = 20,
+  cameraFov = 45,
+  cameraZ = 40,
   className,
   ...props
 }) {
@@ -517,11 +515,26 @@ export default function FlyingPosters({
     };
   }, []);
 
-  const router = useRouter();
+  const [scrollDir, setScrollDir] = useState(null);
 
-  const backToMain = () => {
-    router.push('/');
-  };
+  useEffect(() => {
+    let last = 0;
+
+    const checkScroll = () => {
+      if (instanceRef.current) {
+        const current = instanceRef.current.scroll.current;
+        if (current > last) {
+          setScrollDir('down');
+        } else if (current < last) {
+          setScrollDir('up');
+        }
+        last = current;
+      }
+      requestAnimationFrame(checkScroll);
+    };
+
+    checkScroll();
+  }, []);
 
   return (
     <>
@@ -531,12 +544,23 @@ export default function FlyingPosters({
         {...props}>
         <canvas ref={canvasRef} className="block w-full h-full" />
       </div>
-      <div className="absolute left-4 lg:left-40 top-1/2 -translate-y-1/2 opacity-50 text-white text-4xl">
+      <div
+        className={`absolute left-4 lg:left-40 top-1/2 -translate-y-1/2 text-white text-4xl transition-opacity duration-300 ${
+          scrollDir === 'up' ? 'opacity-80' : 'opacity-20'
+        }`}>
         ↑
       </div>
+      <p
+        className={`hidden lg:block absolute lg:left-80 top-1/2 -translate-y-1/2 text-white text-xl transition-opacity duration-300 
+          `}>
+        {' '}
+        {scrollDir === 'up' ? ' pay me well' : 'and it is gonna work good'}
+      </p>
 
-      {/* Right side: Down Arrow */}
-      <div className="absolute right-4 lg:right-40 top-1/2 -translate-y-1/2 opacity-50 text-white text-4xl ">
+      <div
+        className={`absolute right-4 lg:right-40 top-1/2 -translate-y-1/2 text-white text-4xl transition-opacity duration-300 ${
+          scrollDir === 'down' ? 'opacity-80' : 'opacity-20'
+        }`}>
         ↓
       </div>
     </>

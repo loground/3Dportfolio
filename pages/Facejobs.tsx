@@ -1,10 +1,7 @@
 import Navbar from '@/components/Widgets/Navbar';
-import { ImageTrailHero } from '@/components/Widgets/ImageTrailHero';
-import Socials from '@/components/Widgets/Socials';
 import React from 'react';
 import Head from 'next/head';
-import FlyingPosters from '@/components/Features/Modeling/PhotoGallery';
-import TestPosters from '@/components/Features/Modeling/Test';
+import TestPosters from '@/components/Features/Modeling/PhotoGallery';
 
 const items = [
   '/modeling/1.jpg',
