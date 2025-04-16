@@ -534,12 +534,8 @@ export default function TestPosters({
 
         if (current > last) {
           setScrollDir('down');
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(() => setScrollDir(null), 500);
         } else if (current < last) {
           setScrollDir('up');
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(() => setScrollDir(null), 500);
         }
 
         last = current;
@@ -564,10 +560,7 @@ export default function TestPosters({
         {...props}>
         <canvas ref={canvasRef} className="block w-full h-full" />
       </div>
-      <div
-        className={`absolute left-4 lg:left-40 top-10 -translate-y-1/2 text-white text-xl transition-opacity duration-300 ${
-          scrollDir === null ? 'opacity-100' : 'opacity-20'
-        }`}>
+      <div className="absolute left-4 lg:left-40 top-10 -translate-y-1/2 text-white text-xl hover:text-2xl duration-300  ">
         <button onClick={backToMainPage}>back</button>
       </div>
 
