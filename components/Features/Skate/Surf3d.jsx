@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Wave } from '../../3Dmodels/Wave';
@@ -6,6 +6,8 @@ import { SurfMe } from '../../3Dmodels/Surf';
 import SkyBehind from '../../3Dmodels/Skybox';
 
 const SurfTrip = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const oceanAudio = new Audio('/sounds/ocean.mp3');
     oceanAudio.loop = true;
@@ -21,12 +23,23 @@ const SurfTrip = () => {
     });
 
     return () => {
-      // Make sure we fully kill the sound on unmount
       oceanAudio.pause();
       oceanAudio.currentTime = 0;
-      oceanAudio.src = ''; // ✅ Clear source
+      oceanAudio.src = '';
     };
   }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const cameraPosition = isMobile ? [5, 2.5, 10] : [5.6, 1.3, 6];
 
   return (
     <div className="relative h-screen items-center">
@@ -44,8 +57,8 @@ const SurfTrip = () => {
           className="bg-white opacity-80"
           style={{ height: '80%' }}
           camera={{
-            position: [5.6, 1.3, 6],
-            fov: 50,
+            position: cameraPosition,
+            fov: isMobile ? 55 : 50,
             near: 0.1,
             far: 1000,
           }}>

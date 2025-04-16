@@ -13,7 +13,7 @@ export function SurfMe(props) {
     { position: new THREE.Vector3(1, 1.7, -2), rotationY: 3, rotationZ: 0.8 },
     { position: new THREE.Vector3(1, 1.5, 1), rotationY: 0, rotationZ: 0.1 },
     { position: new THREE.Vector3(3, 1.3, 3), rotationY: -2, rotationZ: 0 },
-    { position: new THREE.Vector3(6, 1.3, 7), rotationY: -2, rotationZ: 0 },
+    { position: new THREE.Vector3(3, 1.0, 9), rotationY: -2, rotationZ: 0 },
   ];
 
   const [step, setStep] = useState(0);
@@ -38,7 +38,7 @@ export function SurfMe(props) {
       group.current.quaternion.slerpQuaternions(startQuat, endQuat, progress);
     }
 
-    const speed = 1.5;
+    const speed = 1.8;
     const nextProgress = progress + delta * speed;
 
     if (nextProgress >= 1) {
