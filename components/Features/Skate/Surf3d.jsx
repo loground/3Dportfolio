@@ -9,22 +9,22 @@ const SurfTrip = () => {
   useEffect(() => {
     const oceanAudio = new Audio('/sounds/ocean.mp3');
     oceanAudio.loop = true;
-    oceanAudio.volume = 0.5;
+    oceanAudio.volume = 1.0;
 
     const tryPlay = () => {
-      oceanAudio.play().catch((e) => console.warn('Playback error:', e));
+      oceanAudio.play().catch((e) => console.warn('Playback blocked:', e));
       window.removeEventListener('click', tryPlay);
     };
 
-    // Try autoplay immediately
     oceanAudio.play().catch(() => {
-      // If blocked, wait for a user click
       window.addEventListener('click', tryPlay);
     });
 
     return () => {
+      // Make sure we fully kill the sound on unmount
       oceanAudio.pause();
       oceanAudio.currentTime = 0;
+      oceanAudio.src = ''; // ✅ Clear source
     };
   }, []);
 

@@ -19,28 +19,6 @@ export function SurfMe(props) {
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    const oceanAudio = new Audio('/sounds/ocean.mp3');
-    oceanAudio.loop = true;
-    oceanAudio.volume = 1.0;
-
-    const tryPlay = () => {
-      oceanAudio.play().catch((e) => console.warn('Playback blocked:', e));
-      window.removeEventListener('click', tryPlay);
-    };
-
-    oceanAudio.play().catch(() => {
-      window.addEventListener('click', tryPlay);
-    });
-
-    return () => {
-      // Make sure we fully kill the sound on unmount
-      oceanAudio.pause();
-      oceanAudio.currentTime = 0;
-      oceanAudio.src = ''; // ✅ Clear source
-    };
-  }, []);
-
   useFrame((state, delta) => {
     if (!group.current) return;
 
