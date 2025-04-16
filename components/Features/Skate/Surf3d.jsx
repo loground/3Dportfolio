@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei';
 import { Wave } from '../../3Dmodels/Wave';
 import { SurfMe } from '../../3Dmodels/Surf';
 import SkyBehind from '../../3Dmodels/Skybox';
+import { TrailMesh } from '../../3Dmodels/Trail';
 import * as THREE from 'three';
 
 const AmbientFade = () => {
@@ -80,7 +81,7 @@ const SurfTrip = () => {
             near: 0.1,
             far: 1000,
           }}>
-          <directionalLight position={[1, 1, 2]} />
+          <directionalLight position={[1, 0.5, 1]} power={10} />
 
           <AmbientFade />
           <pointLight position={[0, -2, -4]} power={30.0} />
@@ -88,6 +89,7 @@ const SurfTrip = () => {
           <Wave position={[-2, isMobile ? -5 : -3.5, -3]} rotation={[0, 4.4, 0]} scale={0.7} />
           <SkyBehind />
           <SurfMe scale={1} />
+          <TrailMesh />
           <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </Suspense>

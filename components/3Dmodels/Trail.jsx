@@ -1,110 +1,130 @@
+import { useFrame } from '@react-three/fiber';
+import { useControls } from 'leva';
+import React, { useRef, useState, useEffect } from 'react';
+import { SimpleTrail } from './FollowingTrail';
 import { shaderMaterial } from '@react-three/drei';
 import { extend } from '@react-three/fiber';
-
-import { useFrame } from '@react-three/fiber';
-import React, { useRef } from 'react';
 import * as THREE from 'three';
 
-// Компонент SimpleTrail рисует "шлейф" за движущимся объектом (например, курсором)
-
-const SimpleTrail = ({
-  target = null, // объект, за которым тянется след
-  color = '#ffffff', // цвет следа
-  intensity = 5, // яркость свечения
-  numPoints = 20, // количество сегментов шлейфа
-  height = 0.42, // высота "ленты"
-  minDistance = 0.1, // минимальное расстояние между точками, чтобы добавить новую
-  opacity = 0.5, // прозрачность
-  duration = 20, // интервал обновления, если курсор почти не двигается (в мс)
-}) => {
-  const mesh = useRef();
-  // создаём массив точек, которые будут определять форму шлейфа
-  const positions = useRef(new Array(numPoints).fill(new THREE.Vector3(0, 0, 0)));
-  // хранит время последнего добавления точки
-  const lastUnshift = useRef(Date.now());
-
-  // обновляем геометрию шлейфа каждый кадр
-  useFrame(() => {
-    if (!mesh.current || !target?.current) return;
-
-    const curPoint = target.current.position; // текущая позиция цели
-    const lastPoint = positions.current[0]; // последняя сохранённая точка
-
-    const distanceToLastPoint = lastPoint.distanceTo(curPoint);
-
-    // если цель почти не двигается, обновляем редко (по таймеру)
-    if (distanceToLastPoint < minDistance) {
-      if (Date.now() - lastUnshift.current > duration) {
-        positions.current.unshift(lastPoint); // дублируем последнюю точку
-        positions.current.pop(); // удаляем самую старую
-        lastUnshift.current = Date.now();
-      }
-    }
-
-    // если цель двигается — добавляем новую точку сразу
-    if (distanceToLastPoint > minDistance) {
-      positions.current.unshift(curPoint.clone());
-      positions.current.pop();
-    }
-
-    // обновляем позицию вершин в геометрии
-    const geometry = mesh.current.geometry;
-    const positionAttribute = geometry.getAttribute('position');
-
-    for (let i = 0; i < numPoints; i++) {
-      const point = positions.current[positions.current.length - 1 - i];
-      positionAttribute.setXYZ(i * 2, point.x, point.y - height / 2, point.z);
-      positionAttribute.setXYZ(i * 2 + 1, point.x, point.y + height / 2, point.z);
-    }
-
-    positionAttribute.needsUpdate = true;
-  });
-
-  return (
-    <>
-      <group>
-        <mesh ref={mesh}>
-          <planeGeometry args={[1, 1, 1, numPoints - 1]} />
-          <trailMaterial
-            color={color}
-            side={THREE.DoubleSide}
-            transparent
-            opacity={opacity}
-            depthWrite={false}
-            intensity={intensity}
-          />
-        </mesh>
-      </group>
-    </>
-  );
-};
-
-export default SimpleTrail;
-
-const TrailMaterial = shaderMaterial(
+const GradientTrailMaterial = shaderMaterial(
   {
-    color: new THREE.Color('white'),
+    color: new THREE.Color('#ff0000'),
     opacity: 1,
     intensity: 1,
   },
   `
-  varying vec2 vUv;
-  void main() {
-    vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
   `,
   `
-  uniform vec3 color;
-  uniform float opacity;
-  uniform float intensity;
-  varying vec2 vUv;
-  
-  void main() {
-    float alpha = smoothstep(1.0, 0.1, vUv.y) * smoothstep(1.0, 0.5, vUv.x) ;
-    gl_FragColor = vec4(color * intensity, alpha * opacity);
-  }
+    uniform vec3 color;
+    uniform float opacity;
+    uniform float intensity;
+    varying vec2 vUv;
+
+    void main() {
+      float fade = smoothstep(1.0, 0.0, vUv.y); // gradient alpha bottom ➝ top
+      gl_FragColor = vec4(color * intensity, fade * opacity);
+    }
   `,
 );
 
-extend({ TrailMaterial });
+extend({ GradientTrailMaterial });
+
+export default GradientTrailMaterial;
+
+export const TrailMesh = ({ isMobile }) => {
+  const { color, intensity, opacity, size } = useControls('Trail', {
+    size: { value: 0.05, min: 0.002, max: 5, step: 0.001 },
+    color: '#6099f4',
+    intensity: { value: 4.6, min: 1, max: 10, step: 0.1 },
+    opacity: { value: 1, min: 0, max: 1, step: 0.01 },
+  });
+
+  const target = useRef();
+  const [step, setStep] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [trailKey, setTrailKey] = useState(0);
+
+  const sequence = [
+    {
+      position: new THREE.Vector3(-0.4, isMobile ? -0.3 : 0.6, -11),
+      rotationY: 3.8,
+      rotationZ: -0.25,
+    },
+    { position: new THREE.Vector3(0, isMobile ? -0.3 : -0.2, -7), rotationY: 4, rotationZ: 0.2 },
+    { position: new THREE.Vector3(1, isMobile ? -0.7 : 0.2, -2), rotationY: 3, rotationZ: 0.8 },
+    { position: new THREE.Vector3(1, isMobile ? -0.55 : 0, 1), rotationY: 0, rotationZ: 0.1 },
+    { position: new THREE.Vector3(3, isMobile ? -0.7 : 0, 3), rotationY: -2, rotationZ: 0 },
+    { position: new THREE.Vector3(3, 0, 9), rotationY: -2.6, rotationZ: 0 },
+  ];
+
+  useFrame((_, delta) => {
+    if (!target.current) return;
+
+    const isLastStep = step === sequence.length - 1;
+    const current = sequence[step];
+    const next = !isLastStep ? sequence[step + 1] : null;
+
+    if (!isLastStep && next) {
+      target.current.position.lerpVectors(current.position, next.position, progress);
+
+      const startQuat = new THREE.Quaternion().setFromEuler(
+        new THREE.Euler(0, current.rotationY, current.rotationZ || 0),
+      );
+      const endQuat = new THREE.Quaternion().setFromEuler(
+        new THREE.Euler(0, next.rotationY, next.rotationZ || 0),
+      );
+      target.current.quaternion.slerpQuaternions(startQuat, endQuat, progress);
+    }
+
+    const speed = 1.8;
+    const nextProgress = progress + delta * speed;
+
+    if (nextProgress >= 1) {
+      if (isLastStep) {
+        target.current.position.copy(sequence[0].position);
+        target.current.rotation.set(0, sequence[0].rotationY, sequence[0].rotationZ || 0);
+        setStep(0);
+        setProgress(0);
+        setTrailKey((prev) => prev + 1); // 🔁 force trail to re-render
+      } else {
+        setStep((prev) => prev + 1);
+        setProgress(0);
+      }
+    } else {
+      setProgress(nextProgress);
+    }
+  });
+
+  return (
+    <>
+      <group ref={target}>
+        <mesh>
+          <sphereGeometry args={[size / 12, 32, 32]} />
+          <gradientTrailMaterial
+            color={new THREE.Color(color)}
+            opacity={opacity}
+            intensity={intensity}
+            transparent
+            depthWrite={false}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending} // 💥 glow!
+          />
+        </mesh>
+      </group>
+
+      <SimpleTrail
+        key={trailKey}
+        target={target}
+        color={color}
+        intensity={intensity}
+        opacity={opacity}
+        height={0.2}
+      />
+    </>
+  );
+};
