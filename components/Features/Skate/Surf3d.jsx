@@ -89,7 +89,7 @@ const SurfTrip = () => {
           <Wave position={[-2, isMobile ? -5 : -3.5, -3]} rotation={[0, 4.4, 0]} scale={0.7} />
           <SkyBehind />
           <SurfMe scale={1} />
-          <TrailMesh />
+          <TrailMesh isMobile={isMobile} />
           <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </Suspense>

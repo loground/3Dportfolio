@@ -37,12 +37,10 @@ extend({ GradientTrailMaterial });
 export default GradientTrailMaterial;
 
 export const TrailMesh = ({ isMobile }) => {
-  const { color, intensity, opacity, size } = useControls('Trail', {
-    size: { value: 0.05, min: 0.002, max: 5, step: 0.001 },
-    color: '#6099f4',
-    intensity: { value: 4.6, min: 1, max: 10, step: 0.1 },
-    opacity: { value: 1, min: 0, max: 1, step: 0.01 },
-  });
+  const color = '#6099f4';
+  const intensity = 4.6;
+  const opacity = 1;
+  const size = 0.05;
 
   const target = useRef();
   const [step, setStep] = useState(0);
@@ -51,14 +49,14 @@ export const TrailMesh = ({ isMobile }) => {
 
   const sequence = [
     {
-      position: new THREE.Vector3(-0.4, isMobile ? -0.3 : 0.6, -11),
+      position: new THREE.Vector3(-0.4, isMobile ? -0.5 : 0.6, -11),
       rotationY: 3.8,
       rotationZ: -0.25,
     },
-    { position: new THREE.Vector3(0, isMobile ? -0.3 : -0.2, -7), rotationY: 4, rotationZ: 0.2 },
-    { position: new THREE.Vector3(1, isMobile ? -0.7 : 0.2, -2), rotationY: 3, rotationZ: 0.8 },
-    { position: new THREE.Vector3(1, isMobile ? -0.55 : 0, 1), rotationY: 0, rotationZ: 0.1 },
-    { position: new THREE.Vector3(3, isMobile ? -0.7 : 0, 3), rotationY: -2, rotationZ: 0 },
+    { position: new THREE.Vector3(0, isMobile ? -1 : -0.2, -7), rotationY: 4, rotationZ: 0.2 },
+    { position: new THREE.Vector3(1, isMobile ? -1 : 0.2, -2), rotationY: 3, rotationZ: 0.8 },
+    { position: new THREE.Vector3(1, isMobile ? -1.2 : 0, 1), rotationY: 0, rotationZ: 0.1 },
+    { position: new THREE.Vector3(3, isMobile ? -1.4 : 0, 3), rotationY: -2, rotationZ: 0 },
     { position: new THREE.Vector3(3, 0, 9), rotationY: -2.6, rotationZ: 0 },
   ];
 
