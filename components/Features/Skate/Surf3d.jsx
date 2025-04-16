@@ -1,9 +1,27 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useEffect, useState, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Wave } from '../../3Dmodels/Wave';
 import { SurfMe } from '../../3Dmodels/Surf';
 import SkyBehind from '../../3Dmodels/Skybox';
+import * as THREE from 'three';
+
+const AmbientFade = () => {
+  const lightRef = useRef();
+
+  useFrame(() => {
+    if (lightRef.current) {
+      // Smoothly interpolate toward 0.1
+      lightRef.current.intensity = THREE.MathUtils.lerp(
+        lightRef.current.intensity,
+        0.1,
+        0.01, // lower = slower
+      );
+    }
+  });
+
+  return <ambientLight ref={lightRef} intensity={1.0} />;
+};
 
 const SurfTrip = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -62,9 +80,11 @@ const SurfTrip = () => {
             near: 0.1,
             far: 1000,
           }}>
-          <directionalLight />
+          <directionalLight position={[1, 1, 2]} />
+
+          <AmbientFade />
           <pointLight position={[0, -2, -4]} power={30.0} />
-          <ambientLight intensity={0.5} />
+
           <Wave position={[-2, isMobile ? -5 : -3.5, -3]} rotation={[0, 4.4, 0]} scale={0.7} />
           <SkyBehind />
           <SurfMe scale={1} />
