@@ -68,7 +68,7 @@ const SurfTrip = () => {
           <Wave position={[-2, isMobile ? -5 : -3.5, -3]} rotation={[0, 4.4, 0]} scale={0.8} />
           <SkyBehind />
           <SurfMe scale={1.5} />
-          <OrbitControls />
+          <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </Suspense>
     </div>
