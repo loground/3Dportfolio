@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SurfTrip from './Surf3d';
 
 const VideoHero = () => {
   const [isLoaded, setIsLoaded] = useState(false);

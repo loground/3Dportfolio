@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import SkateSchool from '@/components/Features/Skate/SkateSchool';
 import Navbar from '@/components/Widgets/Navbar';
 import Head from 'next/head';
+import SurfTrip from '@/components/Features/Skate/Surf3d';
 
 const Footjobs = () => {
   const router = useRouter();
@@ -31,12 +32,14 @@ const Footjobs = () => {
       <div className="hidden lg:block">
         <Navbar />
       </div>
-      <div className="flex flex-row gap-5 md:gap-20 pt-10 justify-center">
+      {/* <div className="flex flex-row gap-5 md:gap-20 pt-10 justify-center">
         <DottedButton text="Main" action={backToMainPage} />
         <DottedButton text="Back" action={backToHandjob} />
         <DottedButton text="Web 3.0" action={moveToNextPage} />
-      </div>
-      <div className="flex justify-center align-items-center mt-5"></div>
+      </div> */}
+
+      <div className="flex justify-center align-items-center mt-20"></div>
+      <SurfTrip />
       <div>
         <VideoHero />
       </div>
