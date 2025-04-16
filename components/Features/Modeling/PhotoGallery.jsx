@@ -520,22 +520,35 @@ export default function TestPosters({
 
   useEffect(() => {
     let last = 0;
+    let timeoutId;
 
     const checkScroll = () => {
       if (instanceRef.current) {
         const current = instanceRef.current.scroll.current;
+
         if (current > last) {
           setScrollDir('down');
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => setScrollDir(null), 500);
         } else if (current < last) {
           setScrollDir('up');
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => setScrollDir(null), 500);
         }
+
         last = current;
       }
       requestAnimationFrame(checkScroll);
     };
 
     checkScroll();
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, []);
+
+  console.log(scrollDir);
 
   return (
     <>
@@ -545,6 +558,13 @@ export default function TestPosters({
         {...props}>
         <canvas ref={canvasRef} className="block w-full h-full" />
       </div>
+      <div
+        className={`absolute left-4 lg:left-40 top-10 -translate-y-1/2 text-white text-xl transition-opacity duration-300 ${
+          scrollDir === null ? 'opacity-100' : 'opacity-20'
+        }`}>
+        <button>back</button>
+      </div>
+
       <div
         className={`absolute left-4 lg:left-40 top-1/2 -translate-y-1/2 text-white text-4xl transition-opacity duration-300 ${
           scrollDir === 'up' ? 'opacity-80' : 'opacity-20'
@@ -567,3 +587,5 @@ export default function TestPosters({
     </>
   );
 }
+
+const items = [{ label: 'Back', href: '/' }];
