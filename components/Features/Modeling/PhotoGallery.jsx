@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Renderer, Camera, Transform, Plane, Program, Mesh, Texture } from 'ogl';
+import { useRouter } from 'next/navigation';
 
 const vertexShader = `
 precision highp float;
@@ -517,6 +518,11 @@ export default function TestPosters({
   }, []);
 
   const [scrollDir, setScrollDir] = useState(null);
+  const router = useRouter();
+
+  const backToMainPage = () => {
+    router.push('/');
+  };
 
   useEffect(() => {
     let last = 0;
@@ -562,7 +568,7 @@ export default function TestPosters({
         className={`absolute left-4 lg:left-40 top-10 -translate-y-1/2 text-white text-xl transition-opacity duration-300 ${
           scrollDir === null ? 'opacity-100' : 'opacity-20'
         }`}>
-        <button>back</button>
+        <button onClick={backToMainPage}>back</button>
       </div>
 
       <div
