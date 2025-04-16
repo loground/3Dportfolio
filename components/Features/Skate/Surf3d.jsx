@@ -39,7 +39,7 @@ const SurfTrip = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const cameraPosition = isMobile ? [5, 1.2, 10] : [5.6, 1.3, 6];
+  const cameraPosition = isMobile ? [7, 2.5, 8] : [5.6, 1.3, 6];
 
   return (
     <div className="relative h-screen items-center">
@@ -65,9 +65,9 @@ const SurfTrip = () => {
           <directionalLight />
           <pointLight position={[0, -2, -4]} power={30.0} />
           <ambientLight intensity={0.5} />
-          <Wave position={[-2, isMobile ? -5 : -3.5, -3]} rotation={[0, 4.4, 0]} scale={0.8} />
+          <Wave position={[-2, isMobile ? -5 : -3.5, -3]} rotation={[0, 4.4, 0]} scale={0.7} />
           <SkyBehind />
-          <SurfMe scale={1.5} />
+          <SurfMe scale={1} />
           <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
         </Canvas>
       </Suspense>

@@ -24,11 +24,11 @@ export function SurfMe(props) {
       rotationY: 3.8,
       rotationZ: -0.25,
     },
-    { position: new THREE.Vector3(0, isMobile ? -0.3 : 1.3, -7), rotationY: 4, rotationZ: 0.2 },
-    { position: new THREE.Vector3(1, isMobile ? -0.7 : 1.7, -2), rotationY: 3, rotationZ: 0.8 },
-    { position: new THREE.Vector3(1, isMobile ? -0.55 : 1.5, 1), rotationY: 0, rotationZ: 0.1 },
-    { position: new THREE.Vector3(3, isMobile ? -0.7 : 1.3, 3), rotationY: -2, rotationZ: 0 },
-    { position: new THREE.Vector3(3, isMobile ? 0 : 1, 9), rotationY: -2.6, rotationZ: 0 },
+    { position: new THREE.Vector3(0, isMobile ? -0.3 : 0.3, -7), rotationY: 4, rotationZ: 0.2 },
+    { position: new THREE.Vector3(1, isMobile ? -0.7 : 0.7, -2), rotationY: 3, rotationZ: 0.8 },
+    { position: new THREE.Vector3(1, isMobile ? -0.55 : 0.5, 1), rotationY: 0, rotationZ: 0.1 },
+    { position: new THREE.Vector3(3, isMobile ? -0.7 : 0.3, 3), rotationY: -2, rotationZ: 0 },
+    { position: new THREE.Vector3(3, 0, 9), rotationY: -2.6, rotationZ: 0 },
   ];
 
   const [step, setStep] = useState(0);
