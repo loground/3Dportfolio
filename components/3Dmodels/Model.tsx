@@ -18,6 +18,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const ref: any = useRef();
 
   const [isHovered, setIsHovered] = React.useState(false);
+  const [hasHovered, setHasHovered] = useState(false);
 
   const { nodes, materials } = useGLTF('/3d/self2.glb') as GLTFResult;
 
@@ -34,6 +35,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
       onPointerEnter={(e) => {
         setIsHovered(true);
         props.onPointerEnter?.(e);
+        setHasHovered(true);
       }}
       onPointerLeave={(e) => {
         setIsHovered(false);
@@ -42,7 +44,11 @@ export function Model(props: JSX.IntrinsicElements['group']) {
       dispose={null}
       ref={ref}>
       <mesh castShadow receiveShadow geometry={nodes.mesh.geometry}>
-        <DissolveMaterial baseMaterial={materials.main} isHovered={isHovered} />
+        {hasHovered ? (
+          <DissolveMaterial baseMaterial={materials.main} isHovered={isHovered} />
+        ) : (
+          <meshStandardMaterial {...materials.main} />
+        )}
       </mesh>
     </group>
   );

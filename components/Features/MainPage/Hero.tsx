@@ -9,6 +9,7 @@ import { TwitterLogo } from '../../3Dmodels/icons/Twitter';
 import { InstagramLogo } from '../../3Dmodels/icons/Instagram';
 import { LinkedLogo } from '../../3Dmodels/icons/LinkedIn';
 import { GithubLogo } from '../../3Dmodels/icons/Github';
+import { CustomLoader } from '@/components/Important/Loader';
 
 const Hero = () => {
   const [hovered, setIsHovered] = React.useState(false);
@@ -17,6 +18,7 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen items-center">
+      <CustomLoader />
       <Suspense
         fallback={
           <div
@@ -36,12 +38,16 @@ const Hero = () => {
           <pointLight position={[0, 0, 4]} power={30.0} />
           <pointLight position={[1, 0, 1]} power={20.0} />
           <pointLight position={[-1, 0, 1]} power={20.0} />
+
           <RightWall />
+
           <ambientLight intensity={0.4} />
+
           <TwitterLogo />
           <InstagramLogo />
           <LinkedLogo />
           <GithubLogo />
+
           <Model
             onPointerEnter={() => setIsHovered(true)}
             onPointerLeave={() => setIsHovered(false)}

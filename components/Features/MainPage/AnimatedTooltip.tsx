@@ -64,7 +64,9 @@ const ScrambleIn = forwardRef<any, ScrambleInProps>(
 
     useEffect(() => {
       reset();
-      startAnimation();
+      const t = setTimeout(() => {
+        startAnimation();
+      }, 1000);
     }, [isHovered, startAnimation, reset]);
 
     useEffect(() => {

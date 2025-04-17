@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Hero from '@/components/Features/MainPage/Hero';
 import TrippyScroll from '@/components/Widgets/MainPage/TrippyScroll';
@@ -8,6 +9,7 @@ import Navbar from '@/components/Widgets/Navbar';
 import Head from 'next/head';
 import LetterGlitch from '../components/Widgets/MainPage/TrippyPassword';
 import { motion } from 'framer-motion';
+import { CustomLoader } from '@/components/Important/Loader';
 
 const Home = () => {
   const Skills = dynamic(() => import('@/components/Features/MainPage/Skills'));
@@ -35,6 +37,7 @@ const Home = () => {
         <meta name="Main" content="MainPage" />
         <link rel="icon" href="/favic.png" />
       </Head>
+
       <div className="hidden lg:block">
         <Navbar />
       </div>
@@ -42,7 +45,6 @@ const Home = () => {
         <Hero />
       </div>
       <div className="relative">
-        {/* <TrippyScroll /> */}
         <LetterGlitch />
         <div className="flex justify-center items-center">
           {isClient &&
