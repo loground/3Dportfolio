@@ -9,7 +9,6 @@ import { TwitterLogo } from '../../3Dmodels/icons/Twitter';
 import { InstagramLogo } from '../../3Dmodels/icons/Instagram';
 import { LinkedLogo } from '../../3Dmodels/icons/LinkedIn';
 import { GithubLogo } from '../../3Dmodels/icons/Github';
-import { CustomLoader } from '@/components/Important/Loader';
 
 const Hero = () => {
   const [hovered, setIsHovered] = React.useState(false);
@@ -18,7 +17,6 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen items-center">
-      <CustomLoader />
       <Suspense
         fallback={
           <div

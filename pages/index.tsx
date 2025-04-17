@@ -37,7 +37,7 @@ const Home = () => {
         <meta name="Main" content="MainPage" />
         <link rel="icon" href="/favic.png" />
       </Head>
-
+      <CustomLoader />
       <div className="hidden lg:block">
         <Navbar />
       </div>
