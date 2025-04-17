@@ -19,13 +19,13 @@ const ScrambleIn = forwardRef<any, ScrambleInProps>(
     {
       isHovered,
       text,
-      scrambleSpeed = 20,
+      scrambleSpeed = 15,
       scrambledLetterCount = 1,
       characters = '{b}[]/logrund',
       className = isHovered
         ? 'absolute z-20 text-center top-20 text-sm left-[39%] m-2 md:text-lg md:left-[42%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white'
         : 'absolute z-20 text-center top-20 text-sm left-[0%] m-2 md:text-lg md:left-[1%] select-none bg-pink-400 rounded-xl p-1 px-2 text-white',
-      scrambledClassName = 'absolute z-20 text-center text-sm top-20 left-[80%] md:left-[1%] select-none  rounded-xl p-1 px-2 text-white',
+      scrambledClassName = '',
       autoStart = true,
       onStart,
       onComplete,
@@ -64,9 +64,7 @@ const ScrambleIn = forwardRef<any, ScrambleInProps>(
 
     useEffect(() => {
       reset();
-      const t = setTimeout(() => {
-        startAnimation();
-      }, 1000);
+      startAnimation();
     }, [isHovered, startAnimation, reset]);
 
     useEffect(() => {
