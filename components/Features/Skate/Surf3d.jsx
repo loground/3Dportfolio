@@ -10,14 +10,15 @@ import * as THREE from 'three';
 const AmbientFade = () => {
   const lightRef = useRef();
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (lightRef.current) {
-      // Smoothly interpolate toward 0.1
-      lightRef.current.intensity = THREE.MathUtils.lerp(
-        lightRef.current.intensity,
-        0.1,
-        0.01, // lower = slower
-      );
+      const t = clock.getElapsedTime();
+      // ⏳ Animate intensity between 0.1 and 1.0
+      const min = 0.1;
+      const max = 1.3;
+      const pulseSpeed = 0.12; // Lower = slower
+      const pulse = (Math.sin(t * pulseSpeed) + 1) / 2; // 0 → 1
+      lightRef.current.intensity = THREE.MathUtils.lerp(min, max, pulse);
     }
   });
 
