@@ -18,12 +18,7 @@ const Hero = () => {
   return (
     <div className="relative h-screen items-center">
       <ScrambleIn isHovered={hovered} />
-
-      <Canvas
-        key="hero-canvas"
-        gl={{ antialias: false }}
-        className="bg-white opacity-80"
-        style={{ height: '85%' }}>
+      <Canvas key="hero-canvas" gl={{ antialias: false }} className="" style={{ height: '85%' }}>
         <directionalLight />
         <pointLight position={[0, 0, 4]} power={30.0} />
         <pointLight position={[1, 0, 1]} power={20.0} />

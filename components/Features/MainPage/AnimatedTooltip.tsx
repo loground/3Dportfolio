@@ -114,7 +114,7 @@ const ScrambleIn = forwardRef<any, ScrambleInProps>(
 
       return (
         <>
-          <span className={className}>{revealed}</span>
+          {revealed.length > 0 && <span className={className}>{revealed}</span>}
           <span className={scrambledClassName}>{scrambled}</span>
         </>
       );
