@@ -85,7 +85,7 @@ const SurfTrip = () => {
           key="surf-canvas"
           gl={{ antialias: false }}
           className="bg-white opacity-80 pointer-events-none"
-          style={{ height: '80%', touchAction: 'none' }}
+          style={{ height: '80vh', width: '100%' }}
           camera={{
             position: cameraPosition,
             fov: isMobile ? 55 : 50,
