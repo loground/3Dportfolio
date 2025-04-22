@@ -89,7 +89,7 @@ export function SurfMe(props) {
         <Text3D
           ref={textRef}
           castShadow
-          position={[-10, 3.8, -1]}
+          position={isMobile ? [-5, 3.3, -3] : [-10, 3.8, -1]}
           rotation={[0, 1, 0]}
           size={1}
           font="/font/Mighty.json"
@@ -107,7 +107,7 @@ export function SurfMe(props) {
               envMapIntensity: 2,
             })
           }>
-          I love finless surfing
+          {isMobile ? 'surf' : ' I love finless surfing'}
         </Text3D>
       </Float>
       <Environment preset="forest" />
