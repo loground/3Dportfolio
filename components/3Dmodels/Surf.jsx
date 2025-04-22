@@ -1,12 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { useGLTF } from '@react-three/drei';
+import { Float, useGLTF, Environment } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+
+import { Text3D } from '@react-three/drei';
+import { MeshStandardMaterial } from 'three';
 
 export function SurfMe(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/3d/Surf.glb');
   const [isMobile, setIsMobile] = useState(false);
+  const textRef = useRef();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -72,14 +76,42 @@ export function SurfMe(props) {
   });
 
   return (
-    <group ref={group} {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Mesh_0.geometry}
-        material={materials.Material_0}
-      />
-    </group>
+    <>
+      <group ref={group} {...props} dispose={null}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_0.geometry}
+          material={materials.Material_0}
+        />
+      </group>
+      <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
+        <Text3D
+          ref={textRef}
+          castShadow
+          position={[-10, 3.8, -1]}
+          rotation={[0, 1, 0]}
+          size={1}
+          font="/font/Mighty.json"
+          lineHeight={0.8}
+          letterSpacing={0.4}
+          bevelEnabled
+          bevelThickness={0.0006}
+          bevelSize={0.01}
+          material={
+            new MeshStandardMaterial({
+              color: '#EB47AE',
+              metalness: 1,
+              roughness: 0,
+              emissive: '#161345',
+              envMapIntensity: 2,
+            })
+          }>
+          I love finless surfing
+        </Text3D>
+      </Float>
+      <Environment preset="forest" />
+    </>
   );
 }
 
