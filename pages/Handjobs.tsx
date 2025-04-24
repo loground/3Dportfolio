@@ -28,9 +28,13 @@ const Handjobs = () => {
       <div className="hidden lg:block">
         <Navbar />
       </div>
-      <div className="flex flex-row gap-5 md:gap-10 md:pt-8 align-items-center pt-10 justify-center">
-        <DottedButton text="Back" action={backToMainPage} />
-        <DottedButton text="Next" action={moveToNextPage} />
+      <div className="flex flex-row text-white text-lg gap-5 md:gap-10 md:pt-8 align-items-center pt-10 justify-center">
+        <button className="hover:text-xl" onClick={backToMainPage}>
+          back
+        </button>{' '}
+        <button className="hover:text-xl" onClick={moveToNextPage}>
+          next
+        </button>
       </div>
       <div
         className="flex mt-10 mb-10"
