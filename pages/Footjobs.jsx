@@ -10,6 +10,18 @@ import SurfTrip from '@/components/Features/Skate/Surf3d';
 const Footjobs = () => {
   const router = useRouter();
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const backToMainPage = () => {
     router.push('/');
   };
@@ -64,7 +76,7 @@ const Footjobs = () => {
           backgroundColor="transparent"
           wireframes={false}
           gravity={0.4}
-          fontSize="1.6rem"
+          fontSize={isMobile ? '1rem' : '1.6rem'}
           mouseConstraintStiffness={0.9}
         />
       </div>
