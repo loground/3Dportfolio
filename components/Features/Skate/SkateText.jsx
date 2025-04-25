@@ -185,11 +185,12 @@ const FallingText = ({
   return (
     <div
       ref={containerRef}
+      style={{ touchAction: 'auto' }}
       className="relative z-[1] w-full h-full cursor-pointer text-center pt-8 overflow-hidden"
       onClick={trigger === 'click' ? handleTrigger : undefined}
       onMouseOver={trigger === 'hover' ? handleTrigger : undefined}>
       {/* Aurora Background */}
-      <div className="absolute inset-0 z-[0] pointer-events-none">
+      <div style={{ touchAction: 'auto' }} className="absolute inset-0 z-[0]">
         <Aurora
           colorStops={['#3A29FF', '#3e64b6', '#00ddff']}
           blend={0.5}
@@ -201,15 +202,20 @@ const FallingText = ({
       {/* Words */}
       <div
         ref={textRef}
-        className="inline-block  z-10"
+        className="inline-block z-10"
         style={{
+          touchAction: 'auto',
           fontSize,
           lineHeight: 1.4,
         }}
       />
 
       {/* Canvas Overlay */}
-      <div className="absolute top-0 left-0 z-[5] pointer-events-none" ref={canvasContainerRef} />
+      <div
+        style={{ touchAction: 'auto' }}
+        className="absolute top-0 left-0 z-[5]"
+        ref={canvasContainerRef}
+      />
     </div>
   );
 };

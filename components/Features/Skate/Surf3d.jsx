@@ -72,7 +72,7 @@ const SurfTrip = () => {
   const cameraPosition = isMobile ? [7, 1.2, 8] : [5.6, 1.3, 6];
 
   return (
-    <div className="relative h-screen items-center">
+    <div className="relative  items-center">
       <Suspense
         fallback={
           <div

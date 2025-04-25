@@ -2,7 +2,6 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 import FallingText from '../components/Features/Skate/SkateText';
-import SkateSchool from '@/components/Features/Skate/SkateSchool';
 import Navbar from '@/components/Widgets/Navbar';
 import Head from 'next/head';
 import SurfTrip from '@/components/Features/Skate/Surf3d';
@@ -35,7 +34,7 @@ const Footjobs = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl  mx-auto">
       <Head>
         <title>Legsground</title>
         <meta name="Skate and surf" content="Skate and surf" />
@@ -57,7 +56,7 @@ const Footjobs = () => {
           next{' '}
         </button>
       </div>
-      <div className="pt-4 h-[50vh]">
+      <div className="pt-4 h-[30vh] md:h-[50vh]">
         <FallingText
           text={`I enjoy surfing and skateboarding a lot. I got some love and support from Magamaev and Fastlads. Participated in several projects: Жена, Terima Kasih, Papan Goreng, Telur Kampung. Created a few shapes of skateboards.  `}
           highlightWords={{
@@ -82,10 +81,6 @@ const Footjobs = () => {
       </div>
       <div className="flex justify-center align-items-center"></div>
       <SurfTrip />
-
-      <div>
-        <SkateSchool />
-      </div>
     </div>
   );
 };
