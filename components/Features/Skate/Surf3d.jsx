@@ -95,7 +95,7 @@ const SurfTrip = () => {
           <Html fullscreen className="top-5 left-5">
             <button
               onClick={() => setIsMuted((prev) => !prev)}
-              className=" text-pink-600 px-4 font-bold  py-2 rounded ">
+              className=" text-black px-4 font-bold  py-2 rounded ">
               {isMuted ? 'Unmute' : 'Mute'}
             </button>
           </Html>
