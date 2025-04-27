@@ -27,10 +27,27 @@ const FallingText = ({
         const cleanWord = word.replace(/[.,]/g, ''); // Clean for matching
         const link = highlightWords[cleanWord];
         if (link) {
-          return `<span 
-            class="inline-block mx-[2px] font-bold text-cyan-600"
+          return `<style>
+            @keyframes gradientMove {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            .animated-gradient {
+              background: linear-gradient(270deg, #59e3fc, #313dea, #a944fb);
+              background-size: 300% 300%;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              animation: gradientMove 5s ease infinite;
+            }
+          </style>
+          <span 
+            class="inline-block mx-[2px] font-bold"
             style="pointer-events: auto; z-index: 2;">
-            <a href="${link}" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">${word}</a>
+            <a href="${link}" target="_blank" rel="noopener noreferrer" 
+               class="animated-gradient">
+               ${word}
+            </a>
           </span>`;
         } else {
           return `<span 

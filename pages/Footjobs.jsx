@@ -58,7 +58,7 @@ const Footjobs = () => {
       </div>
       <div className="pt-4 h-[30vh] md:h-[50vh]">
         <FallingText
-          text={`I enjoy surfing and skateboarding a lot. I got some love and support from Magamaev and Fastlads. Participated in several projects: Жена, Terima Kasih, Papan Goreng, Telur Kampung. Created a few shapes of skateboards.  `}
+          text={`I enjoy surfing and skateboarding a lot. I got some love and support from Magamaev and Fastlads. Participated in several projects: Жена, Terima Kasih, Papan Goreng, Telur Kampung. Created a few shapes of skateboards. BTW this animation of surfing alaia below I made myself from scratch. Enjoy!  `}
           highlightWords={{
             Magamaev: 'https://magamaevskate.com',
             Fastlads: 'https://www.instagram.com/fastlads_skaterails/',

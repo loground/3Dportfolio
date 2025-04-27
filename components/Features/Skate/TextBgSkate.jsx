@@ -93,16 +93,16 @@ void main() {
   vec3 rampColor;
   COLOR_RAMP(colors, uv.x, rampColor);
   
-  float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5 * uAmplitude;
+  float height = snoise(vec2(uv.x * 3.9 + uTime * 0.3, uTime * 0.25)) * 0.3 * uAmplitude;
   height = exp(height);
-  height = (uv.y * 2.0 - height + 0.2);
+  height = (uv.y * 1.7 - height + 0.2);
   float intensity = 0.6 * height;
   
   // midPoint is fixed; uBlend controls the transition width.
   float midPoint = 0.5;
   float auroraAlpha = smoothstep(midPoint - uBlend * 0.5, midPoint + uBlend * 0.5, intensity);
   
-  vec3 auroraColor = intensity * rampColor;
+  vec3 auroraColor = intensity * rampColor / 0.1;
   
   // Premultiplied alpha output.
   fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
