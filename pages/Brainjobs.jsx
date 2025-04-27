@@ -22,11 +22,11 @@ const Brainjobs = () => {
   const renderScene = () => {
     switch (topic) {
       case 'coding':
-        return <CodingScene />;
+        return <></>;
       case 'web3':
-        return <Web3Scene />;
+        return <></>;
       case 'marketing':
-        return <MarketingScene />;
+        return <></>;
       default:
         return (
           <Waves
