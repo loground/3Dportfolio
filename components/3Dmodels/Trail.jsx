@@ -118,7 +118,7 @@ export const TrailMesh = ({ isMobile }) => {
       <SimpleTrail
         key={trailKey}
         target={target}
-        color={color}
+        color={'#a944fb'}
         intensity={intensity}
         opacity={opacity}
         height={0.2}
