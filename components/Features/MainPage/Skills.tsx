@@ -23,7 +23,7 @@ const Skills = () => {
   };
 
   const handleBrainClick = () => {
-    router.push('/Brainjobs/Web3');
+    router.push('/Brainjobs');
   };
 
   const handleFaceClick = () => {

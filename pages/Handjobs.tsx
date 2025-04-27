@@ -1,5 +1,3 @@
-import DottedButton from '@/components/Shared/DottedButton';
-import BuildingCompanyPics from '@/components/Widgets/Building/BuildingCompanyCard';
 import InfiniteMenu from '@/components/Widgets/Building/BuildingPlanet';
 
 import React from 'react';
