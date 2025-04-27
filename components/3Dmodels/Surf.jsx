@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Float, useGLTF, Environment } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import { Float, useGLTF } from '@react-three/drei';
+import { useFrame, DirectionalLight } from '@react-three/fiber';
 import * as THREE from 'three';
 
 import { Text3D } from '@react-three/drei';
@@ -86,6 +86,30 @@ export function SurfMe(props) {
         />
       </group>
       <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
+        <directionalLight
+          position={[6, 1, 5]} // Adjust to hit text straight
+          intensity={2}
+          castShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
+        <directionalLight
+          position={[18, 2, 5]} // Adjust to hit text straight
+          intensity={2}
+          castShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
         <Text3D
           ref={textRef}
           castShadow
@@ -100,10 +124,10 @@ export function SurfMe(props) {
           bevelSize={0.01}
           material={
             new MeshStandardMaterial({
-              color: '#EB47AE',
+              color: '#00bbff',
               metalness: 1,
               roughness: 0,
-              emissive: '#161345',
+              emissive: '#a944fb',
               envMapIntensity: 2,
             })
           }>
