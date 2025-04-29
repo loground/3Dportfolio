@@ -60,6 +60,10 @@ const TerminalBody = ({ containerRef, inputRef, onTopicSelect }) => {
       <p className="whitespace-nowrap overflow-hidden font-light my-2">
         ------------------------------------------------------------------------
       </p>
+      <p>
+        during my life i've had chance to try myself out in different fields and I'm extremely happy
+        about it
+      </p>
       <form
         onSubmit={(e) => {
           e.preventDefault();

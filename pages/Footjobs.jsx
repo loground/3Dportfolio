@@ -30,7 +30,7 @@ const Footjobs = () => {
   };
 
   const moveToNextPage = () => {
-    router.push('/Brainjobs/Web3');
+    router.push('/Brainjobs');
   };
 
   return (
