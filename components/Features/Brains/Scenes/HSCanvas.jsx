@@ -5,22 +5,22 @@ import { HScard } from '../Cards/HsCardModel';
 
 const cards = [
   {
-    textureUrl: '/modeling/1.jpg',
+    textureUrl: '/test.png',
     position: [-3.5, -2.4, 0],
     rotation: [0, Math.PI, -0.2],
   },
   {
-    textureUrl: '/modeling/1.jpg',
+    textureUrl: '/test.png',
     position: [3.5, -2.4, 0],
     rotation: [0, Math.PI, 0.15],
   },
   {
-    textureUrl: '/modeling/1.jpg',
+    textureUrl: '/test.png',
     position: [1.2, -2.2, 0],
     rotation: [0, Math.PI, 0.05],
   },
   {
-    textureUrl: '/modeling/1.jpg',
+    textureUrl: '/test.png',
     position: [-1.2, -2.2, 0],
     rotation: [0, Math.PI, -0.05],
   },

@@ -6,28 +6,36 @@ Source: https://sketchfab.com/3d-models/hearthstone-card-c16dd61e5bd14ac893be475
 Title: Hearthstone Card
 */
 
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Float, useGLTF } from '@react-three/drei';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
+import { useSpring, a } from '@react-spring/three';
 
 export function HScard({ textureUrl, position, rotation }) {
   const { nodes, materials } = useGLTF('/3d/newPosHS.glb');
   const texture = useTexture(textureUrl);
+  const [hovered, setHovered] = useState(false);
+
+  const { animatedPosition, animatedRotation } = useSpring({
+    animatedPosition: hovered ? [position[0], position[1] + 1.5, position[2]] : position,
+    animatedRotation: hovered ? [rotation[0], rotation[1] + Math.PI * 2, rotation[2]] : rotation,
+    config: { mass: 2, tension: 80, friction: 10 },
+  });
 
   useEffect(() => {
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.offset.set(0.5, 0.5);
-    texture.repeat.set(0.025, 0.015);
+    texture.repeat.set(0.02, 0.013);
     texture.needsUpdate = true;
   }, [texture]);
 
   const material = useMemo(() => new THREE.MeshBasicMaterial({ map: texture }), [texture]);
 
   const shape = useMemo(() => {
-    const width = 40.5;
-    const height = 65;
+    const width = 42;
+    const height = 66;
     const radius = 5;
     const s = new THREE.Shape();
     s.moveTo(-width / 2 + radius, -height / 2);
@@ -49,9 +57,15 @@ export function HScard({ textureUrl, position, rotation }) {
 
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
-      <group position={position} rotation={rotation} scale={0.004} dispose={null}>
+      <a.group
+        position={animatedPosition}
+        rotation={animatedRotation}
+        scale={0.004}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+        dispose={null}>
         <mesh geometry={geometry} position={[0, -30, -2]} rotation={[0.001, Math.PI, 0]} scale={13}>
-          <primitive object={material} attach="material" />
+          <primitive object={material} transparent attach="material" />
         </mesh>
         <group>
           <mesh
@@ -101,7 +115,7 @@ export function HScard({ textureUrl, position, rotation }) {
             material={materials.shade_glow}
           />
         </group>
-      </group>
+      </a.group>
     </Float>
   );
 }
