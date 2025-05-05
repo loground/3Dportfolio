@@ -574,7 +574,7 @@ export default function TestPosters({
         className={`hidden lg:block absolute lg:left-80 top-1/2 -translate-y-1/2 text-white text-xl transition-opacity duration-300 
           `}>
         {' '}
-        {scrollDir === 'up' ? ' pay me well' : 'and it is gonna work good'}
+        {scrollDir === 'up' ? ' pay me well' : 'and maybe I will smile on the pictures'}
       </p>
 
       <div

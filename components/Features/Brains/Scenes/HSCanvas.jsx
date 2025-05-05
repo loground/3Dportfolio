@@ -5,24 +5,19 @@ import { HScard } from '../Cards/HsCardModel';
 
 const cards = [
   {
-    textureUrl: '/test.png',
-    position: [-3.5, -2.4, 0],
+    textureUrl: '/brains/web3.png',
+    position: [-2.8, -2, -0.5],
     rotation: [0, Math.PI, -0.2],
   },
   {
-    textureUrl: '/test.png',
-    position: [3.5, -2.4, 0],
-    rotation: [0, Math.PI, 0.15],
+    textureUrl: '/brains/marketing.png',
+    position: [2.8, -2, -0.7],
+    rotation: [0, Math.PI, 0.2],
   },
   {
-    textureUrl: '/test.png',
-    position: [1.2, -2.2, 0],
-    rotation: [0, Math.PI, 0.05],
-  },
-  {
-    textureUrl: '/test.png',
-    position: [-1.2, -2.2, 0],
-    rotation: [0, Math.PI, -0.05],
+    textureUrl: '/brains/coding.png',
+    position: [0, -1.6, -0.3],
+    rotation: [0, Math.PI, 0.01],
   },
 ];
 
@@ -35,8 +30,8 @@ const CanvasBrains = () => {
         {cards.map((card, index) => (
           <HScard key={index} {...card} />
         ))}
-
         <Environment preset="sunset" />
+        <directionalLight position={[0, 0, 2]} intensity={1.2} />
       </Canvas>
     </div>
   );

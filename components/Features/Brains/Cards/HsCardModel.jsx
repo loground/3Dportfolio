@@ -18,7 +18,7 @@ export function HScard({ textureUrl, position, rotation }) {
   const [hovered, setHovered] = useState(false);
 
   const { animatedPosition, animatedRotation } = useSpring({
-    animatedPosition: hovered ? [position[0], position[1] + 1.5, position[2]] : position,
+    animatedPosition: hovered ? [position[0], position[1] + 1.5, position[2] + 1] : position,
     animatedRotation: hovered ? [rotation[0], rotation[1] + Math.PI * 2, rotation[2]] : rotation,
     config: { mass: 2, tension: 80, friction: 10 },
   });
@@ -28,15 +28,21 @@ export function HScard({ textureUrl, position, rotation }) {
     texture.wrapT = THREE.RepeatWrapping;
     texture.offset.set(0.5, 0.5);
     texture.repeat.set(0.02, 0.013);
+    texture.colorSpace = THREE.SRGBColorSpace;
+
     texture.needsUpdate = true;
   }, [texture]);
 
-  const material = useMemo(() => new THREE.MeshBasicMaterial({ map: texture }), [texture]);
+  const material = useMemo(() => {
+    return new THREE.MeshStandardMaterial({
+      map: texture,
+    });
+  }, [texture]);
 
   const shape = useMemo(() => {
-    const width = 42;
-    const height = 66;
-    const radius = 5;
+    const width = 46;
+    const height = 76;
+    const radius = 10;
     const s = new THREE.Shape();
     s.moveTo(-width / 2 + radius, -height / 2);
     s.lineTo(width / 2 - radius, -height / 2);
@@ -51,7 +57,7 @@ export function HScard({ textureUrl, position, rotation }) {
   }, []);
 
   const geometry = useMemo(
-    () => new THREE.ExtrudeGeometry(shape, { depth: 1, bevelEnabled: false }),
+    () => new THREE.ExtrudeGeometry(shape, { depth: 0, bevelEnabled: false }),
     [shape],
   );
 
@@ -64,7 +70,11 @@ export function HScard({ textureUrl, position, rotation }) {
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
         dispose={null}>
-        <mesh geometry={geometry} position={[0, -30, -2]} rotation={[0.001, Math.PI, 0]} scale={13}>
+        <mesh
+          geometry={geometry}
+          position={[0, -30, -15]}
+          rotation={[0.001, Math.PI, 0]}
+          scale={13}>
           <primitive object={material} transparent attach="material" />
         </mesh>
         <group>
