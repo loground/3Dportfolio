@@ -2,6 +2,7 @@ import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { HScard } from '../Cards/HsCardModel';
+import { PlayingTable } from '../Cards/SceneTable';
 
 const cards = [
   {
@@ -30,7 +31,9 @@ const CanvasBrains = () => {
         {cards.map((card, index) => (
           <HScard key={index} {...card} />
         ))}
+        <PlayingTable position={[0, 3, -12]} rotation={[1, 0, 0]} scale={26} />
         <Environment preset="sunset" />
+
         <directionalLight position={[0, 0, 2]} intensity={1.2} />
       </Canvas>
     </div>
