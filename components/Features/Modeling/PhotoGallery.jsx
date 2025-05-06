@@ -462,7 +462,7 @@ export default function TestPosters({
   scrollEase = 0.1,
   cameraFov = 45,
   cameraZ = 40,
-
+  className,
   ...props
 }) {
   const containerRef = useRef(null);
