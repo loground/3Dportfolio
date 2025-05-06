@@ -11,15 +11,31 @@ import { Float, useGLTF } from '@react-three/drei';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import { useSpring, a } from '@react-spring/three';
+import { useBrainScene } from '../Context';
 
-export function HScard({ textureUrl, position, rotation }) {
+export function HScard({ textureUrl, position, rotation, index }) {
   const { nodes, materials } = useGLTF('/3d/newPosHS.glb');
   const texture = useTexture(textureUrl);
   const [hovered, setHovered] = useState(false);
 
+  const { selectedCard, setSelectedCard } = useBrainScene();
+  const isSelected = selectedCard === index;
+
   const { animatedPosition, animatedRotation } = useSpring({
-    animatedPosition: hovered ? [position[0], position[1] + 1.5, position[2] + 1] : position,
-    animatedRotation: hovered ? [rotation[0], rotation[1] + Math.PI * 2, rotation[2]] : rotation,
+    delay: isSelected && 1200,
+    animatedPosition:
+      selectedCard === null
+        ? hovered
+          ? [position[0], position[1] + 1.5, position[2] + 1]
+          : position
+        : isSelected
+          ? [position[0] - 5, position[1] + 3, position[2] - 4]
+          : [position[0] + 8, position[1], position[2] + 2], // move unselected away
+
+    animatedRotation: hovered
+      ? [rotation[0], rotation[1] + Math.PI * 2, rotation[2]]
+      : [rotation[0], rotation[1], rotation[2]],
+
     config: { mass: 2, tension: 80, friction: 10 },
   });
 
@@ -61,15 +77,18 @@ export function HScard({ textureUrl, position, rotation }) {
     [shape],
   );
 
+  console.log(index);
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
       <a.group
         position={animatedPosition}
         rotation={animatedRotation}
         scale={0.004}
+        onClick={() => {
+          setSelectedCard(isSelected ? null : index);
+        }}
         onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
-        dispose={null}>
+        onPointerOut={() => setHovered(false)}>
         <mesh
           geometry={geometry}
           position={[0, -30, -15]}

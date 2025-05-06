@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { HScard } from '../Cards/HsCardModel';
 import { PlayingTable } from '../Cards/SceneTable';
+import { BrainSceneProvider } from '../Context';
 
 const cards = [
   {
@@ -24,19 +25,21 @@ const cards = [
 
 const CanvasBrains = () => {
   return (
-    <div className="relative h-screen items-center">
-      <Canvas className="" style={{ height: '85svh', width: '100%', background: 'white' }}>
-        <OrbitControls />
+    <BrainSceneProvider>
+      <div className="relative h-screen items-center">
+        <Canvas className="" style={{ height: '85svh', width: '100%', background: 'white' }}>
+          <OrbitControls />
 
-        {cards.map((card, index) => (
-          <HScard key={index} {...card} />
-        ))}
-        <PlayingTable position={[0, 3, -12]} rotation={[1, 0, 0]} scale={26} />
-        <Environment preset="sunset" />
+          {cards.map((card, index) => (
+            <HScard key={index} index={index} {...card} />
+          ))}
+          <PlayingTable />
+          <Environment preset="sunset" />
 
-        <directionalLight position={[0, 0, 2]} intensity={1.2} />
-      </Canvas>
-    </div>
+          <directionalLight position={[0, 0, 2]} intensity={1.2} />
+        </Canvas>
+      </div>
+    </BrainSceneProvider>
   );
 };
 
