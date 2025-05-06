@@ -16,7 +16,7 @@ export function PlayingTable(props) {
     config: { mass: 0.1, tension: 10, friction: 14 },
   });
 
-  const videoTexture0 = useVideoTexture('/footjob/surfskateweb.mp4', {
+  const videoTexture0 = useVideoTexture('/videos/web3.mp4', {
     loop: true,
     muted: true,
     start: true,
@@ -30,7 +30,7 @@ export function PlayingTable(props) {
     autoplay: true,
     crossOrigin: 'anonymous',
   });
-  const videoTexture2 = useVideoTexture('/videos/1.mov', {
+  const videoTexture2 = useVideoTexture('/videos/codePLEASE.mp4', {
     loop: true,
     muted: true,
     start: true,
@@ -42,12 +42,25 @@ export function PlayingTable(props) {
   const videoTexture = selectedCard !== null ? videoTextures[selectedCard] : null;
 
   useEffect(() => {
-    if (videoTexture) {
+    if (!videoTexture) return;
+
+    if (selectedCard === 0) {
+      videoTexture.repeat.set(2, 2);
+      videoTexture.offset.set(-0.5, 0.1);
+    } else if (selectedCard === 1) {
       videoTexture.repeat.set(1, 1);
-      videoTexture.offset.set(0.1, 0.3);
-      videoTexture.flipY = false;
-      videoTexture.needsUpdate = true;
+      videoTexture.offset.set(0.2, 0.1);
+    } else if (selectedCard === 2) {
+      videoTexture.repeat.set(0.5, 1.5);
+      videoTexture.offset.set(0.25, 0.12);
     }
+
+    // if (videoTexture) {
+    //   videoTexture.repeat.set(0.8, 1.2);
+    //   videoTexture.offset.set(0.1, 0.2);
+    //   videoTexture.flipY = true;
+    //   videoTexture.needsUpdate = true;
+    // }
   }, [videoTexture]);
 
   return (
