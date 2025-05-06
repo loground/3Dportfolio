@@ -7,7 +7,8 @@ import { useBrainScene } from '../Context';
 export function PlayingTable(props) {
   const { nodes, materials } = useGLTF('/3d/compField.glb');
   const { selectedCard } = useBrainScene();
-  const [videoReady, setVideoReady] = useState(false);
+
+  console.log(selectedCard);
 
   const { rotation, scale } = useSpring({
     rotation: selectedCard !== null ? [1.2, 0, 0] : [0.7, 0, 0],
@@ -15,7 +16,21 @@ export function PlayingTable(props) {
     config: { mass: 0.1, tension: 10, friction: 14 },
   });
 
-  const videoTexture = useVideoTexture('/footjob/surfskateweb.mp4', {
+  const videoTexture0 = useVideoTexture('/footjob/surfskateweb.mp4', {
+    loop: true,
+    muted: true,
+    start: true,
+    autoplay: true,
+    crossOrigin: 'anonymous',
+  });
+  const videoTexture1 = useVideoTexture('/videos/1.mov', {
+    loop: true,
+    muted: true,
+    start: true,
+    autoplay: true,
+    crossOrigin: 'anonymous',
+  });
+  const videoTexture2 = useVideoTexture('/videos/1.mov', {
     loop: true,
     muted: true,
     start: true,
@@ -23,31 +38,17 @@ export function PlayingTable(props) {
     crossOrigin: 'anonymous',
   });
 
+  const videoTextures = [videoTexture0, videoTexture1, videoTexture2];
+  const videoTexture = selectedCard !== null ? videoTextures[selectedCard] : null;
+
   useEffect(() => {
-    if (videoTexture?.image) {
-      const video = videoTexture.image;
-      const handleCanPlay = () => {
-        setVideoReady(true);
-      };
-
-      if (video.readyState >= 2) {
-        setVideoReady(true);
-      } else {
-        video.addEventListener('canplaythrough', handleCanPlay);
-      }
-
-      return () => {
-        video.removeEventListener('canplaythrough', handleCanPlay);
-      };
+    if (videoTexture) {
+      videoTexture.repeat.set(1, 1);
+      videoTexture.offset.set(0.1, 0.3);
+      videoTexture.flipY = false;
+      videoTexture.needsUpdate = true;
     }
   }, [videoTexture]);
-
-  videoTexture.repeat.set(1, 1); // Shrinks the visible texture area
-  videoTexture.offset.set(0.1, 0.3);
-  videoTexture.flipY = false;
-  videoTexture.flipX = false;
-
-  videoTexture.needsUpdate = true;
 
   return (
     <a.group position={[0, 0, -12]} rotation={rotation} scale={scale}>
@@ -357,18 +358,20 @@ export function PlayingTable(props) {
 
               {/* //center */}
 
-              {selectedCard !== null && videoReady ? (
-                <mesh
-                  castShadow
-                  receiveShadow
-                  geometry={nodes.Plateau_center_PLateau_center_0.geometry}
-                  rotation={[-Math.PI / 2, 0, Math.PI]}>
-                  <meshStandardMaterial
-                    map={videoTexture}
-                    toneMapped={false}
-                    side={THREE.DoubleSide}
-                  />
-                </mesh>
+              {selectedCard !== null ? (
+                <React.Suspense fallback={<meshBasicMaterial wireframe />}>
+                  <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Plateau_center_PLateau_center_0.geometry}
+                    rotation={[-Math.PI / 2, 0, Math.PI]}>
+                    <meshStandardMaterial
+                      map={videoTexture}
+                      toneMapped={false}
+                      side={THREE.DoubleSide}
+                    />
+                  </mesh>
+                </React.Suspense>
               ) : (
                 <mesh
                   castShadow
