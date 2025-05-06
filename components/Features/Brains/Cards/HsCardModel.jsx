@@ -26,7 +26,8 @@ export function HScard({ textureUrl, position, rotation, index }) {
   const SELECTED_ROTATION = [rotation[0] - 0.3, rotation[1], rotation[2] - 0.1];
 
   const { animatedPosition, animatedRotation } = useSpring({
-    delay: isSelected && 1200,
+    delay: isSelected && hovered && 1200,
+
     animatedPosition:
       selectedCard === null
         ? hovered
@@ -87,7 +88,6 @@ export function HScard({ textureUrl, position, rotation, index }) {
     [shape],
   );
 
-  console.log(index);
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
       <a.group
