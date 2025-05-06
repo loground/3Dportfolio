@@ -32,7 +32,7 @@ const Facejob = () => {
       </Head>
       <div style={{ height: '100svh', position: 'relative' }}>
         {/* <FlyingPosters className="" items={items} /> */}
-        {/* <TestPosters className="" items={items} /> */}
+        <TestPosters className="" items={items} />
       </div>
       <div className="hidden lg:block">
         <Navbar />
