@@ -252,7 +252,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
               <p>
                 Latest project:{' '}
                 <a
-                  className="text-green-300"
+                  className="text-green-300 font-bold"
                   href="https://fastlads.vercel.app"
                   target="_blank"
                   rel="noreferrer">

@@ -50,7 +50,7 @@ const CanvasBrains = () => {
             maxPolarAngle={Math.PI / 2}
             minAzimuthAngle={-Math.PI / 4}
             maxDistance={10}
-            minDistance={4}
+            minDistance={5}
           />
 
           <Background />
