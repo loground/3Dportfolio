@@ -21,8 +21,8 @@ export function HScard({ textureUrl, position, rotation, index }) {
   const { selectedCard, setSelectedCard } = useBrainScene();
   const isSelected = selectedCard === index;
 
-  const SELECTED_POSITION = [-6.6, 1, -5];
-  const UNSELECTED_POSITION = [10, 0, 2];
+  const SELECTED_POSITION = [-6, 1, -3];
+  const UNSELECTED_POSITION = [0, -10, 3];
   const SELECTED_ROTATION = [rotation[0] - 0.3, rotation[1], rotation[2] - 0.1];
 
   const { animatedPosition, animatedRotation } = useSpring({
@@ -47,7 +47,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
         ? SELECTED_ROTATION
         : rotation,
 
-    config: { mass: 2, tension: 80, friction: 10 },
+    config: { mass: 5, tension: 10, friction: 10 },
   });
 
   useEffect(() => {

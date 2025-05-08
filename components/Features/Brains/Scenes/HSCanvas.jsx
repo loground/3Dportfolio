@@ -2,18 +2,19 @@ import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { HScard } from '../Cards/HsCardModel';
-import { PlayingTable } from '../Cards/SceneTable';
+
 import { BrainSceneProvider } from '../Context';
+import { CoolPlayingTable } from '../Cards/SceneFixed';
 
 const cards = [
   {
     textureUrl: '/brains/web3.png',
-    position: [-2.8, -2, -0.5],
+    position: [-3.2, -2, -0.5],
     rotation: [0, Math.PI, -0.2],
   },
   {
     textureUrl: '/brains/marketing.png',
-    position: [2.8, -2, -0.7],
+    position: [3.2, -2, -0.7],
     rotation: [0, Math.PI, 0.2],
   },
   {
@@ -27,13 +28,14 @@ const CanvasBrains = () => {
   return (
     <BrainSceneProvider>
       <div className="relative h-screen items-center">
-        <Canvas className="" style={{ height: '85svh', width: '100%', background: 'white' }}>
+        <Canvas className="" style={{ height: '85svh', width: '100%' }}>
           <OrbitControls />
 
           {cards.map((card, index) => (
             <HScard key={index} index={index} {...card} />
           ))}
-          <PlayingTable />
+
+          <CoolPlayingTable />
           <Environment preset="sunset" />
 
           <directionalLight position={[0, 0, 2]} intensity={1.2} />
