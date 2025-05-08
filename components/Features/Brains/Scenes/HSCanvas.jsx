@@ -1,7 +1,8 @@
 import React, { Suspense, useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls } from '@react-three/drei';
+import { Environment, OrbitControls, Stage, useTexture } from '@react-three/drei';
 import { HScard } from '../Cards/HsCardModel';
+import * as THREE from 'three';
 
 import { BrainSceneProvider } from '../Context';
 import { CoolPlayingTable } from '../Cards/SceneFixed';
@@ -24,14 +25,29 @@ const cards = [
   },
 ];
 
+export const Background = () => {
+  const map = useTexture('/textures/Tavern_Brawl_-_promo.webp');
+
+  return (
+    <>
+      <mesh scale={1}>
+        <sphereGeometry args={[40, 40, 40]} />
+        <meshBasicMaterial side={THREE.BackSide} map={map} toneMapped={false} />
+      </mesh>
+    </>
+  );
+};
+
 const CanvasBrains = () => {
   return (
     <BrainSceneProvider>
       <div className="relative h-screen items-center">
-        <Canvas className="" style={{ height: '85svh', width: '100%' }}>
+        <Canvas className="" style={{ height: '85svh', width: '100%', background: 'white' }}>
+          {/* <color attach="background" args={['#171720']} />
+          <fog attach="fog" args={['#171720', 20, 30]} /> */}
           <directionalLight position={[0, 0, 2]} intensity={1.5} />
           <OrbitControls />
-
+          <Background />
           {cards.map((card, index) => (
             <HScard key={index} index={index} {...card} />
           ))}
