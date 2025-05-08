@@ -18,10 +18,25 @@ export function HScard({ textureUrl, position, rotation, index }) {
   const texture = useTexture(textureUrl);
   const [hovered, setHovered] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile(); // Initial check
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
   const { selectedCard, setSelectedCard } = useBrainScene();
   const isSelected = selectedCard === index;
 
-  const SELECTED_POSITION = [-6, 1, -3];
+  const SELECTED_POSITION = isMobile ? [-4, 1, -3] : [-6, 1, -3];
   const UNSELECTED_POSITION = [0, -10, 3];
   const SELECTED_ROTATION = [rotation[0] - 0.3, rotation[1], rotation[2] - 0.1];
 
@@ -91,7 +106,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
       {isSelected && (
-        <a.group position={[-4, -2.5, -1]} rotation={[0, 0, 0.05]}>
+        <a.group position={isMobile ? [0, -6, -1] : [-4, -2.5, -1]} rotation={[0, 0, 0.05]}>
           <Html
             transform
             distanceFactor={2}
@@ -101,8 +116,9 @@ export function HScard({ textureUrl, position, rotation, index }) {
               borderRadius: '10px',
               color: 'white',
               fontSize: '3em',
+              minWidth: isMobile ? '640px' : '640px',
               maxWidth: '700px',
-              lineHeight: '1.4',
+              lineHeight: '1.8',
               transition: 'opacity 0.4s ease',
             }}>
             {index === 0 && (
@@ -181,7 +197,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
         </a.group>
       )}
       {isSelected && (
-        <a.group position={[5, 2, -2]} rotation={[0, 0, 0]}>
+        <a.group position={isMobile ? [0.5, 9, -8] : [5, 2, -2]} rotation={[0, 0, 0]}>
           <Html
             transform
             distanceFactor={2}
@@ -190,7 +206,8 @@ export function HScard({ textureUrl, position, rotation, index }) {
               padding: '1em',
               borderRadius: '10px',
               color: 'white',
-              fontSize: '3em',
+              fontSize: isMobile ? '4.5em' : '3em',
+              minWidth: isMobile ? ' 990px' : '640px',
               maxWidth: '700px',
               lineHeight: '1.4',
               transition: 'opacity 0.4s ease',
