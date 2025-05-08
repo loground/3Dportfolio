@@ -29,6 +29,7 @@ const CanvasBrains = () => {
     <BrainSceneProvider>
       <div className="relative h-screen items-center">
         <Canvas className="" style={{ height: '85svh', width: '100%' }}>
+          <directionalLight position={[0, 0, 2]} intensity={1.5} />
           <OrbitControls />
 
           {cards.map((card, index) => (
@@ -36,7 +37,6 @@ const CanvasBrains = () => {
           ))}
 
           <CoolPlayingTable />
-          <Environment preset="sunset" />
 
           <directionalLight position={[0, 0, 2]} intensity={1.2} />
         </Canvas>

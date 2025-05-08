@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { useGLTF, useVideoTexture } from '@react-three/drei';
+import { useGLTF, useVideoTexture, Environment } from '@react-three/drei';
 import { useSpring, a } from '@react-spring/three';
 import { useBrainScene } from '../Context';
 
@@ -57,6 +57,7 @@ export function CoolPlayingTable(props) {
 
   return (
     <a.group position={[0, 0, -12]} rotation={rotation} scale={scale}>
+      <Environment preset="forest" />
       <group {...props} dispose={null}>
         <mesh
           castShadow

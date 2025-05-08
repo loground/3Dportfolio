@@ -47,7 +47,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
         ? SELECTED_ROTATION
         : rotation,
 
-    config: { mass: 5, tension: 10, friction: 10 },
+    config: { mass: 3, tension: 10, friction: 10 },
   });
 
   useEffect(() => {
