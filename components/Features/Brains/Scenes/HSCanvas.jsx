@@ -39,6 +39,20 @@ export const Background = () => {
 };
 
 const CanvasBrains = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile(); // Initial check
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
   return (
     <BrainSceneProvider>
       <div className="relative h-screen items-center">
@@ -50,7 +64,7 @@ const CanvasBrains = () => {
             maxPolarAngle={Math.PI / 2}
             minAzimuthAngle={-Math.PI / 4}
             maxDistance={10}
-            minDistance={5}
+            minDistance={isMobile ? 7 : 5}
           />
 
           <Background />
