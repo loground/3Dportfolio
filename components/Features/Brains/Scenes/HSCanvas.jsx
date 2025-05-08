@@ -43,10 +43,16 @@ const CanvasBrains = () => {
     <BrainSceneProvider>
       <div className="relative h-screen items-center">
         <Canvas className="" style={{ height: '85svh', width: '100%', background: 'white' }}>
-          {/* <color attach="background" args={['#171720']} />
-          <fog attach="fog" args={['#171720', 20, 30]} /> */}
           <directionalLight position={[0, 0, 2]} intensity={1.5} />
-          <OrbitControls />
+          <OrbitControls
+            rotateSpeed={0.3}
+            maxAzimuthAngle={Math.PI / 4}
+            maxPolarAngle={Math.PI / 2}
+            minAzimuthAngle={-Math.PI / 4}
+            maxDistance={10}
+            minDistance={4}
+          />
+
           <Background />
           {cards.map((card, index) => (
             <HScard key={index} index={index} {...card} />
