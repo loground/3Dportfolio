@@ -22,7 +22,7 @@ export function CoolPlayingTable(props) {
     autoplay: true,
     crossOrigin: 'anonymous',
   });
-  const videoTexture1 = useVideoTexture('/videos/1.mov', {
+  const videoTexture1 = useVideoTexture('/videos/mrktng.mp4', {
     loop: true,
     muted: true,
     start: true,
@@ -47,8 +47,8 @@ export function CoolPlayingTable(props) {
       videoTexture.repeat.set(2, 2);
       videoTexture.offset.set(-0.5, 0.1);
     } else if (selectedCard === 1) {
-      videoTexture.repeat.set(1, 1);
-      videoTexture.offset.set(0.2, 0.1);
+      videoTexture.repeat.set(1.8, 1.8);
+      videoTexture.offset.set(-0.5, -0.1);
     } else if (selectedCard === 2) {
       videoTexture.repeat.set(0.5, 1.5);
       videoTexture.offset.set(0.25, 0.12);
@@ -226,7 +226,7 @@ export function CoolPlayingTable(props) {
           scale={0.01}
         />
 
-        {selectedCard !== null && selectedCard !== 1 ? (
+        {selectedCard !== null ? (
           <React.Suspense fallback={<meshBasicMaterial wireframe />}>
             <mesh
               castShadow
