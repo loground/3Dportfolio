@@ -7,7 +7,7 @@ Title: Hearthstone Card
 */
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { Float, useGLTF } from '@react-three/drei';
+import { Float, Html, useGLTF } from '@react-three/drei';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import { useSpring, a } from '@react-spring/three';
@@ -90,6 +90,180 @@ export function HScard({ textureUrl, position, rotation, index }) {
 
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
+      {isSelected && (
+        <a.group position={[-4, -2.5, -1]} rotation={[0, 0, 0.05]}>
+          <Html
+            transform
+            distanceFactor={2}
+            style={{
+              background: 'rgba(0, 0, 0, 0.6)',
+              padding: '1em',
+              borderRadius: '10px',
+              color: 'white',
+              fontSize: '3em',
+              maxWidth: '700px',
+              lineHeight: '1.4',
+              transition: 'opacity 0.4s ease',
+            }}>
+            {index === 0 && (
+              <p>
+                <p>me & wife created arts for:</p>
+                <ul className="grid grid-cols-2 gap-x-4 list-none font-bold p-0 m-0">
+                  <li>
+                    <a
+                      className="text-purple-400"
+                      href="https://opensea.io/item/ethereum/0x12f32e9c86acc6a39eddfcb978013780c66ee0ad/19"
+                      target="_blank"
+                      rel="noreferrer">
+                      cryptobatz
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-green-400"
+                      href="https://pepe.wtf/artists/loground-x-vorksee"
+                      target="_blank"
+                      rel="noreferrer">
+                      pepe
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[#fbef08]"
+                      href="https://junglebayisland.com/homeartists"
+                      target="_blank"
+                      rel="noreferrer">
+                      junglebay
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[#0c85ff]"
+                      href=" https://zora.co/collect/base:0x338da94719499060d4fe18121114fd24e8668220/1?referrer=0x2de78f2db332726bf6e45722a20e96118d3d2462"
+                      target="_blank"
+                      rel="noreferrer">
+                      farcaster
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[#bb5b08]"
+                      href="  https://opensea.io/collection/bojungless?traits=[{%22traitType%22:%22Artist%22,%22values%22:[%22loground+Dankest+Memes?+(@nickvrnn)%22]}]"
+                      target="_blank"
+                      rel="noreferrer">
+                      bobo
+                    </a>
+                  </li>
+                </ul>
+                and many
+                <a
+                  className="font-bold text-orange-300"
+                  href="https://www.vorkseeground.art"
+                  target="_blank"
+                  rel="noreferrer">
+                  &nbsp; others
+                </a>{' '}
+              </p>
+            )}
+            {index === 1 && (
+              <p>
+                <strong>Skills:</strong> communication, marketing analysis, strategy, managing
+                socials/websites, brainstorming.
+              </p>
+            )}
+            {index === 2 && (
+              <p>
+                <strong>Frontend:</strong> React, tailwind, next/vite, lately big fan of of Three.js
+                (r3f), react-spring/framer-motion. Getting into glsl.
+              </p>
+            )}
+          </Html>
+        </a.group>
+      )}
+      {isSelected && (
+        <a.group position={[5, 2, -2]} rotation={[0, 0, 0]}>
+          <Html
+            transform
+            distanceFactor={2}
+            style={{
+              background: 'rgba(0, 0, 0, 0.6)',
+              padding: '1em',
+              borderRadius: '10px',
+              color: 'white',
+              fontSize: '3em',
+              maxWidth: '700px',
+              lineHeight: '1.4',
+              transition: 'opacity 0.4s ease',
+            }}>
+            {index === 0 && (
+              <p>
+                <p>also cooked websites:</p>
+                <ul className="grid grid-cols-2 gap-x-4 list-none font-bold p-0 m-0">
+                  <li>
+                    <a
+                      className="text-purple-300"
+                      href="https://www.bigbrain.wtf"
+                      target="_blank"
+                      rel="noreferrer">
+                      big brain
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-white"
+                      href="https://www.souljak.fun"
+                      target="_blank"
+                      rel="noreferrer">
+                      souljak
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[#fbef08]"
+                      href="https://junglebayisland.com"
+                      target="_blank"
+                      rel="noreferrer">
+                      junglebay
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="text-[#0c85ff]"
+                      href=" www.rizzcoded.xyz"
+                      target="_blank"
+                      rel="noreferrer">
+                      rizz
+                    </a>
+                  </li>
+                </ul>
+                <a
+                  className="font-bold text-orange-300"
+                  href="https://aixbtpepe.vercel.app"
+                  target="_blank"
+                  rel="noreferrer">
+                  etc
+                </a>{' '}
+              </p>
+            )}
+            {index === 1 && (
+              <p>From marketing major to small agency founder, into Web3, grants, and nft sales.</p>
+            )}
+            {index === 2 && (
+              <p>
+                Latest project:{' '}
+                <a
+                  className="text-green-300"
+                  href="https://fastlads.vercel.app"
+                  target="_blank"
+                  rel="noreferrer">
+                  Fastlads
+                </a>
+              </p>
+            )}
+          </Html>
+        </a.group>
+      )}
+
       <a.group
         position={animatedPosition}
         rotation={animatedRotation}
