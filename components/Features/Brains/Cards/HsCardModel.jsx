@@ -106,7 +106,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
       {isSelected && (
-        <a.group position={isMobile ? [0, -5, -1] : [-4, -2.5, -1]} rotation={[0, 0, 0.05]}>
+        <a.group position={isMobile ? [0, -5, -1] : [-4, -2.5, -1]} rotation={[-0.4, 0, 0.05]}>
           <Html
             transform
             distanceFactor={2}
