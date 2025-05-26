@@ -1,9 +1,7 @@
 'use client';
 import React from 'react';
 import Hero from '@/components/Features/MainPage/Hero';
-import TrippyScroll from '@/components/Widgets/MainPage/TrippyScroll';
 import PasswordInput from '@/components/Widgets/MainPage/PasswordInput';
-import Socials from '@/components/Widgets/Socials';
 import dynamic from 'next/dynamic';
 import Navbar from '@/components/Widgets/Navbar';
 import Head from 'next/head';

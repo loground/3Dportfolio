@@ -10,17 +10,17 @@ import { CoolPlayingTable } from '../Cards/SceneFixed';
 const cards = [
   {
     textureUrl: '/brains/web3.png',
-    position: [-3.2, -2, -0.5],
+    position: [-3.2, -1.6, -0.5],
     rotation: [0, Math.PI, -0.2],
   },
   {
     textureUrl: '/brains/marketing.png',
-    position: [3.2, -2, -0.7],
+    position: [3.2, -1.6, -0.7],
     rotation: [0, Math.PI, 0.2],
   },
   {
     textureUrl: '/brains/coding.png',
-    position: [0, -1.6, -0.3],
+    position: [0, -1.4, -0.3],
     rotation: [0, Math.PI, 0.01],
   },
 ];

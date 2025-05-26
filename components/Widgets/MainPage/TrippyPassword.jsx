@@ -81,7 +81,7 @@ const LetterGlitch = () => {
   return (
     <div className="relative w-[100%] h-[80vh] bg-black overflow-hidden">
       {/* Ghosted Text Behind */}
-      <h1 className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-40 text-[10vw] font-bold pointer-events-none select-none">
+      <h1 className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-40 text-[14vw] lg:text-[7vw] font-bold pointer-events-none select-none">
         paymewell
       </h1>
 

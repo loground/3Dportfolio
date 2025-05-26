@@ -122,7 +122,7 @@ const SkyBehind = () => {
       }
 
       void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-        vec2 p = (fragCoord - iResolution.xy) / iResolution.y * 5.0;
+        vec2 p = (fragCoord - iResolution.xy ) / iResolution.y * 1.0;
 
         vec3 ro = vec3(0.0, 0.0, 0.0);
         vec3 ta = vec3(0.0, 0.0, 1000.0);
@@ -189,7 +189,7 @@ const SkyBehind = () => {
     <mesh
       ref={meshRef}
       scale={1}
-      position={[-30, 10, -20]}
+      position={[-30, 0, -20]}
       rotation={[0, 2.3, 0]}
       material={shaderMaterial}>
       <boxGeometry args={[10, 100, 100]} />

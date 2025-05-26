@@ -88,7 +88,7 @@ const SurfTrip = () => {
           style={isMobile ? { height: '60vh', width: '100%' } : { height: '80vh', width: '100%' }}
           camera={{
             position: cameraPosition,
-            fov: isMobile ? 55 : 50,
+            fov: isMobile ? 55 : 55,
             near: 0.1,
             far: 1000,
           }}>

@@ -36,7 +36,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
   const { selectedCard, setSelectedCard } = useBrainScene();
   const isSelected = selectedCard === index;
 
-  const SELECTED_POSITION = isMobile ? [-4, 1, -3] : [-6, 1, -3];
+  const SELECTED_POSITION = isMobile ? [-4, 1, -3] : [-5, 1, -3];
   const UNSELECTED_POSITION = [0, -10, 3];
   const SELECTED_ROTATION = [rotation[0] - 0.3, rotation[1], rotation[2] - 0.1];
 
@@ -46,7 +46,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
     animatedPosition:
       selectedCard === null
         ? hovered
-          ? [position[0], position[1] + 1.5, position[2] + 1]
+          ? [position[0], position[1] + 1.5, position[2]]
           : position
         : isSelected
           ? SELECTED_POSITION
@@ -106,7 +106,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
   return (
     <Float speed={0.3} rotationIntensity={0.5} floatIntensity={3}>
       {isSelected && (
-        <a.group position={isMobile ? [0, -5, -1] : [-4, -2.5, -1]} rotation={[-0.4, 0, 0.05]}>
+        <a.group position={isMobile ? [0, -5, -1] : [-3, -2.5, -1]} rotation={[-0.4, 0, 0.05]}>
           <Html
             transform
             distanceFactor={2}
@@ -197,7 +197,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
         </a.group>
       )}
       {isSelected && (
-        <a.group position={isMobile ? [0, 9, -8] : [5, 2, -2]} rotation={[0, 0, 0]}>
+        <a.group position={isMobile ? [0, 9, -8] : [4, 2, -2]} rotation={[0, 0, 0]}>
           <Html
             transform
             distanceFactor={2}
@@ -207,7 +207,7 @@ export function HScard({ textureUrl, position, rotation, index }) {
               borderRadius: '10px',
               color: 'white',
               fontSize: isMobile ? '4em' : '3em',
-              minWidth: isMobile ? ' 880px' : '640px',
+              minWidth: isMobile ? ' 880px' : '580px',
               maxWidth: '700px',
               lineHeight: '1.8',
               transition: 'opacity 0.4s ease',
