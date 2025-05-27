@@ -20,12 +20,12 @@ const Brainjobs = () => {
 
   return (
     <>
-      <CustomLoader />
       <div className="max-w-4xl mx-auto h-[100svh]">
         <Head>
           <title>Brainsground</title>
           <meta name="Brainjobs" content="BrainsPage" />
         </Head>
+        <CustomLoader />
         <div className="flex flex-row text-white text-lg gap-5 md:gap-10 md:pt-4 align-items-center pt-4 z-20 justify-center">
           <button className="hover:text-xl" onClick={backToMainPage}>
             back
@@ -35,7 +35,9 @@ const Brainjobs = () => {
           </button>
         </div>
         <div className="mt-8">
-          <CanvasBrains />
+          <Suspense fallback={null}>
+            <CanvasBrains />
+          </Suspense>
         </div>
         <div className="hidden lg:block">
           <Navbar />
