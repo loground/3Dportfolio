@@ -400,7 +400,7 @@ class Canvas {
   onTouchMove(e) {
     if (!this.isDown) return;
     const y = e.touches ? e.touches[0].clientY : e.clientY;
-    const distance = (this.start - y) * 0.5;
+    const distance = (this.start - y) * 0.05;
     this.scroll.target = this.scroll.position + distance;
   }
 
@@ -458,9 +458,9 @@ export default function TestPosters({
   items = [],
   planeWidth = 280,
   planeHeight = 400,
-  distortion = 1.1,
-  scrollEase = 0.3,
-  cameraFov = 45,
+  distortion = 1.4,
+  scrollEase = 0.4,
+  cameraFov = 40,
   cameraZ = 40,
   className,
   ...props
