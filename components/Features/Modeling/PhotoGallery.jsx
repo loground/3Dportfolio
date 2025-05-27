@@ -410,7 +410,7 @@ class Canvas {
 
   onWheel(e) {
     const isMobile = window.innerWidth <= 768;
-    const speed = isMobile ? 0.00005 : 0.005;
+    const speed = 0.005;
     this.scroll.target += e.deltaY * speed;
   }
 
