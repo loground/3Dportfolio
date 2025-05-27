@@ -566,20 +566,22 @@ export default function TestPosters({
 
       <div
         className={`absolute left-4 lg:left-40 top-1/2 -translate-y-1/2 text-white text-4xl transition-opacity duration-300 ${
-          scrollDir === 'up' ? 'opacity-80' : 'opacity-20'
+          scrollDir === 'up' ? 'opacity-80' : 'opacity-0'
         }`}>
         ↑
       </div>
       <p
-        className={`hidden lg:block absolute lg:left-80 top-1/2 -translate-y-1/2 text-white text-xl transition-opacity duration-300 
+        className={`hidden lg:block absolute lg:left-60 top-1/2 -translate-y-1/2 text-white text-xl transition-opacity duration-300 
           `}>
         {' '}
-        {scrollDir === 'up' ? ' pay me well' : 'and maybe I will smile on the pictures'}
+        {scrollDir === 'up'
+          ? 'Worked with: Vision, S7, Magamaev, Joe Garage, Creepy, Pretty Poison, Merry Co, VDR, Sandpiper'
+          : 'Open to work'}
       </p>
 
       <div
         className={`absolute right-4 lg:right-40 top-1/2 -translate-y-1/2 text-white text-4xl transition-opacity duration-300 ${
-          scrollDir === 'down' ? 'opacity-80' : 'opacity-20'
+          scrollDir === 'down' ? 'opacity-80' : 'opacity-0'
         }`}>
         ↓
       </div>
