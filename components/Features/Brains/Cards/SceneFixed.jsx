@@ -11,7 +11,7 @@ export function CoolPlayingTable(props) {
 
   const { rotation, scale } = useSpring({
     rotation: selectedCard !== null ? [1, 0, 0] : [0.7, -0.3, 0.3],
-    scale: selectedCard !== null ? 40 : 18,
+    scale: selectedCard !== null ? 36.5 : 18,
     config: { mass: 0.1, tension: 10, friction: 14 },
   });
 
