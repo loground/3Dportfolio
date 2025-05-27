@@ -2,6 +2,7 @@ import Navbar from '@/components/Widgets/Navbar';
 import React from 'react';
 import Head from 'next/head';
 import TestPosters from '@/components/Features/Modeling/PhotoGallery';
+import { CustomLoader } from '@/components/Important/Loader';
 
 const items = [
   '/modeling/1.jpg',
@@ -26,6 +27,7 @@ const items = [
 const Facejob = () => {
   return (
     <div className="max-w-4xl mx-auto">
+      <CustomLoader />
       <Head>
         <title>Modelinground</title>
         <meta name="Modeling" content="modeling" />
