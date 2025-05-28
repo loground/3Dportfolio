@@ -15,7 +15,7 @@ const Brainjobs = () => {
   };
 
   const moveToNextPage = () => {
-    router.push('/Facejobs');
+    router.push('/faceworks');
   };
 
   return (

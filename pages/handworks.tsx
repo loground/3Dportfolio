@@ -14,7 +14,7 @@ const Handjobs = () => {
   };
 
   const moveToNextPage = () => {
-    router.push('/Footjobs');
+    router.push('/footworks');
   };
 
   return (

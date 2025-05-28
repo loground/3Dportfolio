@@ -15,19 +15,19 @@ const Skills = () => {
 
   const router = useRouter();
   const handleHandClick = () => {
-    router.push('/Handjobs');
+    router.push('/handworks');
   };
 
   const handleFootClick = () => {
-    router.push('/Footjobs');
+    router.push('/footworks');
   };
 
   const handleBrainClick = () => {
-    router.push('/Brainjobs');
+    router.push('/brainworks');
   };
 
   const handleFaceClick = () => {
-    router.push('/Facejobs');
+    router.push('/faceworks');
   };
 
   return (

@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 import { BrainSceneProvider } from '../Context';
 import { CoolPlayingTable } from '../Cards/SceneFixed';
-import { CustomLoader } from '@/components/Important/Loader';
+
 
 const cards = [
   {
@@ -56,7 +56,7 @@ const CanvasBrains = () => {
   }, []);
   return (
     <BrainSceneProvider>
-      <CustomLoader />
+     
       <div className="relative h-screen items-center">
         <Canvas className="" style={{ height: '85svh', width: '100%', background: 'white' }}>
           <directionalLight position={[0, 0, 2]} intensity={1.5} />

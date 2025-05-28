@@ -26,11 +26,11 @@ const Footjobs = () => {
   };
 
   const backToHandjob = () => {
-    router.push('/Handjobs');
+    router.push('/handworks');
   };
 
   const moveToNextPage = () => {
-    router.push('/Brainjobs');
+    router.push('/brainworks');
   };
 
   return (

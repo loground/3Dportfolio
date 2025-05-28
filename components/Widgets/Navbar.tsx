@@ -17,12 +17,10 @@ const NUM_LINES = 30;
 
 const navItems = [
   { position: 2, title: 'Home', path: '/' },
-  { position: 7, title: 'Surf/Skate', path: '/Footjobs' },
-  { position: 11, title: 'Building', path: '/Handjobs' },
-  { position: 15, title: 'Web.3.0', path: '/Brainjobs/Web3' },
-  { position: 19, title: 'Marketing', path: '/Brainjobs/Experience' },
-  { position: 23, title: 'Coding', path: '/Brainjobs/Programming' },
-  { position: 27, title: 'Modeling', path: '/Facejobs' },
+  { position: 9, title: 'Surf/Skate', path: '/footworks' },
+  { position: 15, title: 'Building', path: '/handworks' },
+  { position: 20, title: 'Web.3.0', path: '/brainworks' },
+  { position: 25, title: 'Modeling', path: '/faceworks' },
 ];
 
 const SideStaggerNavigation = () => {
