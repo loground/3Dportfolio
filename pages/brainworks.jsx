@@ -35,7 +35,7 @@ const Brainjobs = () => {
           </button>
         </div>
         <div className="mt-8">
-          <Suspense fallback={null}>
+          <Suspense fallback={<p>Scene is being loaded</p>}>
             <CanvasBrains />
           </Suspense>
         </div>
