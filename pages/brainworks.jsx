@@ -35,7 +35,19 @@ const Brainjobs = () => {
           </button>
         </div>
         <div className="mt-8">
-          <Suspense fallback={<p>Scene is being loaded</p>}>
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  position: 'fixed',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  textAlign: 'center',
+                }}>
+                <p>Scene is being loaded</p>
+              </div>
+            }>
             <CanvasBrains />
           </Suspense>
         </div>
